@@ -9,4 +9,4 @@ def parse(self):
     client = Wit(access_token)
     resp = client.message('Who is Waseem')
     print(resp)
-    return HttpResponse(str(resp))
+    return HttpResponse(str('Hey Thanks for Contacting Sargodha Computers.'))
