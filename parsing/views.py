@@ -46,10 +46,7 @@ def post_facebook_message(fbid, recevied_message):
 # Create your views here.
 class parse(generic.View):
     def get(self, request, *args, **kwargs):
-        if self.request.GET['hub.verify_token'] == VERIFY_TOKEN:
-            return HttpResponse(self.request.GET['hub.challenge'], status=200)
-        else:
-            return HttpResponse('Error, invalid token', status=405)
+        return HttpResponse('Hello World')
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
