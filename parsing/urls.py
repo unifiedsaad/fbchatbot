@@ -3,5 +3,5 @@ from django.urls import path
 from .views import parse
 
 urlpatterns = [
-   path('', parse, name="parsetext")
+   path('', parse.as_view(), name="parsetext")
 ]
