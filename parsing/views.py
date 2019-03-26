@@ -32,10 +32,8 @@ def post_facebook_message(fbid, recevied_message):
     if not joke_text:
         joke_text = "I didn't understand! Send 'stupid', 'fat', 'dumb' for a Yo Mama joke!"
 
-    user_details_url = "https://graph.facebook.com/v3.2/%s" % fbid
-    user_details_params = {'fields': 'first_name,last_name,profile_pic', 'access_token': PAGE_ACCESS_TOKEN}
-    user_details = requests.get(user_details_url, user_details_params).json()
-    joke_text = 'Yo ' + user_details['first_name'] + '..! ' + joke_text
+    
+    joke_text = 'Yo  Saad..! ' + joke_text
 
     post_message_url = 'https://graph.facebook.com/v3.2/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
     response_msg = json.dumps({"recipient": {"id": fbid}, "message": {"text": joke_text}})
