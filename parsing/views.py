@@ -11,13 +11,13 @@ from django.utils.decorators import method_decorator
 PAGE_ACCESS_TOKEN ="EAACURkd8Ul0BAINJIQkYiGhRy9yQyn6yWOyzsGioC4XIxbgA168ZB76kztvPAWFVssC2AfvixRuU6F7UVG8UKLGRsVAF75xGH9utEz9aZAtbEapgoe3ZBqz7wWTEy12KFsRzBwGiE7ZCpp3FkH6IyagYvAJtduCc3R68rUwJjGEgQZBWhpwV9"
 VERIFY_TOKEN = "1234567890"
 
-jokes = {'stupid': ["""Yo' Mama is so stupid, she needs a recipe to make ice cubes.""",
-                    """Yo' Mama is so stupid, she thinks DNA is the National Dyslexics Association."""],
-         'fat': ["""Yo' Mama is so fat, when she goes to a restaurant, instead of a menu, she gets an estimate.""",
-                 """ Yo' Mama is so fat, when the cops see her on a street corner, they yell, "Hey you guys, break it up!" """],
+jokes = {'stupid': ["""Yo' Brother is so stupid, she needs a recipe to make ice cubes.""",
+                    """Yo' Brother is so stupid, she thinks DNA is the National Dyslexics Association."""],
+         'fat': ["""Yo' Brother is so fat, when she goes to a restaurant, instead of a menu, she gets an estimate.""",
+                 """ Yo' Brother is so fat, when the cops see her on a street corner, they yell, "Hey you guys, break it up!" """],
          'dumb': [
-             """Yo' Mama is so dumb, when God was giving out brains, she thought they were milkshakes and asked for extra thick.""",
-             """Yo' Mama is so dumb, she locked her keys inside her motorcycle."""]}
+             """Yo' Brother is so dumb, when God was giving out brains, she thought they were milkshakes and asked for extra thick.""",
+             """Yo' Brother is so dumb, she locked her keys inside her motorcycle."""]}
 
 
 # Helper function
@@ -30,9 +30,9 @@ def post_facebook_message(fbid, recevied_message):
             joke_text = random.choice(jokes[token])
             break
     if not joke_text:
-        joke_text = "I didn't understand! Send 'stupid', 'fat', 'dumb' for a Yo Mama joke!"
+        joke_text = "I didn't understand! Send 'stupid', 'fat', 'dumb' for a Yo Brother joke!"
 
-    
+
     joke_text = 'Yo  Saad..! ' + joke_text
 
     post_message_url = 'https://graph.facebook.com/v3.2/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
@@ -42,7 +42,7 @@ def post_facebook_message(fbid, recevied_message):
 
 
 # Create your views here.
-class YoMamaBotView(generic.View):
+class JokesBotView(generic.View):
     def get(self, request, *args, **kwargs):
         if self.request.GET['hub.verify_token'] == VERIFY_TOKEN:
             return HttpResponse(self.request.GET['hub.challenge'])
