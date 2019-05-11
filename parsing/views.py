@@ -31,13 +31,16 @@ def post_facebook_message(fbid, recevied_message):
     joke_text = ''
 
     resp = client.message(tokens)
+
     entities = resp['entities']
+    print(entities)
     greetings = first_entity_value(entities, 'greetings')
     developer = first_entity_value(entities, 'developer')
     chatbot = first_entity_value(entities, 'chatbot')
     department = first_entity_value(entities, 'department_info')
     if not department:
         department = first_entity_value(entities, 'department')
+
     hod = first_entity_value(entities, 'head_info')
     bye = first_entity_value(entities, 'farewell')
 
