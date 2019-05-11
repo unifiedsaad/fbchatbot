@@ -28,8 +28,7 @@ def post_facebook_message(fbid, recevied_message):
     # Remove all punctuations, lower case the text and split it based on space
     tokens = re.sub(r"[^a-zA-Z0-9\s]", ' ', recevied_message).lower().split()
     joke_text = ''
-    resp = client.message('hi how are you')
-    print(resp)
+
     for token in tokens:
         if token in jokes:
             joke_text = random.choice(jokes[token])
@@ -64,14 +63,15 @@ class JokesBotView(generic.View):
         incoming_message = json.loads(self.request.body.decode('utf-8'))
         # Facebook recommends going through every entry since they might send
         # multiple messages in a single call during high load
-        print(incoming_message)
+
         for entry in incoming_message['entry']:
             for message in entry['messaging']:
                 # Check to make sure the received call is a message call
                 # This might be delivery, optin, postback for other events
                 if 'message' in message:
                     # Print the message to the terminal
-                    pprint(message)
+                    resp = client.message('hi how are you')
+                    print(resp)
                     # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
                     # are sent as attachments and must be handled accordingly.
                     post_facebook_message(message['sender']['id'], message['message']['text'])
