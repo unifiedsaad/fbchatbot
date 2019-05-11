@@ -14,13 +14,6 @@ VERIFY_TOKEN = "1234567890"
 
 client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
 
-jokes = {'stupid': ["""Yo' Brother is so stupid, she needs a recipe to make ice cubes.""",
-                    """Yo' Brother is so stupid, she thinks DNA is the National Dyslexics Association."""],
-         'fat': ["""Yo' Brother is so fat, when she goes to a restaurant, instead of a menu, she gets an estimate.""",
-                 """ Yo' Brother is so fat, when the cops see her on a street corner, they yell, "Hey you guys, break it up!" """],
-         'dumb': [
-             """Yo' Brother is so dumb, when God was giving out brains, she thought they were milkshakes and asked for extra thick.""",
-             """Yo' Brother is so dumb, she locked her keys inside her motorcycle."""]}
 
 
 # Helper function
@@ -30,9 +23,9 @@ def post_facebook_message(fbid, recevied_message):
     joke_text = ''
 
     resp = client.message(tokens)
-    print(resp)
-    print(resp['entities'])
-    if (resp['entities'] == "greetings"):
+
+    print(resp['entities']['intent'])
+    if (resp['entities'] == "greetings" ):
         joke_text = "Hey , how you doing man"
     else:
         joke_text = "try again"
@@ -40,7 +33,7 @@ def post_facebook_message(fbid, recevied_message):
     post_message_url = 'https://graph.facebook.com/v3.2/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
     response_msg = json.dumps({"recipient": {"id": fbid}, "message": {"text": joke_text}})
     status = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=response_msg)
-    pprint(status.json())
+
 
 
 # Create your views here.
