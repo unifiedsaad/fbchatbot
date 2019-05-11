@@ -35,7 +35,7 @@ def post_facebook_message(fbid, recevied_message):
     greetings = first_entity_value(entities, 'greetings')
     developer = first_entity_value(entities, 'developer')
     chatbot = first_entity_value(entities, 'chatbot')
-    bye = first_entity_value(entities, 'bye')
+    bye = first_entity_value(entities, 'farewell')
 
     if greetings:
         joke_text = "hey, how you doing"
