@@ -1,0 +1,5 @@
+CONFIG = {
+    'FACEBOOK_TOKEN': 'EAACURkd8Ul0BAINJIQkYiGhRy9yQyn6yWOyzsGioC4XIxbgA168ZB76kztvPAWFVssC2AfvixRuU6F7UVG8UKLGRsVAF75xGH9utEz9aZAtbEapgoe3ZBqz7wWTEy12KFsRzBwGiE7ZCpp3FkH6IyagYvAJtduCc3R68rUwJjGEgQZBWhpwV9',
+    'VERIFY_TOKEN': '1234567890',
+    'SERVER_URL': 'https://fbchatbotuni.herokuapp.com/'
+}

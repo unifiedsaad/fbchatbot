@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'nltk',
     'parsing',
+    'fbmq',
 ]
 
 MIDDLEWARE = [

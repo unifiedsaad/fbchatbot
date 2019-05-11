@@ -1,14 +1,4 @@
-import json, requests, random, re
-from pprint import pprint
-from wit import Wit
-
-from django.views import generic
-from django.http.response import HttpResponse
-
-
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
-
+# coding: utf-8
 import os
 parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.sys.path.insert(0,parentdir)
@@ -18,97 +8,114 @@ from config import CONFIG
 from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
-#  ------------------------ Fill this with your page access token! -------------------------------
-PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAINJIQkYiGhRy9yQyn6yWOyzsGioC4XIxbgA168ZB76kztvPAWFVssC2AfvixRuU6F7UVG8UKLGRsVAF75xGH9utEz9aZAtbEapgoe3ZBqz7wWTEy12KFsRzBwGiE7ZCpp3FkH6IyagYvAJtduCc3R68rUwJjGEgQZBWhpwV9"
-VERIFY_TOKEN = "1234567890"
-
-client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
+USER_SEQ = {}
 
 
-def first_entity_value(entities, entity):
-    if entity not in entities:
+@page.handle_optin
+def received_authentication(event):
+    sender_id = event.sender_id
+    recipient_id = event.recipient_id
+    time_of_auth = event.timestamp
+
+    pass_through_param = event.optin.get("ref")
+
+    print("Received authentication for user %s and page %s with pass "
+          "through param '%s' at %s" % (sender_id, recipient_id, pass_through_param, time_of_auth))
+
+    page.send(sender_id, "Authentication successful")
+
+
+@page.handle_echo
+def received_echo(event):
+    message = event.message
+    message_id = message.get("mid")
+    app_id = message.get("app_id")
+    metadata = message.get("metadata")
+    print("page id : %s , %s" % (page.page_id, page.page_name))
+    print("Received echo for message %s and app %s with metadata %s" % (message_id, app_id, metadata))
+
+
+@page.handle_message
+def received_message(event):
+    sender_id = event.sender_id
+    recipient_id = event.recipient_id
+    time_of_message = event.timestamp
+    message = event.message
+    print("Received message for user %s and page %s at %s with message:"
+          % (sender_id, recipient_id, time_of_message))
+    print(message)
+
+    seq = message.get("seq", 0)
+    message_id = message.get("mid")
+    app_id = message.get("app_id")
+    metadata = message.get("metadata")
+
+    message_text = message.get("text")
+    message_attachments = message.get("attachments")
+    quick_reply = message.get("quick_reply")
+
+    seq_id = sender_id + ':' + recipient_id
+    if USER_SEQ.get(seq_id, -1) >= seq:
+        print("Ignore duplicated request")
         return None
-    val = entities[entity][0]['value']
-    if not val:
-        return None
-    return val
-
-
-# Helper function
-def post_facebook_message(fbid, recevied_message):
-    # Remove all punctuations, lower case the text and split it based on space
-    tokens = re.sub(r"[^a-zA-Z0-9\s]", ' ', recevied_message).lower().split()
-    joke_text = ''
-
-    resp = client.message(tokens)
-
-    entities = resp['entities']
-    print(entities)
-    greetings = first_entity_value(entities, 'greetings')
-    developer = first_entity_value(entities, 'developer')
-    chatbot = first_entity_value(entities, 'chatbot')
-    department = first_entity_value(entities, 'department_info')
-    if not department:
-        department = first_entity_value(entities, 'department')
-
-    hod = first_entity_value(entities, 'head_info')
-    bye = first_entity_value(entities, 'farewell')
-
-
-    if greetings:
-        joke_text = "hey, how you doing"
-    elif developer:
-        joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
-    elif chatbot:
-        joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
-    elif department:
-        joke_text = "Here Department Goes"
-    elif hod:
-        joke_text = " here is the hod info goes "
-    elif bye:
-        joke_text = "Nice Talking to you, Bye"
     else:
-        joke_text = "try again"
+        USER_SEQ[seq_id] = seq
 
-    send_message(fbid, joke_text)
-    post_message_url = 'https://graph.facebook.com/v3.2/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
-    response_msg = json.dumps({"recipient": {"id": fbid}, "message": {"text": joke_text}})
-    status = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=response_msg)
+    if quick_reply:
+        quick_reply_payload = quick_reply.get('payload')
+        print("quick reply for message %s with payload %s" % (message_id, quick_reply_payload))
 
+        page.send(sender_id, "Quick reply tapped")
 
-
-# Create your views here.
-class JokesBotView(generic.View):
-    def get(self, request, *args, **kwargs):
-        if self.request.GET['hub.verify_token'] == VERIFY_TOKEN:
-            return HttpResponse(self.request.GET['hub.challenge'])
-        else:
-            return HttpResponse('Error, invalid token')
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return generic.View.dispatch(self, request, *args, **kwargs)
-
-    # Post function to handle Facebook messages
-    def post(self, request, *args, **kwargs):
-        # Converts the text payload into a python dictionary
-        incoming_message = json.loads(self.request.body.decode('utf-8'))
-        # Facebook recommends going through every entry since they might send
-        # multiple messages in a single call during high load
-
-        for entry in incoming_message['entry']:
-            for message in entry['messaging']:
-                # Check to make sure the received call is a message call
-                # This might be delivery, optin, postback for other events
-                if 'message' in message:
-                    # Print the message to the terminal
-
-                    # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
-                    # are sent as attachments and must be handled accordingly.
-                    post_facebook_message(message['sender']['id'], message['message']['text'])
-        return HttpResponse()
+    if message_text:
+        send_message(sender_id, message_text)
+    elif message_attachments:
+        page.send(sender_id, "Message with attachment received")
 
 
+@page.handle_delivery
+def received_delivery_confirmation(event):
+    delivery = event.delivery
+    message_ids = delivery.get("mids")
+    watermark = delivery.get("watermark")
+
+    if message_ids:
+        for message_id in message_ids:
+            print("Received delivery confirmation for message ID: %s" % message_id)
+
+    print("All message before %s were delivered." % watermark)
+
+
+@page.handle_postback
+def received_postback(event):
+    sender_id = event.sender_id
+    recipient_id = event.recipient_id
+    time_of_postback = event.timestamp
+
+    payload = event.postback_payload
+
+    print("Received postback for user %s and page %s with payload '%s' at %s"
+          % (sender_id, recipient_id, payload, time_of_postback))
+
+    page.send(sender_id, "Postback called")
+
+
+@page.handle_read
+def received_message_read(event):
+    watermark = event.read.get("watermark")
+    seq = event.read.get("seq")
+
+    print("Received message read event for watermark %s and sequence number %s" % (watermark, seq))
+
+
+@page.handle_account_linking
+def received_account_link(event):
+    sender_id = event.sender_id
+    status = event.account_linking.get("status")
+    auth_code = event.account_linking.get("authorization_code")
+
+    print("Received account link event with for user %s with status %s and auth code %s "
+          % (sender_id, status, auth_code))
 
 
 def send_message(recipient_id, text):
