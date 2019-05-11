@@ -5,21 +5,11 @@ from wit import Wit
 from django.views import generic
 from django.http.response import HttpResponse
 
-
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
-import os
-parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.sys.path.insert(0,parentdir)
-
-import json
-from config import CONFIG
-from fbmq import Attachment, Template, QuickReply, NotificationType
-from fbpage import page
-
 #  ------------------------ Fill this with your page access token! -------------------------------
-PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAAUzb2SVz3s6YBZAdTSurSup9ZCpJjdZB7WZBvf5bGutblN3qrDxl1KJUXQTlccALVPOyRkQYoJ6JuFGCJriXZCZBsZCwy2XEdvUZCH8ZCz54jgNKZAYHmHajIkGear9a5cioJ71xhxvryZCkNENLDquZBsRBAfJZAbWtfPq9WWPKYw2u"
+PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAAzqbri5fbAVvgNZAp0BAWfLfobPC6tAq2BvZCPAZAXZBIn7M01DPJ4ekTl8Mo3MQtpuJ98mdepaWUGhvi3zNAwQvVAFUS4X8UspsDjUJZAe1xDZAcJkna7fRXdFnrWUw72qRzIrQqtuEpr9ZA9YMHFAyufoCsQtoRHgMQ3Mq51"
 VERIFY_TOKEN = "1234567890"
 
 client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
@@ -70,7 +60,6 @@ def post_facebook_message(fbid, recevied_message):
     else:
         joke_text = "try again"
 
-     #send_message(fbid, joke_text)
     post_message_url = 'https://graph.facebook.com/v3.2/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
     response_msg = json.dumps({"recipient": {"id": fbid}, "message": {"text": joke_text}})
     status = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=response_msg)
@@ -107,177 +96,3 @@ class JokesBotView(generic.View):
                     # are sent as attachments and must be handled accordingly.
                     post_facebook_message(message['sender']['id'], message['message']['text'])
         return HttpResponse()
-
-
-
-
-def send_message(recipient_id, text):
-    # If we receive a text message, check to see if it matches any special
-    # keywords and send back the corresponding example. Otherwise, just echo
-    # the text we received.
-    special_keywords = {
-        "image": send_image,
-        "gif": send_gif,
-        "audio": send_audio,
-        "video": send_video,
-        "file": send_file,
-        "button": send_button,
-        "generic": send_generic,
-        "receipt": send_receipt,
-        "quick reply": send_quick_reply,
-        "read receipt": send_read_receipt,
-        "typing on": send_typing_on,
-        "typing off": send_typing_off,
-        "account linking": send_account_linking
-    }
-
-    if text in special_keywords:
-        special_keywords[text](recipient_id)
-    else:
-        page.send(recipient_id, text, callback=send_text_callback, notification_type=NotificationType.REGULAR)
-
-
-def send_text_callback(payload, response):
-    print("SEND CALLBACK")
-
-
-def send_image(recipient):
-    page.send(recipient, Attachment.Image(CONFIG['SERVER_URL'] + "/assets/rift.png"))
-
-
-def send_gif(recipient):
-    page.send(recipient, Attachment.Image(CONFIG['SERVER_URL'] + "/assets/instagram_logo.gif"))
-
-
-def send_audio(recipient):
-    page.send(recipient, Attachment.Audio(CONFIG['SERVER_URL'] + "/assets/sample.mp3"))
-
-
-def send_video(recipient):
-    page.send(recipient, Attachment.Video(CONFIG['SERVER_URL'] + "/assets/allofus480.mov"))
-
-
-def send_file(recipient):
-    page.send(recipient, Attachment.File(CONFIG['SERVER_URL'] + "/assets/test.txt"))
-
-
-def send_button(recipient):
-    """
-    Shortcuts are supported
-    page.send(recipient, Template.Buttons("hello", [
-        {'type': 'web_url', 'title': 'Open Web URL', 'value': 'https://www.oculus.com/en-us/rift/'},
-        {'type': 'postback', 'title': 'tigger Postback', 'value': 'DEVELOPED_DEFINED_PAYLOAD'},
-        {'type': 'phone_number', 'title': 'Call Phone Number', 'value': '+16505551234'},
-    ]))
-    """
-    page.send(recipient, Template.Buttons("hello", [
-        Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
-        Template.ButtonPostBack("trigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
-        Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
-    ]))
-
-
-@page.callback(['DEVELOPED_DEFINED_PAYLOAD'])
-def callback_clicked_button(payload, event):
-    print(payload, event)
-
-
-def send_generic(recipient):
-    page.send(recipient, Template.Generic([
-        Template.GenericElement("rift",
-                                subtitle="Next-generation virtual reality",
-                                item_url="https://www.oculus.com/en-us/rift/",
-                                image_url=CONFIG['SERVER_URL'] + "/assets/rift.png",
-                                buttons=[
-                                    Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
-                                    Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
-                                    Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
-                                ]),
-        Template.GenericElement("touch",
-                                subtitle="Your Hands, Now in VR",
-                                item_url="https://www.oculus.com/en-us/touch/",
-                                image_url=CONFIG['SERVER_URL'] + "/assets/touch.png",
-                                buttons=[
-                                    {'type': 'web_url', 'title': 'Open Web URL',
-                                     'value': 'https://www.oculus.com/en-us/rift/'},
-                                    {'type': 'postback', 'title': 'tigger Postback',
-                                     'value': 'DEVELOPED_DEFINED_PAYLOAD'},
-                                    {'type': 'phone_number', 'title': 'Call Phone Number', 'value': '+16505551234'},
-                                ])
-    ]))
-
-
-def send_receipt(recipient):
-    receipt_id = "order1357"
-    element = Template.ReceiptElement(title="Oculus Rift",
-                                      subtitle="Includes: headset, sensor, remote",
-                                      quantity=1,
-                                      price=599.00,
-                                      currency="USD",
-                                      image_url=CONFIG['SERVER_URL'] + "/assets/riftsq.png"
-                                      )
-
-    address = Template.ReceiptAddress(street_1="1 Hacker Way",
-                                      street_2="",
-                                      city="Menlo Park",
-                                      postal_code="94025",
-                                      state="CA",
-                                      country="US")
-
-    summary = Template.ReceiptSummary(subtotal=698.99,
-                                      shipping_cost=20.00,
-                                      total_tax=57.67,
-                                      total_cost=626.66)
-
-    adjustment = Template.ReceiptAdjustment(name="New Customer Discount", amount=-50)
-
-    page.send(recipient, Template.Receipt(recipient_name='Peter Chang',
-                                          order_number=receipt_id,
-                                          currency='USD',
-                                          payment_method='Visa 1234',
-                                          timestamp="1428444852",
-                                          elements=[element],
-                                          address=address,
-                                          summary=summary,
-                                          adjustments=[adjustment]))
-
-
-def send_quick_reply(recipient):
-    """
-    shortcuts are supported
-    page.send(recipient, "What's your favorite movie genre?",
-                quick_replies=[{'title': 'Action', 'payload': 'PICK_ACTION'},
-                               {'title': 'Comedy', 'payload': 'PICK_COMEDY'}, ],
-                metadata="DEVELOPER_DEFINED_METADATA")
-    """
-    page.send(recipient, "What's your favorite movie genre?",
-              quick_replies=[QuickReply(title="Action", payload="PICK_ACTION"),
-                             QuickReply(title="Comedy", payload="PICK_COMEDY")],
-              metadata="DEVELOPER_DEFINED_METADATA")
-
-
-@page.callback(['PICK_ACTION'])
-def callback_picked_genre(payload, event):
-    print(payload, event)
-
-
-def send_read_receipt(recipient):
-    page.mark_seen(recipient)
-
-
-def send_typing_on(recipient):
-    page.typing_on(recipient)
-
-
-def send_typing_off(recipient):
-    page.typing_off(recipient)
-
-
-def send_account_linking(recipient):
-    page.send(recipient, Template.AccountLink(text="Welcome. Link your account.",
-                                              account_link_url=CONFIG['SERVER_URL'] + "/authorize",
-                                              account_unlink_button=True))
-
-
-def send_text_message(recipient, text):
-    page.send(recipient, text, metadata="DEVELOPER_DEFINED_METADATA")
