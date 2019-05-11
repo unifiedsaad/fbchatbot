@@ -1,5 +1,6 @@
 import json, requests, random, re
 from pprint import pprint
+from wit import Wit
 
 from django.views import generic
 from django.http.response import HttpResponse
@@ -10,6 +11,8 @@ from django.utils.decorators import method_decorator
 #  ------------------------ Fill this with your page access token! -------------------------------
 PAGE_ACCESS_TOKEN ="EAACURkd8Ul0BAINJIQkYiGhRy9yQyn6yWOyzsGioC4XIxbgA168ZB76kztvPAWFVssC2AfvixRuU6F7UVG8UKLGRsVAF75xGH9utEz9aZAtbEapgoe3ZBqz7wWTEy12KFsRzBwGiE7ZCpp3FkH6IyagYvAJtduCc3R68rUwJjGEgQZBWhpwV9"
 VERIFY_TOKEN = "1234567890"
+
+client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
 
 jokes = {'stupid': ["""Yo' Brother is so stupid, she needs a recipe to make ice cubes.""",
                     """Yo' Brother is so stupid, she thinks DNA is the National Dyslexics Association."""],
@@ -25,6 +28,8 @@ def post_facebook_message(fbid, recevied_message):
     # Remove all punctuations, lower case the text and split it based on space
     tokens = re.sub(r"[^a-zA-Z0-9\s]", ' ', recevied_message).lower().split()
     joke_text = ''
+    resp = client.message('hi how are you')
+    print(resp)
     for token in tokens:
         if token in jokes:
             joke_text = random.choice(jokes[token])
