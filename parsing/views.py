@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
 #  ------------------------ Fill this with your page access token! -------------------------------
-PAGE_ACCESS_TOKEN ="EAACURkd8Ul0BAINJIQkYiGhRy9yQyn6yWOyzsGioC4XIxbgA168ZB76kztvPAWFVssC2AfvixRuU6F7UVG8UKLGRsVAF75xGH9utEz9aZAtbEapgoe3ZBqz7wWTEy12KFsRzBwGiE7ZCpp3FkH6IyagYvAJtduCc3R68rUwJjGEgQZBWhpwV9"
+PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAINJIQkYiGhRy9yQyn6yWOyzsGioC4XIxbgA168ZB76kztvPAWFVssC2AfvixRuU6F7UVG8UKLGRsVAF75xGH9utEz9aZAtbEapgoe3ZBqz7wWTEy12KFsRzBwGiE7ZCpp3FkH6IyagYvAJtduCc3R68rUwJjGEgQZBWhpwV9"
 VERIFY_TOKEN = "1234567890"
 
 client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
@@ -29,15 +29,11 @@ def post_facebook_message(fbid, recevied_message):
     tokens = re.sub(r"[^a-zA-Z0-9\s]", ' ', recevied_message).lower().split()
     joke_text = ''
 
-    for token in tokens:
-        if token in jokes:
-            joke_text = random.choice(jokes[token])
-            break
-    if not joke_text:
-        joke_text = "I didn't understand! Send 'stupid', 'fat', 'dumb' for a Yo Brother joke!"
-
-
-    joke_text = 'Yo  Saad..! ' + joke_text
+    resp = client.message(tokens)
+    if (resp.entities == "greetings"):
+        joke_text = "Hey , how you doing man"
+    else:
+        joke_text = "try again"
 
     post_message_url = 'https://graph.facebook.com/v3.2/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
     response_msg = json.dumps({"recipient": {"id": fbid}, "message": {"text": joke_text}})
@@ -70,8 +66,7 @@ class JokesBotView(generic.View):
                 # This might be delivery, optin, postback for other events
                 if 'message' in message:
                     # Print the message to the terminal
-                    resp = client.message('hi how are you')
-                    print(resp)
+
                     # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
                     # are sent as attachments and must be handled accordingly.
                     post_facebook_message(message['sender']['id'], message['message']['text'])
