@@ -15,6 +15,14 @@ VERIFY_TOKEN = "1234567890"
 client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
 
 
+def first_entity_value(entities, entity):
+    if entity not in entities:
+        return None
+    val = entities[entity][0]['value']
+    if not val:
+        return None
+    return val
+
 
 # Helper function
 def post_facebook_message(fbid, recevied_message):
@@ -24,14 +32,9 @@ def post_facebook_message(fbid, recevied_message):
 
     resp = client.message(tokens)
     entities = resp['entities']
-    if(entities.intent['value']):
-        print(entities.intent['value'])
-    else:
-        print(entities)
-        print("it's the second one ")
+    greetings = first_entity_value(entities, 'greetings')
 
-
-    if (resp['entities'] == "greetings" ):
+    if greetings:
         joke_text = "Hey , how you doing man"
     else:
         joke_text = "try again"
