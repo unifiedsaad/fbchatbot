@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34ecef1b-96d1-4409-8d79-c3be91fd75a0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatbot/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parsing/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+            <state relative-caret-position="437">
+              <caret line="74" column="22" lean-forward="true" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -232,12 +230,12 @@
       <workItem from="1553149565921" duration="4938000" />
       <workItem from="1553240466898" duration="4057000" />
       <workItem from="1553582937608" duration="8770000" />
-      <workItem from="1557467328336" duration="5989000" />
+      <workItem from="1557467328336" duration="6268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23754000" />
+    <option name="totallyTimeSpent" value="24033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="795" extended-state="0" />
@@ -361,8 +359,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parsing/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="437">
+          <caret line="74" column="22" lean-forward="true" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>

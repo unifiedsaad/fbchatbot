@@ -71,9 +71,11 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "try again"
 
     send_message(fbid, joke_text)
-    post_message_url = 'https://graph.facebook.com/v3.2/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
-    response_msg = json.dumps({"recipient": {"id": fbid}, "message": {"text": joke_text}})
-    status = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=response_msg)
+    send_button(fbid)
+    send_generic(fbid)
+    send_receipt(fbid)
+    send_typing_off(fbid)
+
 
 
 
@@ -102,7 +104,7 @@ class JokesBotView(generic.View):
                 # This might be delivery, optin, postback for other events
                 if 'message' in message:
                     # Print the message to the terminal
-
+                    send_typing_on(message['sender']['id'])
                     # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
                     # are sent as attachments and must be handled accordingly.
                     post_facebook_message(message['sender']['id'], message['message']['text'])
