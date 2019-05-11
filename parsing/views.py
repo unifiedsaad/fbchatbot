@@ -91,8 +91,8 @@ class JokesBotView(generic.View):
                 # This might be delivery, optin, postback for other events
                 if 'message' in message:
                     # Print the message to the terminal
-
+                    print(message)
                     # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
                     # are sent as attachments and must be handled accordingly.
-                    post_facebook_message(message['sender']['id'], message['message']['text'])
+                    post_facebook_message(message['sender']['id'], 'hi how are you')
         return HttpResponse()
