@@ -33,7 +33,7 @@ def post_facebook_message(fbid, recevied_message):
     resp = client.message(tokens)
 
     entities = resp['entities']
- 
+    print(entities)
     greetings = first_entity_value(entities, 'greetings')
     developer = first_entity_value(entities, 'developer')
     chatbot = first_entity_value(entities, 'chatbot')
@@ -91,8 +91,8 @@ class JokesBotView(generic.View):
                 # This might be delivery, optin, postback for other events
                 if 'message' in message:
                     # Print the message to the terminal
-                    print(message['message'])
+
                     # Assuming the sender only sends text. Non-text messassges like stickers, audio, pictures
                     # are sent as attachments and must be handled accordingly.
-                    post_facebook_message(message['sender']['id'], 'hi')
+                    post_facebook_message(message['sender']['id'], message['message']['text'])
         return HttpResponse()
