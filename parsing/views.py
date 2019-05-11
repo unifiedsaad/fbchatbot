@@ -19,7 +19,7 @@ from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
 #  ------------------------ Fill this with your page access token! -------------------------------
-PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAINJIQkYiGhRy9yQyn6yWOyzsGioC4XIxbgA168ZB76kztvPAWFVssC2AfvixRuU6F7UVG8UKLGRsVAF75xGH9utEz9aZAtbEapgoe3ZBqz7wWTEy12KFsRzBwGiE7ZCpp3FkH6IyagYvAJtduCc3R68rUwJjGEgQZBWhpwV9"
+PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BANqVyCZCdxLrjPXo4bIqisdZBImCP4nfYsAqbZAKeT7O2MJpvksp6sURuxbaCFd82DXNTAQ1Ad1G76HnhjUmzb2Sz9qCozexn9e7diqLZBcCAWZAsRsATUib3ImBoyiGLVCARvH3L7TVGaTd7ur7OAJSebupBmqAlmYoxvLZAT"
 VERIFY_TOKEN = "1234567890"
 
 client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
@@ -71,7 +71,7 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "try again"
 
     send_message(fbid, joke_text)
-   
+
     send_quick_reply(fbid)
     send_typing_off(fbid)
 
