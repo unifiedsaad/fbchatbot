@@ -71,7 +71,7 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "try again"
 
     send_message(fbid, joke_text)
-    send_quick_reply(fbid)
+   
     send_typing_off(fbid)
 
 
