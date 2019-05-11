@@ -33,9 +33,18 @@ def post_facebook_message(fbid, recevied_message):
     resp = client.message(tokens)
     entities = resp['entities']
     greetings = first_entity_value(entities, 'greetings')
+    developer = first_entity_value(entities, 'developer')
+    chatbot = first_entity_value(entities, 'chatbot')
+    bye = first_entity_value(entities, 'bye')
 
     if greetings:
-        joke_text = "Hey , how you doing man"
+        joke_text = "hey, how you doing"
+    elif developer:
+        joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
+    elif chatbot:
+        joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
+    elif bye:
+        joke_text = "Nice Talking to you, Bye"
     else:
         joke_text = "try again"
 
