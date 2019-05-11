@@ -24,7 +24,7 @@ def post_facebook_message(fbid, recevied_message):
 
     resp = client.message(tokens)
 
-    print(resp['entities'].intent['value'])
+    print(resp['entities']['intent'])
     if (resp['entities'] == "greetings" ):
         joke_text = "Hey , how you doing man"
     else:
