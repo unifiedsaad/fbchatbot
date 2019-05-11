@@ -30,7 +30,7 @@ def post_facebook_message(fbid, recevied_message):
     joke_text = ''
 
     resp = client.message(tokens)
-    if (resp.entities == "greetings"):
+    if (resp['entities'] == "greetings"):
         joke_text = "Hey , how you doing man"
     else:
         joke_text = "try again"
