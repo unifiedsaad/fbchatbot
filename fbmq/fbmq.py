@@ -9,7 +9,7 @@ from .events import *
 
 # See https://developers.facebook.com/docs/graph-api/changelog
 SUPPORTED_API_VERS=[
-    "v2.11",
+    "v3.2",
     "v2.10",
     "v2.9",
     "v2.8",
@@ -203,7 +203,7 @@ class Page(object):
     def __init__(self, page_access_token, **options):
         self.page_access_token = page_access_token
         self._after_send = options.pop('after_send', None)
-        self._api_ver = options.pop('api_ver', 'v2.6')
+        self._api_ver = options.pop('api_ver', 'v3.2')
         if self._api_ver not in SUPPORTED_API_VERS:
             raise ValueError('Unsupported API Version : ' + self._api_ver)
         self._page_id = None
