@@ -20,7 +20,7 @@ from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
 #  ------------------------ Fill this with your page access token! -------------------------------
-PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAJLiZBi5evLzkIYLnTgyNZC29UBv8B4saqLWDeGlZC4rTic0MYCHjjICBRTZCWOCXVEke6JDqxxAWckrHonnNV8YKNSiA0FCgoFtVqQxl5gm4ZB3fvuuSL281jee7upALO4E5DI0yg8VdvW6lhJZC0GarbWeNvUispx1iMuNBZA"
+PAGE_ACCESS_TOKEN = "EAAL1hTYXttYBAPNUUiZCLm7ZBRPZBAZBZCDRhc9Lx6YgZBPqppWZAqQQ0ipQMQ2ZBKzoj9yL0NJCaODZBZCbPtQCP9fr18xgaWa3qOn96BCXF888ZAw3M7SXCT8uz3QF7YlCXRbW6KRlSVQ50zoOyhcd9OkkZCQprreI4PdKJPUxP2P2LNqmbIHErM16"
 VERIFY_TOKEN = "1234567890"
 
 client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
@@ -288,7 +288,21 @@ def send_generic(recipient, type, data=True):
 
         ]))
     elif type == "faculty":
-        print('reached here')
+        response = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
+        result = response.json()
+
+        page.send(recipient, Template.Generic([
+            Template.GenericElement(result[0]['name'],
+                                    subtitle=result[0]['designation'],
+                                    item_url="https://uos.edu.pk/faculty/profile/"+result[0]['username'],
+                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/"+result[0]['picture'],
+                                    buttons=[
+                                        Template.ButtonWeb("Open Profile",
+                                                           "https://uos.edu.pk/faculty/profile/"+result[0]['username']),
+                                        Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                    ])
+
+        ]))
 
 
 def send_receipt(recipient):
