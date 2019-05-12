@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34ecef1b-96d1-4409-8d79-c3be91fd75a0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/fbmq/fbmq.py" beforeDir="false" afterPath="$PROJECT_DIR$/fbmq/fbmq.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fbmq/fbmq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3916">
-              <caret line="147" column="29" lean-forward="true" selection-start-line="147" selection-start-column="29" selection-end-line="147" selection-end-column="29" />
+            <state relative-caret-position="708">
+              <caret line="223" lean-forward="true" selection-start-line="223" selection-end-line="223" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parsing/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+            <state relative-caret-position="419">
+              <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -111,6 +112,7 @@
       <find>profile</find>
       <find>callback</find>
       <find>print</find>
+      <find>AFTER_SEND</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,9 +125,9 @@
         <option value="$PROJECT_DIR$/chatbot/settings.py" />
         <option value="$PROJECT_DIR$/fbpage.py" />
         <option value="$PROJECT_DIR$/messenger.py" />
-        <option value="$PROJECT_DIR$/fbmq/fbmq.py" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/parsing/urls.py" />
+        <option value="$PROJECT_DIR$/fbmq/fbmq.py" />
         <option value="$PROJECT_DIR$/parsing/views.py" />
       </list>
     </option>
@@ -226,12 +228,12 @@
       <workItem from="1553149565921" duration="4938000" />
       <workItem from="1553240466898" duration="4057000" />
       <workItem from="1553582937608" duration="8770000" />
-      <workItem from="1557467328336" duration="10654000" />
+      <workItem from="1557467328336" duration="10935000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28419000" />
+    <option name="totallyTimeSpent" value="28700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="795" extended-state="0" />
@@ -347,16 +349,6 @@
     <entry file="file://$USER_HOME$/Documents/fbmq-master/example/fbpage.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/fbmq/fbmq.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3916">
-          <caret line="147" column="29" lean-forward="true" selection-start-line="147" selection-start-column="29" selection-end-line="147" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chatbot/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -377,10 +369,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fbmq/fbmq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="223" lean-forward="true" selection-start-line="223" selection-end-line="223" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/parsing/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        <state relative-caret-position="419">
+          <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
