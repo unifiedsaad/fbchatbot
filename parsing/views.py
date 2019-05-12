@@ -86,7 +86,7 @@ class MessengerProfile(generic.View):
     def get(self, request, *args, **kwargs):
         page.show_persistent_menu([Template.ButtonWeb('University of Sargodha', 'https://uos.edu.pk/'),
                                    Template.ButtonWeb('ORIC', 'https://oric.uos.edu.pk'),
-                                   Template.ButtonPhoneNumber('Call University', '+923216051723')])
+                                   Template.ButtonWeb('File a Complaint', 'https://uos.edu.pk/complaint')])
 
         page.show_starting_button("Get Started")
         page.greeting("University Enquiring Chatbot is here to answer your queries About University")
