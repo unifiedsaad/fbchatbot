@@ -273,13 +273,12 @@ def send_receipt(recipient):
 
 
 def send_quick_reply(recipient):
-    """
-    shortcuts are supported
+
     page.send(recipient, "What's your favorite movie genre?",
                 quick_replies=[{'title': 'Action', 'payload': 'PICK_ACTION'},
                                {'title': 'Comedy', 'payload': 'PICK_COMEDY'}, ],
                 metadata="DEVELOPER_DEFINED_METADATA")
-    """
+
     page.send(recipient, "Here are some suggestion, if you wanna choose",
               quick_replies=[QuickReply(title="Computer Science Department", payload="Dep_info"),
                              QuickReply(title="CS Department HOD", payload="head_info"),

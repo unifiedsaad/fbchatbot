@@ -27,22 +27,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parsing/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="129" column="61" selection-start-line="129" selection-start-column="61" selection-end-line="129" selection-end-column="61" />
+            <state relative-caret-position="285">
+              <caret line="280" lean-forward="true" selection-start-line="280" selection-end-line="280" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chatbot/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-              <folding>
-                <element signature="e#631#663#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,8 +120,8 @@
       <find>greeting</find>
       <find>show_persistent_menu</find>
       <find>show_starting_button</find>
-      <find>started</find>
       <find>send_quick_reply</find>
+      <find>started</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -250,12 +238,12 @@
       <workItem from="1553240466898" duration="4057000" />
       <workItem from="1553582937608" duration="8770000" />
       <workItem from="1557467328336" duration="12938000" />
-      <workItem from="1557677577937" duration="3154000" />
+      <workItem from="1557677577937" duration="3366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33857000" />
+    <option name="totallyTimeSpent" value="34069000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="795" extended-state="0" />
@@ -422,10 +410,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Documents/fbmq-master/fbmq/fbmq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="145" column="19" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/parsing/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="129" column="61" selection-start-line="129" selection-start-column="61" selection-end-line="129" selection-end-column="61" />
+        <state relative-caret-position="285">
+          <caret line="280" lean-forward="true" selection-start-line="280" selection-end-line="280" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
