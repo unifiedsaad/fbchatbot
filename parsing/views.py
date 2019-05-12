@@ -254,8 +254,6 @@ def send_generic(recipient, type, data=True):
                                     buttons=[
                                         Template.ButtonWeb("Open Profile",
                                                            "https://uos.edu.pk/faculty/profile/muhammadsaadrazzaq"),
-                                        Template.ButtonWeb("Email",
-                                                           "mailto:saad.razzaq@uos.edu.pk"),
                                         Template.ButtonPhoneNumber("Contact", "+92489230879")
                                     ])
 
