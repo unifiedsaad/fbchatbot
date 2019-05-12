@@ -122,7 +122,7 @@ class JokesBotView(generic.View):
                 print(message)
                 if 'message' in message:
                     # Print the message to the terminal
-                    if message['quick_reply']['payload'] == "dep_info":
+                    if message['message']['quick_reply']['payload'] == "dep_info":
                         send_generic(message['sender']['id'])
                     else:
                         send_typing_on(message['sender']['id'])
