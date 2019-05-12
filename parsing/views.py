@@ -104,6 +104,22 @@ class MessengerProfile(generic.View):
         return HttpResponse('yaayyyyy')
 
 
+
+class Testing(generic.View):
+    def get(self, request, *args, **kwargs):
+        tokens = re.sub(r"[^a-zA-Z0-9\s]", ' ', 'tell me about Mr Qaiser Abbas').lower().split()
+        joke_text = ''
+
+        resp = client.message(tokens)
+        entities = resp['entities']
+        person = first_entity_value(entities, 'notable_person')
+        d = {
+            'entties' : entities,
+            'person' : person
+        }
+        return HttpResponse(d)
+
+
 # Create your views here.
 class JokesBotView(generic.View):
     def get(self, request, *args, **kwargs):
