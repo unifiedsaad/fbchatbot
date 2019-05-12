@@ -45,6 +45,7 @@ def post_facebook_message(fbid, recevied_message):
     entities = resp['entities']
     print(entities)
     greetings = first_entity_value(entities, 'greetings')
+    person = first_entity_value(entities, 'notable_person')
     chatbot = first_entity_value(entities, 'chatbot')
     developer = first_entity_value(entities, 'developer')
     department = first_entity_value(entities, 'department_info')
@@ -57,6 +58,10 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif bye:
         joke_text = "Nice Talking to you, Bye"
+    elif person:
+        send_message(fbid, 'faculty profile')
+        send_generic(fbid, 'faculty', person['name'])
+
     elif intent == "farewell":
         joke_text = "Nice Talking to you, Bye"
     elif greetings:
@@ -267,6 +272,8 @@ def send_generic(recipient, type, data=True):
 
         ]))
     elif type == "faculty":
+        print(data)
+        print("data above")
         result = requests.get('https://uos.edu.pk/about/bot_faculty/', data)
         print(result)
         page.send(recipient, Template.Generic([
