@@ -45,8 +45,9 @@ def post_facebook_message(fbid, recevied_message):
     entities = resp['entities']
 
     greetings = first_entity_value(entities, 'greetings')
-    developer = first_entity_value(entities, 'developer')
     chatbot = first_entity_value(entities, 'chatbot')
+    developer = first_entity_value(entities, 'developer')
+
     department = first_entity_value(entities, 'department_info')
     hod = first_entity_value(entities, 'head_info')
     bye = first_entity_value(entities, 'farewell')
@@ -54,10 +55,10 @@ def post_facebook_message(fbid, recevied_message):
 
     if greetings:
         joke_text = "hey, how you doing"
-    elif developer:
-        joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
     elif chatbot:
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
+    elif developer:
+        joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
     elif department:
         joke_text = "Here you go...."
         send_generic(fbid)
