@@ -148,7 +148,7 @@ class JokesBotView(generic.View):
                 if 'quick_reply' in message:
                     # Print the message to the terminal
                     if (message['message']['quick_reply']['payload'] == "Dep_info"):
-                        send_generic(message['sender']['id'])
+                        send_generic(message['sender']['id'], 'dep')
                     else:
                         send_button(message['sender']['id'])
 
@@ -205,7 +205,7 @@ def send_message(recipient_id, text):
     if text in special_keywords:
         special_keywords[text](recipient_id)
     else:
-        page.send(recipient_id, text, callback=send_text_callback, notification_type=NotificationType.REGULAR)
+        page.send(recipient_id, text, callback=False, notification_type=NotificationType.REGULAR)
 
 
 def send_text_callback(payload, response):

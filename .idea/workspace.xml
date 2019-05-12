@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parsing/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="61" column="16" lean-forward="true" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+            <state relative-caret-position="294">
+              <caret line="200" column="38" lean-forward="true" selection-start-line="200" selection-start-column="38" selection-end-line="200" selection-end-column="38" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -122,6 +122,7 @@
       <find>show_starting_button</find>
       <find>send_quick_reply</find>
       <find>started</find>
+      <find>send_message</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -238,12 +239,12 @@
       <workItem from="1553240466898" duration="4057000" />
       <workItem from="1553582937608" duration="8770000" />
       <workItem from="1557467328336" duration="12938000" />
-      <workItem from="1557677577937" duration="14323000" />
+      <workItem from="1557677577937" duration="14551000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45026000" />
+    <option name="totallyTimeSpent" value="45254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="795" extended-state="0" />
@@ -422,8 +423,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parsing/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="61" column="16" lean-forward="true" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+        <state relative-caret-position="294">
+          <caret line="200" column="38" lean-forward="true" selection-start-line="200" selection-start-column="38" selection-end-line="200" selection-end-column="38" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
