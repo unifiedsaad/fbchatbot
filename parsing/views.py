@@ -127,8 +127,9 @@ class JokesBotView(generic.View):
                     post_facebook_message(message['sender']['id'], message['message']['text'])
                 elif message['postback']['payload'] == "Get Started":
                     greeating = "Hey, i am University Enquiring Chatbot.... Ask me anything about University"
-                    send_message(message['sender']['id'], greeating)
                     send_quick_reply(message['sender']['id'])
+                    send_message(message['sender']['id'], greeating)
+
 
         return HttpResponse()
 
