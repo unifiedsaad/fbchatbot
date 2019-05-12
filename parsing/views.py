@@ -84,16 +84,16 @@ def post_facebook_message(fbid, recevied_message):
 
 class MessengerProfile(generic.View):
     def get(self, request, *args, **kwargs):
-        page.greeting("University Enquiring Chatbot is here to answer your queries About University")
-        page.show_starting_button("Subscribe")
         page.show_persistent_menu([Template.ButtonWeb('University of Sargodha', 'https://uos.edu.pk/'),
                                    Template.ButtonWeb('ORIC', 'https://oric.uos.edu.pk'),
-                                   Template.ButtonPostBack('Ask About Department', 'MENU_PAYLOAD/1')])
+                                   Template.ButtonPostBack('Ask About Department', 'MENU_PAYLOAD/1'),
+                                   Template.ButtonPhoneNumber('Call University', '+923216051723')])
 
-        @page.callback(['MENU_PAYLOAD/(.+)'])
-        def click_persistent_menu(payload, event):
-            click_menu = payload.split('/')[1]
-            print("you clicked %s menu" % click_menu)
+        page.show_starting_button("Get Started")
+        page.greeting("University Enquiring Chatbot is here to answer your queries About University")
+        return HttpResponse('yaayyyyy')
+
+
 
 
 # Create your views here.
@@ -163,6 +163,11 @@ def send_text_callback(payload, response):
 def send_image(recipient):
     page.send(recipient, Attachment.Image(CONFIG['SERVER_URL'] + "/assets/rift.png"))
 
+
+@page.callback(['MENU_PAYLOAD/(.+)'])
+def click_persistent_menu(payload, event):
+    page.greeting("University Enquiring Chatbot is here to answer your queries About University")
+    print('menu clicked')
 
 def send_gif(recipient):
     page.send(recipient, Attachment.Image(CONFIG['SERVER_URL'] + "/assets/instagram_logo.gif"))
