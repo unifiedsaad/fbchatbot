@@ -228,15 +228,6 @@ def send_generic(recipient):
                                     Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
                                     Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
                                     Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
-                                ]),
-        Template.GenericElement("touch",
-                                subtitle="Your Hands, Now in VR",
-                                item_url="https://www.oculus.com/en-us/touch/",
-                                image_url=CONFIG['SERVER_URL'] + "/assets/touch.png",
-                                buttons=[
-                                    Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
-                                    Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
-                                    Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
                                 ])
 
     ]))
