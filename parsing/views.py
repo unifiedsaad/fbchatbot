@@ -269,8 +269,10 @@ def send_generic(recipient, type, data=True):
 
         ]))
     elif type == "faculty":
+        result =   requests.get('https://uos.edu.pk/about/bot_faculty/', data)
+        print(result)
         page.send(recipient, Template.Generic([
-            Template.GenericElement("CS & IT",
+            Template.GenericElement(result['name'],
                                     subtitle="Department of Computer Science & Information Technology",
                                     item_url="https://uos.edu.pk/department/profile/2",
                                     image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
