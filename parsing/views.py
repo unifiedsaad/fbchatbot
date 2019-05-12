@@ -5,19 +5,18 @@ from wit import Wit
 from django.views import generic
 from django.http.response import HttpResponse
 
-
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
 import os
+
 parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.sys.path.insert(0,parentdir)
+os.sys.path.insert(0, parentdir)
 
 import json
 from config import CONFIG
 from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
-
 
 #  ------------------------ Fill this with your page access token! -------------------------------
 PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAJLiZBi5evLzkIYLnTgyNZC29UBv8B4saqLWDeGlZC4rTic0MYCHjjICBRTZCWOCXVEke6JDqxxAWckrHonnNV8YKNSiA0FCgoFtVqQxl5gm4ZB3fvuuSL281jee7upALO4E5DI0yg8VdvW6lhJZC0GarbWeNvUispx1iMuNBZA"
@@ -53,8 +52,6 @@ def post_facebook_message(fbid, recevied_message):
     bye = first_entity_value(entities, 'farewell')
     intent = first_entity_value(entities, 'intent')
 
-
-
     if greetings:
         joke_text = "hey, how you doing"
     elif developer:
@@ -62,7 +59,7 @@ def post_facebook_message(fbid, recevied_message):
 
     elif chatbot:
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
-    elif department :
+    elif department:
         joke_text = "Here department goes"
     elif hod:
         joke_text = " here is the hod info goes "
@@ -82,7 +79,6 @@ def post_facebook_message(fbid, recevied_message):
     send_typing_off(fbid)
 
 
-
 class MessengerProfile(generic.View):
     def get(self, request, *args, **kwargs):
         page.show_persistent_menu([Template.ButtonWeb('University of Sargodha', 'https://uos.edu.pk/'),
@@ -92,8 +88,6 @@ class MessengerProfile(generic.View):
         page.show_starting_button("Get Started")
         page.greeting("University Enquiring Chatbot is here to answer your queries About University")
         return HttpResponse('yaayyyyy')
-
-
 
 
 # Create your views here.
@@ -122,21 +116,18 @@ class JokesBotView(generic.View):
                 print(message)
                 if 'message' in message:
                     # Print the message to the terminal
-
+                    
                     send_typing_on(message['sender']['id'])
-                        # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
-                        # are sent as attachments and must be handled accordingly.
+                    # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
+                    # are sent as attachments and must be handled accordingly.
                     post_facebook_message(message['sender']['id'], message['message']['text'])
-                elif message['postback']['payload'] == "Get Started":
-                    greeating = "Hey, i am University Enquiring Chatbot.... Ask me anything about University"
-                    send_message(message['sender']['id'], greeating)
-                    send_quick_reply(message['sender']['id'])
-
-
+                elif 'postback' in message:
+                    if (message['postback']['payload'] == "Get Started"):
+                        greeating = "Hey, i am University Enquiring Chatbot.... Ask me anything about University"
+                        send_message(message['sender']['id'], greeating)
+                        send_quick_reply(message['sender']['id'])
 
         return HttpResponse()
-
-
 
 
 def send_message(recipient_id, text):
@@ -175,8 +166,8 @@ def send_image(recipient):
 
 @page.callback(['MENU_PAYLOAD/(.+)'])
 def click_persistent_menu(payload, event):
-
     print('menu clicked')
+
 
 def send_gif(recipient):
     page.send(recipient, Attachment.Image(CONFIG['SERVER_URL'] + "/assets/instagram_logo.gif"))
@@ -288,8 +279,6 @@ def send_quick_reply(recipient):
                              QuickReply(title="CS Faculty", payload="faculty_info"),
                              QuickReply(title="CS Programs", payload="program_info")],
               metadata="DEVELOPER_DEFINED_METADATA")
-
-
 
 
 @page.callback(['PICK_ACTION'])
