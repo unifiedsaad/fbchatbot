@@ -65,9 +65,10 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = " here is the hod info goes "
     elif intent == "department_info":
         joke_text = "Here you go....."
-        send_generic(fbid)
+        send_generic(fbid, 'dep')
     elif intent == "head_info":
-        joke_text = " he is asking about head dude"
+        joke_text = "Here you go....."
+        send_generic(fbid, 'hod')
     elif bye:
         joke_text = "Nice Talking to you, Bye"
 
@@ -130,7 +131,12 @@ class JokesBotView(generic.View):
                 elif 'message' in message:
                     messagepoint = message['message']
                     if 'quick_reply' in messagepoint:
-                        send_generic(message['sender']['id'])
+                        if(messagepoint['quick_reply']['payload'] == "Dep_info"):
+                            send_generic(message['sender']['id'], 'dep')
+                        elif messagepoint['quick_reply']['payload'] == "head_info":
+                            send_generic(message['sender']['id'], 'hod')
+                        elif messagepoint['quick_reply']['payload'] == "faculty_info":
+                            send_button(message['sender']['id'])
                     else:
                         if 'text' in messagepoint:
                             send_typing_on(message['sender']['id'])
@@ -219,20 +225,52 @@ def callback_clicked_button(payload, event):
     print(payload, event)
 
 
-def send_generic(recipient):
-    page.send(recipient, Template.Generic([
-        Template.GenericElement("CS & IT",
-                                subtitle="Department of Computer Science & Information Technology",
-                                item_url="https://uos.edu.pk/department/profile/2",
-                                image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
-                                buttons=[
-                                    Template.ButtonWeb("Academic Programs", "https://uos.edu.pk/department/academic_programs/2"),
-                                    Template.ButtonWeb("Faculty",
-                                                       "https://uos.edu.pk/department/faculty_list/2"),
-                                    Template.ButtonPhoneNumber("Contact", "+16505551234")
-                                ])
+def send_generic(recipient, type, data = True):
+    if(type == "dep"):
+        page.send(recipient, Template.Generic([
+            Template.GenericElement("CS & IT",
+                                    subtitle="Department of Computer Science & Information Technology",
+                                    item_url="https://uos.edu.pk/department/profile/2",
+                                    image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
+                                    buttons=[
+                                        Template.ButtonWeb("Academic Programs", "https://uos.edu.pk/department/academic_programs/2"),
+                                        Template.ButtonWeb("Faculty",
+                                                           "https://uos.edu.pk/department/faculty_list/2"),
+                                        Template.ButtonPhoneNumber("Contact", "+16505551234")
+                                    ])
 
-    ]))
+        ]))
+    elif type == "hod":
+        page.send(recipient, Template.Generic([
+            Template.GenericElement("Mr. Saad Razzaq",
+                                    subtitle="Assistant Professor / Incharge",
+                                    item_url="https://uos.edu.pk/faculty/profile/muhammadsaadrazzaq",
+                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/Saad_Razzaq.JPG",
+                                    buttons=[
+                                        Template.ButtonWeb("Open Profile",
+                                                           "https://uos.edu.pk/faculty/profile/muhammadsaadrazzaq"),
+                                        Template.ButtonWeb("Email",
+                                                           "mailto:saad.razzaq@uos.edu.pk"),
+                                        Template.ButtonPhoneNumber("Contact", "+92489230879")
+                                    ])
+
+        ]))
+    elif type == "faculty":
+        page.send(recipient, Template.Generic([
+            Template.GenericElement("CS & IT",
+                                    subtitle="Department of Computer Science & Information Technology",
+                                    item_url="https://uos.edu.pk/department/profile/2",
+                                    image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
+                                    buttons=[
+                                        Template.ButtonWeb("Academic Programs",
+                                                           "https://uos.edu.pk/department/academic_programs/2"),
+                                        Template.ButtonWeb("Faculty",
+                                                           "https://uos.edu.pk/department/faculty_list/2"),
+                                        Template.ButtonPhoneNumber("Contact", "+16505551234")
+                                    ])
+
+        ]))
+
 
 
 def send_receipt(recipient):
