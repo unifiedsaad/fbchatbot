@@ -59,14 +59,26 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif bye:
         joke_text = "Nice Talking to you, Bye"
-
+    elif person:
+        send_generic(fbid, 'faculty', person['name'])
     elif intent == "farewell":
         joke_text = "Nice Talking to you, Bye"
     elif greetings:
         joke_text = "hey, how you doing"
     elif developer:
         joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
-
+    elif intent == "department_info":
+        joke_text = "Here you go....."
+        send_generic(fbid, 'dep')
+    elif intent == "head_info":
+        joke_text = "Here you go....."
+        send_generic(fbid, 'hod')
+    elif intent == "faculty":
+        send_generic(fbid, 'faculty', faculty['value'])
+        joke_text = "asking about faculty profile"
+    elif department:
+        joke_text = "Here you go...."
+        send_generic(fbid, 'dep')
     elif hod:
         joke_text = " here is the hod info goes "
     elif faculty:
@@ -136,7 +148,7 @@ class JokesBotView(generic.View):
                 if 'quick_reply' in message:
                     # Print the message to the terminal
                     if (message['message']['quick_reply']['payload'] == "Dep_info"):
-                      
+                        send_generic(message['sender']['id'], 'dep')
                     else:
                         send_button(message['sender']['id'])
 
@@ -149,7 +161,12 @@ class JokesBotView(generic.View):
                     messagepoint = message['message']
                     if 'quick_reply' in messagepoint:
 
-
+                        if (messagepoint['quick_reply']['payload'] == "Dep_info"):
+                            send_generic(message['sender']['id'], 'dep')
+                        elif messagepoint['quick_reply']['payload'] == "head_info":
+                            send_generic(message['sender']['id'], 'hod')
+                        elif messagepoint['quick_reply']['payload'] == "faculty_info":
+                            send_button(message['sender']['id'])
                     else:
                         if 'text' in messagepoint:
                             if (message['message']['text'] == "restart"):
@@ -242,50 +259,7 @@ def callback_clicked_button(payload, event):
 
 
 def send_generic(recipient, type, data=True):
-    if (type == "dep"):
-        page.send(recipient, Template.Generic([
-            Template.GenericElement("CS & IT",
-                                    subtitle="Department of Computer Science & Information Technology",
-                                    item_url="https://uos.edu.pk/department/profile/2",
-                                    image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
-                                    buttons=[
-                                        Template.ButtonWeb("Academic Programs",
-                                                           "https://uos.edu.pk/department/academic_programs/2"),
-                                        Template.ButtonWeb("Faculty",
-                                                           "https://uos.edu.pk/department/faculty_list/2"),
-                                        Template.ButtonPhoneNumber("Contact", "+16505551234")
-                                    ])
-
-        ]))
-    elif type == "hod":
-        page.send(recipient, Template.Generic([
-            Template.GenericElement("Mr. Saad Razzaq",
-                                    subtitle="Assistant Professor / Incharge",
-                                    item_url="https://uos.edu.pk/faculty/profile/muhammadsaadrazzaq",
-                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/Saad_Razzaq.JPG",
-                                    buttons=[
-                                        Template.ButtonWeb("Open Profile",
-                                                           "https://uos.edu.pk/faculty/profile/muhammadsaadrazzaq"),
-                                        Template.ButtonPhoneNumber("Contact", "+92489230879")
-                                    ])
-
-        ]))
-    elif type == "faculty":
-        response = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
-        result = response.json()
-
-        page.send(recipient, Template.Generic([
-            Template.GenericElement(result[0]['name'],
-                                    subtitle=result[0]['designation'],
-                                    item_url="https://uos.edu.pk/faculty/profile/"+result[0]['username'],
-                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/"+result[0]['picture'],
-                                    buttons=[
-                                        Template.ButtonWeb("Open Profile",
-                                                           "https://uos.edu.pk/faculty/profile/"+result[0]['username']),
-                                        Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
-                                    ])
-
-        ]))
+    print("yes")
 
 
 def send_receipt(recipient):
