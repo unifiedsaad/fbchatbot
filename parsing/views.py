@@ -59,9 +59,10 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif bye:
         joke_text = "Nice Talking to you, Bye"
+
     elif person:
-        send_message(fbid, 'faculty profile')
-        send_generic(fbid, 'faculty', person['notable_person']['value']['name'])
+        
+
     elif intent == "farewell":
         joke_text = "Nice Talking to you, Bye"
     elif greetings:
@@ -88,7 +89,6 @@ def post_facebook_message(fbid, recevied_message):
     else:
         joke_text = "try again"
 
-
     send_message(fbid, joke_text)
 
     send_typing_off(fbid)
@@ -105,7 +105,6 @@ class MessengerProfile(generic.View):
         return HttpResponse('yaayyyyy')
 
 
-
 class Testing(generic.View):
     def get(self, request, *args, **kwargs):
         tokens = re.sub(r"[^a-zA-Z0-9\s]", ' ', 'tell me about Mr Qaiser Abbas').lower().split()
@@ -115,11 +114,11 @@ class Testing(generic.View):
         entities = resp['entities']
         person = first_entity_value(entities, 'notable_person')
         result = requests.get('https://uos.edu.pk/about/bot_faculty/' + 'abbas')
-
+        print(result)
         d = {
-            'entties' : entities,
-            'person' : person,
-            'result' : result
+            'entties': entities,
+            'person': person,
+
         }
         return JsonResponse(d)
 
@@ -293,7 +292,7 @@ def send_generic(recipient, type, data=True):
     elif type == "faculty":
         print(data)
         print("data above")
-        result = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
+        result = requests.get('https://uos.edu.pk/about/bot_faculty/' + data)
         print(result)
         page.send(recipient, Template.Generic([
             Template.GenericElement(result['name'],
