@@ -114,23 +114,24 @@ class JokesBotView(generic.View):
                 # Check to make sure the received call is a message call
                 # This might be delivery, optin, postback for other events
                 print(message)
-                if 'message' in message:
+                if 'quick_reply' in message:
                     # Print the message to the terminal
-                    if 'quick_reply' in message:
-                        if (message['message']['quick_reply']['payload'] == "Dep_info"):
-                            send_generic(message['sender']['id'])
-                        else:
-                            send_button(message['sender']['id'])
+                    if (message['message']['quick_reply']['payload'] == "Dep_info"):
+                        send_generic(message['sender']['id'])
                     else:
-                        send_typing_on(message['sender']['id'])
-                        # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
-                        # are sent as attachments and must be handled accordingly.
-                        post_facebook_message(message['sender']['id'], message['message']['text'])
+                        send_button(message['sender']['id'])
+
                 elif 'postback' in message:
                     if (message['postback']['payload'] == "Get Started"):
                         greeating = "Hey, i am University Enquiring Chatbot.... Ask me anything about University"
                         send_message(message['sender']['id'], greeating)
                         send_quick_reply(message['sender']['id'])
+                elif 'message' in message:
+                    print(message['quick_reply'])
+                    send_typing_on(message['sender']['id'])
+                    # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
+                    # are sent as attachments and must be handled0p'{{ accordingly.
+                    post_facebook_message(message['sender']['id'], message['message']['text'])
 
         return HttpResponse()
 
