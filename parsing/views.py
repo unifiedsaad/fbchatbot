@@ -113,7 +113,7 @@ class Testing(generic.View):
         resp = client.message(tokens)
         entities = resp['entities']
         person = first_entity_value(entities, 'notable_person')
-        result = requests.get('https://uos.edu.pk/about/bot_faculty/' + person['notable_person']['value']['name'])
+        result = requests.get('https://uos.edu.pk/about/bot_faculty/' + 'abbas')
 
         d = {
             'entties' : entities,
