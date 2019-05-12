@@ -116,11 +116,15 @@ class JokesBotView(generic.View):
                 print(message)
                 if 'message' in message:
                     # Print the message to the terminal
-                    
-                    send_typing_on(message['sender']['id'])
-                    # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
-                    # are sent as attachments and must be handled accordingly.
-                    post_facebook_message(message['sender']['id'], message['message']['text'])
+                    if 'quick_reply' in message:
+                        if (message['quick_reply']['payload'] == "Dep_info"):
+
+                            send_generic(message['sender']['id'])
+                    else:
+                        send_typing_on(message['sender']['id'])
+                        # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
+                        # are sent as attachments and must be handled accordingly.
+                        post_facebook_message(message['sender']['id'], message['message']['text'])
                 elif 'postback' in message:
                     if (message['postback']['payload'] == "Get Started"):
                         greeating = "Hey, i am University Enquiring Chatbot.... Ask me anything about University"
