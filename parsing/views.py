@@ -113,9 +113,12 @@ class Testing(generic.View):
         resp = client.message(tokens)
         entities = resp['entities']
         person = first_entity_value(entities, 'notable_person')
+        result = requests.get('https://uos.edu.pk/about/bot_faculty/' + person['notable_person']['value']['name'])
+
         d = {
             'entties' : entities,
-            'person' : person
+            'person' : person,
+            'result' : result
         }
         return HttpResponse(d)
 
@@ -289,7 +292,7 @@ def send_generic(recipient, type, data=True):
     elif type == "faculty":
         print(data)
         print("data above")
-        result = requests.get('https://uos.edu.pk/about/bot_faculty/', data)
+        result = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
         print(result)
         page.send(recipient, Template.Generic([
             Template.GenericElement(result['name'],
