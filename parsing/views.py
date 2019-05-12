@@ -60,10 +60,14 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "hey, how you doing"
     elif developer:
         joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
+
     elif chatbot:
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
-    elif department:
-        joke_text = "Here Department Goes"
+    elif department :
+        joke_text = "Here department goes"
+    elif department and hod:
+        joke_text = "Here hod Goes"
+
     elif hod:
         joke_text = " here is the hod info goes "
     elif bye:
