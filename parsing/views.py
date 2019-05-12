@@ -259,7 +259,50 @@ def callback_clicked_button(payload, event):
 
 
 def send_generic(recipient, type, data=True):
-    print("yes")
+    if (type == "dep"):
+        page.send(recipient, Template.Generic([
+            Template.GenericElement("CS & IT",
+                                    subtitle="Department of Computer Science & Information Technology",
+                                    item_url="https://uos.edu.pk/department/profile/2",
+                                    image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
+                                    buttons=[
+                                        Template.ButtonWeb("Academic Programs",
+                                                           "https://uos.edu.pk/department/academic_programs/2"),
+                                        Template.ButtonWeb("Faculty",
+                                                           "https://uos.edu.pk/department/faculty_list/2"),
+                                        Template.ButtonPhoneNumber("Contact", "+16505551234")
+                                    ])
+
+        ]))
+    elif type == "hod":
+        page.send(recipient, Template.Generic([
+            Template.GenericElement("Mr. Saad Razzaq",
+                                    subtitle="Assistant Professor / Incharge",
+                                    item_url="https://uos.edu.pk/faculty/profile/muhammadsaadrazzaq",
+                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/Saad_Razzaq.JPG",
+                                    buttons=[
+                                        Template.ButtonWeb("Open Profile",
+                                                           "https://uos.edu.pk/faculty/profile/muhammadsaadrazzaq"),
+                                        Template.ButtonPhoneNumber("Contact", "+92489230879")
+                                    ])
+
+        ]))
+    elif type == "faculty":
+        response = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
+        result = response.json()
+
+        page.send(recipient, Template.Generic([
+            Template.GenericElement(result[0]['name'],
+                                    subtitle=result[0]['designation'],
+                                    item_url="https://uos.edu.pk/faculty/profile/"+result[0]['username'],
+                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/"+result[0]['picture'],
+                                    buttons=[
+                                        Template.ButtonWeb("Open Profile",
+                                                           "https://uos.edu.pk/faculty/profile/"+result[0]['username']),
+                                        Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                    ])
+
+        ]))
 
 
 def send_receipt(recipient):
