@@ -52,7 +52,7 @@ def post_facebook_message(fbid, recevied_message):
     hod = first_entity_value(entities, 'head_info')
     bye = first_entity_value(entities, 'farewell')
     intent = first_entity_value(entities, 'intent')
-    print(intent)
+  
 
 
     if greetings:
@@ -118,6 +118,7 @@ class JokesBotView(generic.View):
             for message in entry['messaging']:
                 # Check to make sure the received call is a message call
                 # This might be delivery, optin, postback for other events
+                print(message)
                 if 'message' in message:
                     # Print the message to the terminal
                     send_typing_on(message['sender']['id'])
