@@ -228,7 +228,7 @@ def send_generic(recipient):
                                     Template.ButtonWeb("Faculty",
                                                        "https://uos.edu.pk/department/faculty_list/2"),
                                     Template.ButtonPhoneNumber("Contact", "+16505551234")
-                                ]),
+                                ])
 
     ]))
 
