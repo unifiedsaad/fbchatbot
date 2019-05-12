@@ -59,12 +59,13 @@ def post_facebook_message(fbid, recevied_message):
     elif chatbot:
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif department:
-        joke_text = "Department Detail Here"
+        joke_text = "Here you go...."
         send_generic(fbid)
     elif hod:
         joke_text = " here is the hod info goes "
     elif intent == "department_info":
-        joke_text = " here department info from intent"
+        joke_text = "Here you go....."
+        send_generic(fbid)
     elif intent == "head_info":
         joke_text = " he is asking about head dude"
     elif bye:
