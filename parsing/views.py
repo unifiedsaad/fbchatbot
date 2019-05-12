@@ -225,7 +225,6 @@ def send_generic(recipient):
                                 item_url="https://uos.edu.pk/department/profile/2",
                                 image_url=CONFIG['SERVER_URL'] + "/assets/rift.png",
                                 buttons=[
-                                    Template.ButtonWeb("Department Detail", "https://uos.edu.pk/department/profile/2"),
                                     Template.ButtonWeb("Academic Programs", "https://uos.edu.pk/department/academic_programs/2"),
                                     Template.ButtonWeb("Faculty",
                                                        "https://uos.edu.pk/department/faculty_list/2"),
