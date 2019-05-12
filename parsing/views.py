@@ -1,5 +1,6 @@
 import json, requests, random, re
 from pprint import pprint
+from django.http import JsonResponse
 from wit import Wit
 
 from django.views import generic
@@ -120,7 +121,7 @@ class Testing(generic.View):
             'person' : person,
             'result' : result
         }
-        return HttpResponse(d)
+        return JsonResponse(d)
 
 
 # Create your views here.
