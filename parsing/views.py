@@ -84,14 +84,16 @@ def post_facebook_message(fbid, recevied_message):
 
 class MessengerProfile(generic.View):
     def get(self, request, *args, **kwargs):
-        page.show_persistent_menu([Template.ButtonPostBack('MENU1', 'MENU_PAYLOAD/1'),
-                                   Template.ButtonPostBack('MENU2', 'MENU_PAYLOAD/2')])
+        page.greeting("University Enquiring Chatbot is here to answer your queries About University")
+        page.show_starting_button("Subscribe")
+        page.show_persistent_menu([Template.ButtonWeb('University of Sargodha', 'https://uos.edu.pk/'),
+                                   Template.ButtonWeb('ORIC', 'https://oric.uos.edu.pk'),
+                                   Template.ButtonPostBack('Ask About Department', 'MENU_PAYLOAD/1')])
 
         @page.callback(['MENU_PAYLOAD/(.+)'])
         def click_persistent_menu(payload, event):
             click_menu = payload.split('/')[1]
             print("you clicked %s menu" % click_menu)
-
 
 
 # Create your views here.
@@ -156,8 +158,6 @@ def send_message(recipient_id, text):
 
 def send_text_callback(payload, response):
     print("SEND CALLBACK")
-
-
 
 
 def send_image(recipient):
