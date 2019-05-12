@@ -54,7 +54,7 @@ def post_facebook_message(fbid, recevied_message):
     intent = first_entity_value(entities, 'intent')
 
 
-    if greetings:
+    if greetings and not bye:
         joke_text = "hey, how you doing"
     elif chatbot:
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
