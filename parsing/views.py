@@ -52,7 +52,7 @@ def post_facebook_message(fbid, recevied_message):
     hod = first_entity_value(entities, 'head_info')
     bye = first_entity_value(entities, 'farewell')
     intent = first_entity_value(entities, 'intent')
-
+    print(intent)
 
 
     if greetings:
