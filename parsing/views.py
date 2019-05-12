@@ -119,7 +119,7 @@ class JokesBotView(generic.View):
             for message in entry['messaging']:
                 # Check to make sure the received call is a message call
                 # This might be delivery, optin, postback for other events
-
+                print(message)
                 if 'message' in message:
                     # Print the message to the terminal
                     send_typing_on(message['sender']['id'])
@@ -282,10 +282,10 @@ def send_quick_reply(recipient):
                 metadata="DEVELOPER_DEFINED_METADATA")
     '''
     page.send(recipient, "Here are some suggestion, if you wanna choose",
-              quick_replies=[QuickReply(title="Computer Science Department", payload="Dep_info"),
-                             QuickReply(title="CS Department HOD", payload="head_info"),
-                             QuickReply(title="CS Department Faculty", payload="faculty_info"),
-                             QuickReply(title="CS Department Programs", payload="program_info")],
+              quick_replies=[QuickReply(title="CS Department", payload="Dep_info"),
+                             QuickReply(title="CS HOD", payload="head_info"),
+                             QuickReply(title="CS Faculty", payload="faculty_info"),
+                             QuickReply(title="CS Programs", payload="program_info")],
               metadata="DEVELOPER_DEFINED_METADATA")
 
 
