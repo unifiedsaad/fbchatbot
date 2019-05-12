@@ -84,8 +84,14 @@ def post_facebook_message(fbid, recevied_message):
 
 class MessengerProfile(generic.View):
     def get(self, request, *args, **kwargs):
-        page.greeting("Click Get Started below to subscribe!!")
-        page.show_starting_button("Subscribe")
+        page.show_persistent_menu([Template.ButtonPostBack('MENU1', 'MENU_PAYLOAD/1'),
+                                   Template.ButtonPostBack('MENU2', 'MENU_PAYLOAD/2')])
+
+        @page.callback(['MENU_PAYLOAD/(.+)'])
+        def click_persistent_menu(payload, event):
+            click_menu = payload.split('/')[1]
+            print("you clicked %s menu" % click_menu)
+
 
 
 # Create your views here.
@@ -150,6 +156,8 @@ def send_message(recipient_id, text):
 
 def send_text_callback(payload, response):
     print("SEND CALLBACK")
+
+
 
 
 def send_image(recipient):

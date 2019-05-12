@@ -202,7 +202,7 @@ def event_parser(messaging=None):
 class Page(object):
     def __init__(self, page_access_token, **options):
         self.page_access_token = page_access_token
-      #  self._after_send = options.pop('after_send', None)
+        self._after_send = options.pop('after_send', None)
         self._api_ver = options.pop('api_ver', 'v3.2')
         if self._api_ver not in SUPPORTED_API_VERS:
             raise ValueError('Unsupported API Version : ' + self._api_ver)
@@ -321,7 +321,7 @@ class Page(object):
                          headers={'Content-type': 'application/json'})
 
         if r.status_code != requests.codes.ok:
-            print(r.text)
+
             return
 
         data = json.loads(r.text)
@@ -338,7 +338,7 @@ class Page(object):
                          headers={'Content-type': 'application/json'})
 
         if r.status_code != requests.codes.ok:
-            print(r.text)
+
             return
 
         return json.loads(r.text)
