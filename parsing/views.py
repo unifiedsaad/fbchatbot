@@ -135,7 +135,8 @@ class JokesBotView(generic.View):
                         send_typing_on(message['sender']['id'])
                         # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
                         # are sent as attachments and must be handled0p'{{ accordingly.
-                        post_facebook_message(message['sender']['id'], message['message']['text'])
+                        print(message)
+                        post_facebook_message(message['sender']['id'], 'hi how are you')
 
         return HttpResponse()
 
