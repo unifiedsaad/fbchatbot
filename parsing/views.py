@@ -49,8 +49,7 @@ def post_facebook_message(fbid, recevied_message):
     developer = first_entity_value(entities, 'developer')
     chatbot = first_entity_value(entities, 'chatbot')
     department = first_entity_value(entities, 'department_info')
-    if not department:
-        department = first_entity_value(entities, 'department')
+
 
     hod = first_entity_value(entities, 'head_info')
     bye = first_entity_value(entities, 'farewell')
@@ -65,9 +64,6 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif department :
         joke_text = "Here department goes"
-    elif department and hod:
-        joke_text = "Here hod Goes"
-
     elif hod:
         joke_text = " here is the hod info goes "
     elif bye:
