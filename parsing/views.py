@@ -52,7 +52,7 @@ def post_facebook_message(fbid, recevied_message):
     hod = first_entity_value(entities, 'head_info')
     bye = first_entity_value(entities, 'farewell')
     intent = first_entity_value(entities, 'intent')
-  
+
 
 
     if greetings:
@@ -125,6 +125,10 @@ class JokesBotView(generic.View):
                     # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
                     # are sent as attachments and must be handled accordingly.
                     post_facebook_message(message['sender']['id'], message['message']['text'])
+                elif message['postback']['payload'] == "Get Started":
+                    greeating = "Hey, Ask me anything About University........."
+                    send_message(message['sender']['id'], greeating)
+
         return HttpResponse()
 
 
