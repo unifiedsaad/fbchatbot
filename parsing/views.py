@@ -53,11 +53,14 @@ def post_facebook_message(fbid, recevied_message):
     faculty = first_entity_value(entities, 'faculty')
     intent = first_entity_value(entities, 'intent')
 
-
-    if greetings and 'farwell' not in entities:
-        joke_text = "hey, how you doing"
-    elif chatbot:
+    if chatbot:
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
+    elif bye:
+        joke_text = "Nice Talking to you, Bye"
+    elif intent == "farewell":
+        joke_text = "Nice Talking to you, Bye"
+    elif greetings:
+        joke_text = "hey, how you doing"
     elif developer:
         joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
     elif department:
@@ -77,10 +80,7 @@ def post_facebook_message(fbid, recevied_message):
         if faculty:
             send_generic(fbid, 'faculty', faculty['value'])
         joke_text = "asking about faculty profile"
-    elif bye:
-        joke_text = "Nice Talking to you, Bye"
-    elif intent == "farewell":
-        joke_text = "Nice Talking to you, Bye"
+
 
 
     else:
