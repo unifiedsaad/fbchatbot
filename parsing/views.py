@@ -49,10 +49,10 @@ def post_facebook_message(fbid, recevied_message):
     developer = first_entity_value(entities, 'developer')
     chatbot = first_entity_value(entities, 'chatbot')
     department = first_entity_value(entities, 'department_info')
-
-
     hod = first_entity_value(entities, 'head_info')
     bye = first_entity_value(entities, 'farewell')
+    intent = first_entity_value(entities, 'intent')
+    print(intent)
 
 
     if greetings:
@@ -68,6 +68,8 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = " here is the hod info goes "
     elif bye:
         joke_text = "Nice Talking to you, Bye"
+    elif intent :
+        joke_text = "call to action here "
     else:
         joke_text = "try again"
 
