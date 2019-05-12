@@ -59,26 +59,14 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif bye:
         joke_text = "Nice Talking to you, Bye"
-    elif person:
-        send_generic(fbid, 'faculty', person['name'])
+
     elif intent == "farewell":
         joke_text = "Nice Talking to you, Bye"
     elif greetings:
         joke_text = "hey, how you doing"
     elif developer:
         joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
-    elif intent == "department_info":
-        joke_text = "Here you go....."
-        send_generic(fbid, 'dep')
-    elif intent == "head_info":
-        joke_text = "Here you go....."
-        send_generic(fbid, 'hod')
-    elif intent == "faculty":
-        send_generic(fbid, 'faculty', faculty['value'])
-        joke_text = "asking about faculty profile"
-    elif department:
-        joke_text = "Here you go...."
-        send_generic(fbid, 'dep')
+
     elif hod:
         joke_text = " here is the hod info goes "
     elif faculty:
@@ -148,7 +136,7 @@ class JokesBotView(generic.View):
                 if 'quick_reply' in message:
                     # Print the message to the terminal
                     if (message['message']['quick_reply']['payload'] == "Dep_info"):
-                        send_generic(message['sender']['id'], 'dep')
+                      
                     else:
                         send_button(message['sender']['id'])
 
@@ -161,12 +149,7 @@ class JokesBotView(generic.View):
                     messagepoint = message['message']
                     if 'quick_reply' in messagepoint:
 
-                        if (messagepoint['quick_reply']['payload'] == "Dep_info"):
-                            send_generic(message['sender']['id'], 'dep')
-                        elif messagepoint['quick_reply']['payload'] == "head_info":
-                            send_generic(message['sender']['id'], 'hod')
-                        elif messagepoint['quick_reply']['payload'] == "faculty_info":
-                            send_button(message['sender']['id'])
+
                     else:
                         if 'text' in messagepoint:
                             if (message['message']['text'] == "restart"):
