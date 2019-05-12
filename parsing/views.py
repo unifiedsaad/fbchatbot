@@ -128,6 +128,7 @@ class JokesBotView(generic.View):
                 elif message['postback']['payload'] == "Get Started":
                     greeating = "Hey, i am University Enquiring Chatbot.... Ask me anything about University"
                     send_message(message['sender']['id'], greeating)
+                    send_quick_reply(message['sender']['id'])
 
         return HttpResponse()
 
@@ -170,7 +171,7 @@ def send_image(recipient):
 
 @page.callback(['MENU_PAYLOAD/(.+)'])
 def click_persistent_menu(payload, event):
-    page.greeting("University Enquiring Chatbot is here to answer your queries About University")
+
     print('menu clicked')
 
 def send_gif(recipient):
@@ -278,9 +279,11 @@ def send_quick_reply(recipient):
                                {'title': 'Comedy', 'payload': 'PICK_COMEDY'}, ],
                 metadata="DEVELOPER_DEFINED_METADATA")
     """
-    page.send(recipient, "What's your favorite movie genre?",
-              quick_replies=[QuickReply(title="Action", payload="PICK_ACTION"),
-                             QuickReply(title="Comedy", payload="PICK_COMEDY")],
+    page.send(recipient, "Here are some suggestion, if you wanna choose",
+              quick_replies=[QuickReply(title="Computer Science Department", payload="Dep_info"),
+                             QuickReply(title="CS Department HOD", payload="head_info"),
+                             QuickReply(title="CS Department Faculty", payload="faculty_info"),
+                             QuickReply(title="CS Department Programs", payload="program_info")],
               metadata="DEVELOPER_DEFINED_METADATA")
 
 
