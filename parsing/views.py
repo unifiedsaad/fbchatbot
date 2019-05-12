@@ -63,13 +63,6 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "hey, how you doing"
     elif developer:
         joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
-    elif department:
-        joke_text = "Here you go...."
-        send_generic(fbid)
-    elif hod:
-        joke_text = " here is the hod info goes "
-    elif faculty:
-        joke_text = "asking about faculty"
     elif intent == "department_info":
         joke_text = "Here you go....."
         send_generic(fbid, 'dep')
@@ -77,14 +70,19 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "Here you go....."
         send_generic(fbid, 'hod')
     elif intent == "faculty":
-        if faculty:
-            send_generic(fbid, 'faculty', faculty['value'])
+        send_generic(fbid, 'faculty', faculty['value'])
         joke_text = "asking about faculty profile"
-
-
+    elif department:
+        joke_text = "Here you go...."
+        send_generic(fbid)
+    elif hod:
+        joke_text = " here is the hod info goes "
+    elif faculty:
+        joke_text = "asking about faculty"
 
     else:
         joke_text = "try again"
+
 
     send_message(fbid, joke_text)
 
@@ -269,7 +267,7 @@ def send_generic(recipient, type, data=True):
 
         ]))
     elif type == "faculty":
-        result =   requests.get('https://uos.edu.pk/about/bot_faculty/', data)
+        result = requests.get('https://uos.edu.pk/about/bot_faculty/', data)
         print(result)
         page.send(recipient, Template.Generic([
             Template.GenericElement(result['name'],
