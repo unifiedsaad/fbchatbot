@@ -44,7 +44,7 @@ def post_facebook_message(fbid, recevied_message):
     resp = client.message(tokens)
 
     entities = resp['entities']
-    print(entities)
+
     greetings = first_entity_value(entities, 'greetings')
     developer = first_entity_value(entities, 'developer')
     chatbot = first_entity_value(entities, 'chatbot')
@@ -68,13 +68,7 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = " here is the hod info goes "
     elif bye:
         joke_text = "Nice Talking to you, Bye"
-    elif intent:
-        if(intent['value'] == "department_info"):
-            joke_text = "call to action here for department"
-        elif intent['value'] == "head_info":
-            joke_text = " call to action for the hod"
-        else:
-            joke_text = "try again call to action"
+    
 
     else:
         joke_text = "try again"
