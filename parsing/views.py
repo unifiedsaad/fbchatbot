@@ -60,8 +60,7 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "Nice Talking to you, Bye"
     elif person:
         send_message(fbid, 'faculty profile')
-        send_generic(fbid, 'faculty', person['name'])
-
+        send_generic(fbid, 'faculty', person['notable_person']['value']['name'])
     elif intent == "farewell":
         joke_text = "Nice Talking to you, Bye"
     elif greetings:
