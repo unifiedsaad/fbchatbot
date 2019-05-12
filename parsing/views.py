@@ -43,7 +43,7 @@ def post_facebook_message(fbid, recevied_message):
     resp = client.message(tokens)
 
     entities = resp['entities']
-
+    print(entities)
     greetings = first_entity_value(entities, 'greetings')
     chatbot = first_entity_value(entities, 'chatbot')
     developer = first_entity_value(entities, 'developer')
