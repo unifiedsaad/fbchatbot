@@ -59,10 +59,8 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif bye:
         joke_text = "Nice Talking to you, Bye"
-
     elif person:
-        
-
+        send_generic(fbid, 'faculty', person['name'])
     elif intent == "farewell":
         joke_text = "Nice Talking to you, Bye"
     elif greetings:
@@ -113,12 +111,12 @@ class Testing(generic.View):
         resp = client.message(tokens)
         entities = resp['entities']
         person = first_entity_value(entities, 'notable_person')
-        result = requests.get('https://uos.edu.pk/about/bot_faculty/' + 'abbas')
-        print(result)
+        response = requests.get('https://uos.edu.pk/about/bot_faculty/' + 'abbas')
+        result = response.json()
         d = {
             'entties': entities,
             'person': person,
-
+            'result' : result
         }
         return JsonResponse(d)
 
@@ -290,21 +288,18 @@ def send_generic(recipient, type, data=True):
 
         ]))
     elif type == "faculty":
-        print(data)
-        print("data above")
-        result = requests.get('https://uos.edu.pk/about/bot_faculty/' + data)
-        print(result)
+        response = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
+        result = response.json()
+
         page.send(recipient, Template.Generic([
-            Template.GenericElement(result['name'],
-                                    subtitle="Department of Computer Science & Information Technology",
-                                    item_url="https://uos.edu.pk/department/profile/2",
-                                    image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
+            Template.GenericElement(result[0]['name'],
+                                    subtitle=result[0]['designation'],
+                                    item_url="https://uos.edu.pk/faculty/profile/"+result[0]['username'],
+                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/"+result[0]['picture'],
                                     buttons=[
-                                        Template.ButtonWeb("Academic Programs",
-                                                           "https://uos.edu.pk/department/academic_programs/2"),
-                                        Template.ButtonWeb("Faculty",
-                                                           "https://uos.edu.pk/department/faculty_list/2"),
-                                        Template.ButtonPhoneNumber("Contact", "+16505551234")
+                                        Template.ButtonWeb("Open Profile",
+                                                           "https://uos.edu.pk/faculty/profile/"+result[0]['username']),
+                                        Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
                                     ])
 
         ]))
