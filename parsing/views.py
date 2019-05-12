@@ -18,6 +18,7 @@ from config import CONFIG
 from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
+
 #  ------------------------ Fill this with your page access token! -------------------------------
 PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAJLiZBi5evLzkIYLnTgyNZC29UBv8B4saqLWDeGlZC4rTic0MYCHjjICBRTZCWOCXVEke6JDqxxAWckrHonnNV8YKNSiA0FCgoFtVqQxl5gm4ZB3fvuuSL281jee7upALO4E5DI0yg8VdvW6lhJZC0GarbWeNvUispx1iMuNBZA"
 VERIFY_TOKEN = "1234567890"
@@ -71,9 +72,14 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "try again"
 
     send_message(fbid, joke_text)
-   
     send_typing_off(fbid)
 
+
+
+class MessengerProfile(generic.View):
+    def get(self, request, *args, **kwargs):
+        page.greeting("Click Get Started below to subscribe!!")
+        page.show_starting_button("Subscribe")
 
 
 # Create your views here.
