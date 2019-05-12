@@ -220,14 +220,16 @@ def callback_clicked_button(payload, event):
 
 def send_generic(recipient):
     page.send(recipient, Template.Generic([
-        Template.GenericElement("rift",
-                                subtitle="Next-generation virtual reality",
-                                item_url="https://www.oculus.com/en-us/rift/",
+        Template.GenericElement("CS & IT",
+                                subtitle="Department of Computer Science & Information Technology",
+                                item_url="https://uos.edu.pk/department/profile/2",
                                 image_url=CONFIG['SERVER_URL'] + "/assets/rift.png",
                                 buttons=[
-                                    Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
-                                    Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
-                                    Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
+                                    Template.ButtonWeb("Department Detail", "https://uos.edu.pk/department/profile/2"),
+                                    Template.ButtonWeb("Academic Programs", "https://uos.edu.pk/department/academic_programs/2"),
+                                    Template.ButtonWeb("Faculty",
+                                                       "https://uos.edu.pk/department/faculty_list/2"),
+                                    Template.ButtonPhoneNumber("Contact", "+16505551234")
                                 ])
 
     ]))
