@@ -47,7 +47,6 @@ def post_facebook_message(fbid, recevied_message):
     greetings = first_entity_value(entities, 'greetings')
     chatbot = first_entity_value(entities, 'chatbot')
     developer = first_entity_value(entities, 'developer')
-
     department = first_entity_value(entities, 'department_info')
     hod = first_entity_value(entities, 'head_info')
     bye = first_entity_value(entities, 'farewell')
