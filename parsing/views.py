@@ -78,7 +78,7 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "asking about faculty profile"
     elif department:
         joke_text = "Here you go...."
-        send_generic(fbid)
+        send_generic(fbid, 'dep')
     elif hod:
         joke_text = " here is the hod info goes "
     elif faculty:
@@ -160,7 +160,7 @@ class JokesBotView(generic.View):
                 elif 'message' in message:
                     messagepoint = message['message']
                     if 'quick_reply' in messagepoint:
-                        print(messagepoint)
+
                         if (messagepoint['quick_reply']['payload'] == "Dep_info"):
                             send_generic(message['sender']['id'], 'dep')
                         elif messagepoint['quick_reply']['payload'] == "head_info":
