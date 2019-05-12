@@ -117,9 +117,10 @@ class JokesBotView(generic.View):
                 if 'message' in message:
                     # Print the message to the terminal
                     if 'quick_reply' in message:
-                        if (message['quick_reply']['payload'] == "Dep_info"):
-
+                        if (message['message']['quick_reply']['payload'] == "Dep_info"):
                             send_generic(message['sender']['id'])
+                        else:
+                            send_button(message['sender']['id'])
                     else:
                         send_typing_on(message['sender']['id'])
                         # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
