@@ -127,7 +127,7 @@ class JokesBotView(generic.View):
                         send_message(message['sender']['id'], greeating)
                         send_quick_reply(message['sender']['id'])
                 elif 'message' in message:
-                    print(message['quick_reply'])
+                  
                     send_typing_on(message['sender']['id'])
                     # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
                     # are sent as attachments and must be handled0p'{{ accordingly.
