@@ -218,26 +218,18 @@ def callback_clicked_button(payload, event):
 
 def send_generic(recipient):
     page.send(recipient, Template.Generic([
-        Template.GenericElement("rift",
-                                subtitle="Next-generation virtual reality",
-                                item_url="https://www.oculus.com/en-us/rift/",
-                                image_url=CONFIG['SERVER_URL'] + "/assets/rift.png",
+        Template.GenericElement("CS & IT Department",
+                                subtitle="The Department of Computer Sciences and Information Technology Science ",
+                                item_url="https://uos.edu.pk/department/profile/2",
+                                image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
                                 buttons=[
-                                    Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
-                                    Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
-                                    Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
+                                    Template.ButtonWeb("Department Detail", "https://www.oculus.com/en-us/rift/"),
+                                    Template.ButtonWeb("Academic Programs", "https://uos.edu.pk/department/academic_programs/2"),
+                                    Template.ButtonWeb("Faculty",
+                                                       "https://uos.edu.pk/department/faculty_list/2"),
+                                    Template.ButtonPhoneNumber("Contact", "+16505551234")
                                 ]),
-        Template.GenericElement("touch",
-                                subtitle="Your Hands, Now in VR",
-                                item_url="https://www.oculus.com/en-us/touch/",
-                                image_url=CONFIG['SERVER_URL'] + "/assets/touch.png",
-                                buttons=[
-                                    {'type': 'web_url', 'title': 'Open Web URL',
-                                     'value': 'https://www.oculus.com/en-us/rift/'},
-                                    {'type': 'postback', 'title': 'tigger Postback',
-                                     'value': 'DEVELOPED_DEFINED_PAYLOAD'},
-                                    {'type': 'phone_number', 'title': 'Call Phone Number', 'value': '+16505551234'},
-                                ])
+
     ]))
 
 
