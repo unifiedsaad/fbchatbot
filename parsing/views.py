@@ -115,7 +115,7 @@ class JokesBotView(generic.View):
             for message in entry['messaging']:
                 # Check to make sure the received call is a message call
                 # This might be delivery, optin, postback for other events
-                print(message)
+
                 if 'quick_reply' in message:
                     # Print the message to the terminal
                     if (message['message']['quick_reply']['payload'] == "Dep_info"):
@@ -131,7 +131,8 @@ class JokesBotView(generic.View):
                 elif 'message' in message:
                     messagepoint = message['message']
                     if 'quick_reply' in messagepoint:
-                        if(messagepoint['quick_reply']['payload'] == "Dep_info"):
+                        print(messagepoint)
+                        if (messagepoint['quick_reply']['payload'] == "Dep_info"):
                             send_generic(message['sender']['id'], 'dep')
                         elif messagepoint['quick_reply']['payload'] == "head_info":
                             send_generic(message['sender']['id'], 'hod')
@@ -139,10 +140,13 @@ class JokesBotView(generic.View):
                             send_button(message['sender']['id'])
                     else:
                         if 'text' in messagepoint:
-                            send_typing_on(message['sender']['id'])
-                            # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
-                            # are sent as attachments and must be handled0p'{{ accordingly.
-                            post_facebook_message(message['sender']['id'], message['message']['text'])
+                            if (message['message']['text'] == "restart"):
+                                send_quick_reply(message['sender']['id'])
+                            else:
+                                send_typing_on(message['sender']['id'])
+                                # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
+                                # are sent as attachments and must be handled0p'{{ accordingly.
+                                post_facebook_message(message['sender']['id'], message['message']['text'])
                         else:
                             send_message(message['sender']['id'], 'Hey there is problem')
 
@@ -225,15 +229,16 @@ def callback_clicked_button(payload, event):
     print(payload, event)
 
 
-def send_generic(recipient, type, data = True):
-    if(type == "dep"):
+def send_generic(recipient, type, data=True):
+    if (type == "dep"):
         page.send(recipient, Template.Generic([
             Template.GenericElement("CS & IT",
                                     subtitle="Department of Computer Science & Information Technology",
                                     item_url="https://uos.edu.pk/department/profile/2",
                                     image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
                                     buttons=[
-                                        Template.ButtonWeb("Academic Programs", "https://uos.edu.pk/department/academic_programs/2"),
+                                        Template.ButtonWeb("Academic Programs",
+                                                           "https://uos.edu.pk/department/academic_programs/2"),
                                         Template.ButtonWeb("Faculty",
                                                            "https://uos.edu.pk/department/faculty_list/2"),
                                         Template.ButtonPhoneNumber("Contact", "+16505551234")
@@ -270,7 +275,6 @@ def send_generic(recipient, type, data = True):
                                     ])
 
         ]))
-
 
 
 def send_receipt(recipient):
