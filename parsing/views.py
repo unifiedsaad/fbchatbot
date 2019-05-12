@@ -118,7 +118,7 @@ class JokesBotView(generic.View):
             for message in entry['messaging']:
                 # Check to make sure the received call is a message call
                 # This might be delivery, optin, postback for other events
-                print(message)
+
                 if 'message' in message:
                     # Print the message to the terminal
                     send_typing_on(message['sender']['id'])
@@ -126,7 +126,7 @@ class JokesBotView(generic.View):
                     # are sent as attachments and must be handled accordingly.
                     post_facebook_message(message['sender']['id'], message['message']['text'])
                 elif message['postback']['payload'] == "Get Started":
-                    greeating = "Hey, Ask me anything About University........."
+                    greeating = "Hey, i am University Enquiring Chatbot.... Ask me anything about University"
                     send_message(message['sender']['id'], greeating)
 
         return HttpResponse()
