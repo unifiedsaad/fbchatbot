@@ -223,7 +223,7 @@ def send_generic(recipient):
         Template.GenericElement("CS & IT",
                                 subtitle="Department of Computer Science & Information Technology",
                                 item_url="https://uos.edu.pk/department/profile/2",
-                                image_url=CONFIG['SERVER_URL'] + "/assets/rift.png",
+                                image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
                                 buttons=[
                                     Template.ButtonWeb("Academic Programs", "https://uos.edu.pk/department/academic_programs/2"),
                                     Template.ButtonWeb("Faculty",
