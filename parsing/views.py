@@ -19,7 +19,7 @@ from config import CONFIG
 from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
-#  ------------------------ Fill this with your page access token! -------------------------------
+
 PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAFepv7EL9S65bCWe2ZCSzAWjCdEcWD0fbONiZB9qRREitKK1WbWEOQnPNFmTOmzVu1IvKMgrhGmlpMIZBrsAZC7oGEJ4lVr29eZAZC66uIZCv1hPl3n2Q0T85MF0owTAIFbwZB6kZBGXYmGM3mHwBTnnaEbpACzZAqRDeOguh2q8l2"
 VERIFY_TOKEN = "1234567890"
 
@@ -98,7 +98,7 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "hey, how can i help you"
     elif contact:
         joke_text = "searching faculty profile of "+contact
-        send_generic_faculty(fbid, contact)
+
     elif department:
         joke_text = "Here you go...."
         send_generic(fbid, 'dep')
