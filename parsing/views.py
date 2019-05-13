@@ -89,7 +89,7 @@ def post_facebook_message(fbid, recevied_message):
     elif intent == "greeting":
         joke_text = "hey, how can i help you"
     elif contact:
-        send_generic_faculty(fbid, contact)
+        joke_text = "searching faculty profile of "+contact
     elif department:
         joke_text = "Here you go...."
         send_generic(fbid, 'dep')
@@ -187,7 +187,7 @@ class JokesBotView(generic.View):
 
                     elif 'attachment' in message:
                         print('that was attachement')
-                        
+
                     else:
                         if 'text' in messagepoint:
                             if (message['message']['text'] == "restart"):
