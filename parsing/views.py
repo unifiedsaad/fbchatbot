@@ -52,6 +52,7 @@ def post_facebook_message(fbid, recevied_message):
     department = first_entity_value(entities, 'department_info')
     hod = first_entity_value(entities, 'head_info')
     bye = first_entity_value(entities, 'farewell')
+    salam = first_entity_value(entities, 'salam')
     faculty = first_entity_value(entities, 'faculty')
     intent = first_entity_value(entities, 'intent')
 
@@ -64,7 +65,9 @@ def post_facebook_message(fbid, recevied_message):
     elif intent == "farewell":
         joke_text = "Nice Talking to you, Bye"
     elif greetings:
-        joke_text = "hey, how you doing"
+        joke_text = "hey, how can i help you"
+    elif salam:
+        joke_text = "Walaikum us Salam, how can i help you."
     elif developer:
         joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
     elif intent == "department_info":
@@ -74,8 +77,10 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "Here you go....."
         send_generic(fbid, 'hod')
     elif intent == "faculty":
-
         joke_text = "asking about faculty profile"
+    elif intent == "greeting":
+
+        joke_text = "hey, how can i help you"
     elif department:
         joke_text = "Here you go...."
         send_generic(fbid, 'dep')
