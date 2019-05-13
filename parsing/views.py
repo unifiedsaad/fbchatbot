@@ -62,8 +62,8 @@ def post_facebook_message(fbid, recevied_message):
     elif bye:
         joke_text = "Nice Talking to you, Bye"
     elif contact:
-        print(contact)
-        joke_text = "person searching"
+
+        joke_text = "person searching"+contact[0]
     elif person:
         joke_text = "person here"+person['name']
 
@@ -113,13 +113,14 @@ class MessengerProfile(generic.View):
 
 class Testing(generic.View):
     def get(self, request, *args, **kwargs):
-        tokens = re.sub(r"[^a-zA-Z0-9\s]", ' ', 'tell me about Mr Qaiser Abbas').lower().split()
+        tokens = re.sub(r"[^a-zA-Z0-9\s]", ' ', 'tell me about Ms Samreen Razzaq').lower().split()
         joke_text = ''
 
         resp = client.message(tokens)
         entities = resp['entities']
-        person = first_entity_value(entities, 'notable_person')
-        response = requests.get('https://uos.edu.pk/about/bot_faculty/' + 'Bilal')
+        person = first_entity_value(entities, 'contact')
+        print(person)
+        response = requests.get('https://uos.edu.pk/about/bot_faculty/' + 'Mr. Amir')
         result = response.json()
         if result:
             print("happy")
