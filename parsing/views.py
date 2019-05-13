@@ -65,6 +65,7 @@ def post_facebook_message(fbid, recevied_message):
 
     elif person:
         joke_text = "person here "+person['name']
+        send_generic_faculty(fbid, person['name'])
     elif salam:
         joke_text = "Walaikum us Salam, how can i help you."
     elif intent == "farewell":
