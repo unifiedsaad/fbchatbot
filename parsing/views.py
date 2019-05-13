@@ -62,11 +62,9 @@ def post_facebook_message(fbid, recevied_message):
     elif bye:
         joke_text = "Nice Talking to you, Bye"
     elif contact:
-
-        joke_text = "person searching"+contact[0]
+        joke_text = "person searching "+contact
     elif person:
-        joke_text = "person here"+person['name']
-
+        joke_text = "person here "+person['name']
     elif salam:
         joke_text = "Walaikum us Salam, how can i help you."
     elif intent == "farewell":
