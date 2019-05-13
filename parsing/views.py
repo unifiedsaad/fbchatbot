@@ -20,7 +20,7 @@ from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
 #  ------------------------ Fill this with your page access token! -------------------------------
-PAGE_ACCESS_TOKEN = "EAAL1hTYXttYBAPNUUiZCLm7ZBRPZBAZBZCDRhc9Lx6YgZBPqppWZAqQQ0ipQMQ2ZBKzoj9yL0NJCaODZBZCbPtQCP9fr18xgaWa3qOn96BCXF888ZAw3M7SXCT8uz3QF7YlCXRbW6KRlSVQ50zoOyhcd9OkkZCQprreI4PdKJPUxP2P2LNqmbIHErM16"
+PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAFepv7EL9S65bCWe2ZCSzAWjCdEcWD0fbONiZB9qRREitKK1WbWEOQnPNFmTOmzVu1IvKMgrhGmlpMIZBrsAZC7oGEJ4lVr29eZAZC66uIZCv1hPl3n2Q0T85MF0owTAIFbwZB6kZBGXYmGM3mHwBTnnaEbpACzZAqRDeOguh2q8l2"
 VERIFY_TOKEN = "1234567890"
 
 client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
@@ -60,7 +60,7 @@ def post_facebook_message(fbid, recevied_message):
     elif bye:
         joke_text = "Nice Talking to you, Bye"
     elif person:
-        send_generic(fbid, 'faculty', person['name'])
+        joke_text = "person here"
     elif intent == "farewell":
         joke_text = "Nice Talking to you, Bye"
     elif greetings:
@@ -74,7 +74,7 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "Here you go....."
         send_generic(fbid, 'hod')
     elif intent == "faculty":
-        send_generic(fbid, 'faculty', faculty['value'])
+
         joke_text = "asking about faculty profile"
     elif department:
         joke_text = "Here you go...."
@@ -83,7 +83,6 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = " here is the hod info goes "
     elif faculty:
         joke_text = "asking about faculty"
-
     else:
         joke_text = "try again"
 
@@ -111,8 +110,12 @@ class Testing(generic.View):
         resp = client.message(tokens)
         entities = resp['entities']
         person = first_entity_value(entities, 'notable_person')
-        response = requests.get('https://uos.edu.pk/about/bot_faculty/' + 'abbas')
+        response = requests.get('https://uos.edu.pk/about/bot_faculty/' + 'Bilal')
         result = response.json()
+        if result:
+            print("happy")
+        else:
+            result = "not happy"
         d = {
             'entties': entities,
             'person': person,
@@ -290,19 +293,22 @@ def send_generic(recipient, type, data=True):
     elif type == "faculty":
         response = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
         result = response.json()
+        if result:
+            page.send(recipient, Template.Generic([
+                Template.GenericElement(result[0]['name'],
+                                        subtitle=result[0]['designation'],
+                                        item_url="https://uos.edu.pk/faculty/profile/"+result[0]['username'],
+                                        image_url="https://uos.edu.pk/uploads/faculty/profiles/"+result[0]['picture'],
+                                        buttons=[
+                                            Template.ButtonWeb("Open Profile",
+                                                               "https://uos.edu.pk/faculty/profile/"+result[0]['username']),
+                                            Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                        ])
 
-        page.send(recipient, Template.Generic([
-            Template.GenericElement(result[0]['name'],
-                                    subtitle=result[0]['designation'],
-                                    item_url="https://uos.edu.pk/faculty/profile/"+result[0]['username'],
-                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/"+result[0]['picture'],
-                                    buttons=[
-                                        Template.ButtonWeb("Open Profile",
-                                                           "https://uos.edu.pk/faculty/profile/"+result[0]['username']),
-                                        Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
-                                    ])
-
-        ]))
+            ]))
+        else:
+            send_message(recipient, 'No User found in our Database')
+            send_typing_off(recipient)
 
 
 def send_receipt(recipient):
