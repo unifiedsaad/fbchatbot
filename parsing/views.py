@@ -65,6 +65,10 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif bye:
         joke_text = "Nice Talking to you, Bye"
+    elif discipline:
+        discipline_details(fbid, discipline)
+    elif degree:
+        joke_text = "Degree detail here about "+degree
     elif fine:
         joke_text = "Great, how can i help you"
     elif person:
@@ -98,10 +102,7 @@ def post_facebook_message(fbid, recevied_message):
     elif department:
         joke_text = "Here you go...."
         send_generic(fbid, 'dep')
-    elif discipline:
-        discipline_details(fbid, discipline)
-    elif degree:
-        joke_text = "Degree detail here about "+degree
+
     elif faculty:
         joke_text = "asking about faculty"
     else:
