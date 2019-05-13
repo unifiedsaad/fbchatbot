@@ -56,6 +56,7 @@ def post_facebook_message(fbid, recevied_message):
     salam = first_entity_value(entities, 'salam')
     fine = first_entity_value(entities, 'fine')
     faculty = first_entity_value(entities, 'faculty')
+    discipline = first_entity_value(entities, 'discipline')
     hod = first_entity_value(entities, 'hod')
     intent = first_entity_value(entities, 'intent')
 
@@ -97,7 +98,8 @@ def post_facebook_message(fbid, recevied_message):
     elif department:
         joke_text = "Here you go...."
         send_generic(fbid, 'dep')
-
+    elif discipline:
+        discipline_details(fbid, discipline)
     elif faculty:
         joke_text = "asking about faculty"
     else:
@@ -429,3 +431,6 @@ def send_account_linking(recipient):
 
 def send_text_message(recipient, text):
     page.send(recipient, text, metadata="DEVELOPER_DEFINED_METADATA")
+
+def discipline_details(recipient, message):
+    send_message(recipient, 'Program Detail goes here '+message)
