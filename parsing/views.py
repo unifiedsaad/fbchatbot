@@ -90,6 +90,7 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "hey, how can i help you"
     elif contact:
         joke_text = "searching faculty profile of "+contact
+        send_generic_faculty(fbid, contact)
     elif department:
         joke_text = "Here you go...."
         send_generic(fbid, 'dep')
