@@ -61,7 +61,7 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif bye:
         joke_text = "Nice Talking to you, Bye"
-    elif contact
+    elif contact:
         joke_text = "person searching" + contact['value']
     elif person:
         joke_text = "person here"+person['name']
