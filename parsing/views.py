@@ -57,6 +57,7 @@ def post_facebook_message(fbid, recevied_message):
     fine = first_entity_value(entities, 'fine')
     faculty = first_entity_value(entities, 'faculty')
     discipline = first_entity_value(entities, 'discipline')
+    degree = first_entity_value(entities, 'degree')
     hod = first_entity_value(entities, 'hod')
     intent = first_entity_value(entities, 'intent')
 
@@ -66,7 +67,6 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "Nice Talking to you, Bye"
     elif fine:
         joke_text = "Great, how can i help you"
-
     elif person:
         joke_text = "person here "+person['name']
         send_generic_faculty(fbid, person['name'])
@@ -100,6 +100,8 @@ def post_facebook_message(fbid, recevied_message):
         send_generic(fbid, 'dep')
     elif discipline:
         discipline_details(fbid, discipline)
+    elif degree:
+        joke_text = "Degree detail here about "+degree
     elif faculty:
         joke_text = "asking about faculty"
     else:
