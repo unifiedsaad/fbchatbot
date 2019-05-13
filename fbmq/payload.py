@@ -45,9 +45,9 @@ class Message(object):
 
     def __init__(self, text=None, attachment=None, quick_replies=None, metadata=None):
         if text is not None and attachment is not None:
-            raise ValueError('Please set only one parameter "text" or "attachment"')
+            print("error in the message about text and attachement")
         if not isinstance(quick_replies, list) and quick_replies is not None:
-            raise ValueError('quick_replies type must be "list"')
+            print("quick repliers must be list")
 
         self.text = text
         self.attachment = attachment
