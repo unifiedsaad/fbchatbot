@@ -54,6 +54,7 @@ def post_facebook_message(fbid, recevied_message):
     contact = first_entity_value(entities, 'contact')
     bye = first_entity_value(entities, 'farewell')
     salam = first_entity_value(entities, 'salam')
+    fine = first_entity_value(entities, 'fine')
     faculty = first_entity_value(entities, 'faculty')
     hod = first_entity_value(entities, 'hod')
     intent = first_entity_value(entities, 'intent')
@@ -62,6 +63,8 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif bye:
         joke_text = "Nice Talking to you, Bye"
+    elif fine:
+        joke_text = "Great, how can i help you"
 
     elif person:
         joke_text = "person here "+person['name']
@@ -184,6 +187,8 @@ class JokesBotView(generic.View):
                         elif messagepoint['quick_reply']['payload'] == "head_info":
                             send_generic(message['sender']['id'], 'hod')
                         elif messagepoint['quick_reply']['payload'] == "faculty_info":
+                            send_button(message['sender']['id'])
+                        elif messagepoint['quick_reply']['payload'] == "program_info":
                             send_button(message['sender']['id'])
 
                     elif 'attachment' in message:
