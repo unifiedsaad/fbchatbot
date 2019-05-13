@@ -44,7 +44,7 @@ def post_facebook_message(fbid, recevied_message):
     resp = client.message(tokens)
 
     entities = resp['entities']
-    print(entities)
+
     greetings = first_entity_value(entities, 'greetings')
     person = first_entity_value(entities, 'notable_person')
     chatbot = first_entity_value(entities, 'chatbot')
@@ -86,12 +86,13 @@ def post_facebook_message(fbid, recevied_message):
         send_generic(fbid, 'hod')
     elif head:
         send_generic(fbid, 'hod')
-    elif intent == "department_info":
-        joke_text = "Here you go....."
-        send_generic(fbid, 'dep')
     elif intent == "head_info":
         joke_text = "Here you go....."
         send_generic(fbid, 'hod')
+    elif intent == "department_info":
+        joke_text = "Here you go....."
+        send_generic(fbid, 'dep')
+
     elif intent == "faculty":
         joke_text = "asking about faculty profile"
     elif intent == "greeting":
