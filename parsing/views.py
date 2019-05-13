@@ -92,7 +92,7 @@ def post_facebook_message(fbid, recevied_message):
     elif faculty:
         joke_text = "asking about faculty"
     else:
-        joke_text = "try again"
+        joke_text = "Hey i am unable to answer this query, but i have pinged this question to my creator for future improvements. Thanks"
 
     send_message(fbid, joke_text)
 
