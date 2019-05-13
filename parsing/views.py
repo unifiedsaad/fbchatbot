@@ -187,9 +187,17 @@ class JokesBotView(generic.View):
                         elif messagepoint['quick_reply']['payload'] == "head_info":
                             send_generic(message['sender']['id'], 'hod')
                         elif messagepoint['quick_reply']['payload'] == "faculty_info":
-                            'Please Type the name for the faculty you are looking for.. e.g : Mr. Saad Razzaq'
+                            send_message(message['sender']['id'], 'Please Type the name for the faculty you are looking for.. e.g : Mr. Saad Razzaq')
                         elif messagepoint['quick_reply']['payload'] == "program_info":
                             send_quick_reply_program(message['sender']['id'])
+                        elif messagepoint['quick_reply']['payload'] == "bscs":
+                            send_message(message['sender']['id'], 'BSCS Details goes here')
+                        elif messagepoint['quick_reply']['payload'] == "bsse":
+                            send_message(message['sender']['id'], 'BSSE Details goes here')
+                        elif messagepoint['quick_reply']['payload'] == "bsit":
+                            send_message(message['sender']['id'], 'BSIT Details goes here')
+                        elif messagepoint['quick_reply']['payload'] == "mscs":
+                            send_message(message['sender']['id'], 'BSIT Details goes here')
 
                     elif 'attachment' in message:
                         print('that was attachement')
@@ -378,12 +386,7 @@ def send_receipt(recipient):
 
 
 def send_quick_reply(recipient):
-    '''
-    page.send(recipient, "What's your favorite movie genre?",
-                quick_replies=[{'title': 'Action', 'payload': 'PICK_ACTION'},
-                               {'title': 'Comedy', 'payload': 'PICK_COMEDY'}, ],
-                metadata="DEVELOPER_DEFINED_METADATA")
-    '''
+
     page.send(recipient, "Here are some suggestion, if you wanna choose",
               quick_replies=[QuickReply(title="CS Department", payload="Dep_info"),
                              QuickReply(title="CS HOD", payload="head_info"),
@@ -392,12 +395,7 @@ def send_quick_reply(recipient):
               metadata="DEVELOPER_DEFINED_METADATA")
 
 def send_quick_reply_program(recipient):
-    '''
-    page.send(recipient, "What's your favorite movie genre?",
-                quick_replies=[{'title': 'Action', 'payload': 'PICK_ACTION'},
-                               {'title': 'Comedy', 'payload': 'PICK_COMEDY'}, ],
-                metadata="DEVELOPER_DEFINED_METADATA")
-    '''
+
     page.send(recipient, "Here are some suggestion, if you wanna choose",
               quick_replies=[QuickReply(title="BSCS", payload="bscs"),
                              QuickReply(title="BSIT", payload="bsit"),
