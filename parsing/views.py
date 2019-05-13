@@ -83,7 +83,6 @@ def post_facebook_message(fbid, recevied_message):
     elif intent == "greeting":
         joke_text = "hey, how can i help you"
     elif contact:
-        joke_text = "person searching "+contact
         send_generic_faculty(fbid, contact)
     elif department:
         joke_text = "Here you go...."
