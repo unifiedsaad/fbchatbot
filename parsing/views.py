@@ -62,7 +62,8 @@ def post_facebook_message(fbid, recevied_message):
     elif bye:
         joke_text = "Nice Talking to you, Bye"
     elif contact:
-        joke_text = "person searching" + contact[0]['value']
+        print(contact)
+        joke_text = "person searching"
     elif person:
         joke_text = "person here"+person['name']
 
