@@ -184,6 +184,10 @@ class JokesBotView(generic.View):
                             send_generic(message['sender']['id'], 'hod')
                         elif messagepoint['quick_reply']['payload'] == "faculty_info":
                             send_button(message['sender']['id'])
+
+                    elif 'attachment' in message:
+                        print('that was attachement')
+                        
                     else:
                         if 'text' in messagepoint:
                             if (message['message']['text'] == "restart"):
@@ -195,6 +199,7 @@ class JokesBotView(generic.View):
                                 post_facebook_message(message['sender']['id'], message['message']['text'])
                         else:
                             send_message(message['sender']['id'], 'Hey there is problem')
+
 
         return HttpResponse()
 
