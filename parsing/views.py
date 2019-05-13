@@ -51,6 +51,7 @@ def post_facebook_message(fbid, recevied_message):
     developer = first_entity_value(entities, 'developer')
     department = first_entity_value(entities, 'department_info')
     hod = first_entity_value(entities, 'head_info')
+    contact = first_entity_value(entities, 'contact')
     bye = first_entity_value(entities, 'farewell')
     salam = first_entity_value(entities, 'salam')
     faculty = first_entity_value(entities, 'faculty')
@@ -60,14 +61,17 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
     elif bye:
         joke_text = "Nice Talking to you, Bye"
+    elif contact
+        joke_text = "person searching" + contact['value']
     elif person:
-        joke_text = "person here"
+        joke_text = "person here"+person['name']
+
+    elif salam:
+        joke_text = "Walaikum us Salam, how can i help you."
     elif intent == "farewell":
         joke_text = "Nice Talking to you, Bye"
     elif greetings:
         joke_text = "hey, how can i help you"
-    elif salam:
-        joke_text = "Walaikum us Salam, how can i help you."
     elif developer:
         joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
     elif intent == "department_info":
@@ -79,7 +83,6 @@ def post_facebook_message(fbid, recevied_message):
     elif intent == "faculty":
         joke_text = "asking about faculty profile"
     elif intent == "greeting":
-
         joke_text = "hey, how can i help you"
     elif department:
         joke_text = "Here you go...."
