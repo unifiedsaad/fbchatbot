@@ -48,12 +48,15 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent, user):
+    try:
 
         if first_entity_value(receivedent, 'intent'):
             return Intents_parser(receivedent, user)
         if first_entity_value(receivedent, 'greetings'):
             return "Hey, How can i help you"
 
+    except Exception as e:
+        print("not found dude")
 
 
 def Intents_parser(receivedent, user):
@@ -102,12 +105,12 @@ def department_info(receivedent, user):
 
 def Timing_type(receivedent):
     if receivedent['timing_type'][0]['value'] == "open":
-        return "" + receivedent['department_name'][0][
-            'value'] + " will Open on 9 : 00 PM on this Date   " + receivedent['datetime'][0]['value']
+        return "Opening Time of " + receivedent['department_name'][0][
+            'value'] + " is 9:00 PM "
     elif receivedent['timing_type'][0]['value'] == "close":
 
-        return "" + receivedent['department_name'][0][
-            'value'] + "will be closed on 5:00 PM on this Date   " + receivedent['datetime'][0]['value']
+        return "Closing Time of " + receivedent['department_name'][0][
+            'value'] + "is 5:00 PM "
     else:
         return "Nohting from timing type module "
 
