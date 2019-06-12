@@ -74,7 +74,7 @@ def handleIntents(receivedent):
                     'value']
 
             elif receivedent['department_info_type'][0]['value'] == "admission":
-                return "hey is asking about the Contact Details of " + receivedent['department_name'][0][
+                return "hey is asking about the admission Details of " + receivedent['department_name'][0][
                     'value']
 
             else:
