@@ -67,14 +67,14 @@ def handleIntents(receivedent):
                 return "hey is asking about the faculty of " + receivedent['department_name'][0][
                     'value']
             elif receivedent['department_info_type'][0]['value'] == "programs":
-                return "hey is asking about the programs of " + + receivedent['department_name'][0][
+                return "hey is asking about the programs of " + receivedent['department_name'][0][
                     'value']
             elif receivedent['department_info_type'][0]['value'] == "contact_details":
-                return "hey is asking about the Contact Details of " + + receivedent['department_name'][0][
+                return "hey is asking about the Contact Details of " + receivedent['department_name'][0][
                     'value']
 
             elif receivedent['department_info_type'][0]['value'] == "admission":
-                return "hey is asking about the Contact Details of " + + receivedent['department_name'][0][
+                return "hey is asking about the Contact Details of " + receivedent['department_name'][0][
                     'value']
 
             else:
