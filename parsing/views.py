@@ -90,9 +90,11 @@ def handleIntents(receivedent):
             return "that was the junk"
         elif receivedent['greetings'][0]['value'] == 'true':
             return "hey, how can i help you "
-        print(receivedent['greetings'][0]['value'])
-    except Exception as e:
+        else:
+            return "don't know what it is "
+            print(receivedent['greetings'][0]['value'])
 
+    except Exception as e:
         print("not found dude")
 
 
