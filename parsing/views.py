@@ -37,8 +37,10 @@ def first_entity_value(entities, entity):
 def post_facebook_message(fbid, recevied_message):
     resp = client.message(recevied_message)
     entities = resp['entities']
-
-    send_message(fbid, 'hey here sending message')
+    print("***************************************")
+    print(entities)
+    print("***************************************")
+    send_message(fbid, "here is the entity")
 
 
 class MessengerProfile(generic.View):
