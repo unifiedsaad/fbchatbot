@@ -88,7 +88,7 @@ def handleIntents(receivedent):
             return "hey is asking about the merit info"
         elif receivedent['intent'][0]['value'] == "junk":
             return "that was the junk"
-        elif receivedent['greetings']['value'] == "true":
+        elif receivedent['greetings']['value']:
             return "hey, how can i help you "
     except Exception as e:
         print("not found dude")
