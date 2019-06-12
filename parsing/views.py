@@ -45,71 +45,7 @@ def post_facebook_message(fbid, recevied_message):
 
     entities = resp['entities']
 
-    greetings = first_entity_value(entities, 'greetings')
-    person = first_entity_value(entities, 'notable_person')
-    chatbot = first_entity_value(entities, 'chatbot')
-    developer = first_entity_value(entities, 'developer')
-    department = first_entity_value(entities, 'department_info')
-    head = first_entity_value(entities, 'head_info')
-    contact = first_entity_value(entities, 'contact')
-    bye = first_entity_value(entities, 'farewell')
-    salam = first_entity_value(entities, 'salam')
-    fine = first_entity_value(entities, 'fine')
-    faculty = first_entity_value(entities, 'faculty')
-    discipline = first_entity_value(entities, 'discipline')
-    degree = first_entity_value(entities, 'degree')
-    hod = first_entity_value(entities, 'hod')
-    intent = first_entity_value(entities, 'intent')
-
-    if chatbot:
-        joke_text = "I am University Enquiring Chatbot, you can ask me anything About University. Feel Free to ping me anytime."
-    elif bye:
-        joke_text = "Nice Talking to you, Bye"
-    elif discipline:
-        discipline_details(fbid, discipline)
-    elif degree:
-        joke_text = "Degree detail here about "+degree
-    elif fine:
-        joke_text = "Great, how can i help you"
-    elif person:
-        joke_text = "person here "+person['name']
-        send_generic_faculty(fbid, person['name'])
-    elif salam:
-        joke_text = "Walaikum us Salam, how can i help you."
-    elif intent == "farewell":
-        joke_text = "Nice Talking to you, Bye"
-    elif greetings:
-        joke_text = "hey, how can i help you"
-    elif developer:
-        joke_text = "Why you asking about my creator, anyway i am gonnna tell you. He is Saad Mirza ;)"
-    elif hod:
-        send_generic(fbid, 'hod')
-    elif head:
-        send_generic(fbid, 'hod')
-    elif intent == "head_info":
-        joke_text = "Here you go....."
-        send_generic(fbid, 'hod')
-    elif intent == "department_info":
-        joke_text = "Here you go....."
-        send_generic(fbid, 'dep')
-
-    elif intent == "faculty":
-        joke_text = "asking about faculty profile"
-    elif intent == "greeting":
-        joke_text = "hey, how can i help you"
-    elif contact:
-        joke_text = "searching faculty profile of "+contact
-
-    elif department:
-        joke_text = "Here you go...."
-        send_generic(fbid, 'dep')
-
-    elif faculty:
-        joke_text = "asking about faculty"
-    else:
-        joke_text = "Hey i am unable to answer this query, but i have pinged this question to my creator for future improvements. Thanks"
-
-    send_message(fbid, joke_text)
+    send_message(fbid, entities)
 
     send_typing_off(fbid)
 
