@@ -44,7 +44,7 @@ def post_facebook_message(fbid, recevied_message):
     resp = client.message(tokens)
 
     entities = resp['entities']
-
+    print(entities)
     send_message(fbid, entities)
 
     send_typing_off(fbid)
