@@ -105,7 +105,7 @@ def department_info(receivedent, user):
 def Timing_type(receivedent):
     if receivedent['timing_type'][0]['value'] == "open":
         return "Opening Time of " + receivedent['department_name'][0][
-            'value'] + " is 9:00 PM "
+            'value'] + " is 9:00 AM "
     elif receivedent['timing_type'][0]['value'] == "close":
 
         return "Closing Time of " + receivedent['department_name'][0][
