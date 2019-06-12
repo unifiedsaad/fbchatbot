@@ -43,6 +43,7 @@ def post_facebook_message(fbid, recevied_message):
 
     resp = client.message(tokens)
     entities = resp['entities']
+    print("hey here after this")
     print(entities)
     send_message(fbid, 'hey here sending message')
 
