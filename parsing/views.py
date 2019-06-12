@@ -47,20 +47,38 @@ def post_facebook_message(fbid, recevied_message):
 
 def handleIntents(receivedent):
     try:
-        if (receivedent['intent'][0]['value'] == "department_info"):
+        if receivedent['intent'][0]['value'] == "department_info":
 
-            if (receivedent['department_info_type'][0]['value'] == "general"):
+            if receivedent['department_info_type'][0]['value'] == "general":
 
-                if (receivedent['timing_type'][0]['value'] == "open"):
+                if receivedent['timing_type'][0]['value'] == "open":
                     return "hey is asking about the opening time of the   " + receivedent['department_name'][0][
                         'value'] + " For this Date  " + receivedent['datetime'][0]['value']
-                elif (receivedent['timing_type'][0]['value'] == "close"):
+                elif receivedent['timing_type'][0]['value'] == "close":
 
                     return "hey is asking about the closing time of the   " + receivedent['department_name'][0][
                         'value'] + " For this Date  " + receivedent['datetime'][0]['value']
                 else:
                     return "hey he is asking about Department General Info except closing or opening time"
+            elif receivedent['department_info_type'][0]['value'] == "hod":
+                return "hey he is asking about hod of " + receivedent['department_name'][0][
+                    'value']
+            elif receivedent['department_info_type'][0]['value'] == "Faculty":
+                return "hey is asking about the faculty of " + receivedent['department_name'][0][
+                    'value']
+            elif receivedent['department_info_type'][0]['value'] == "programs":
+                return "hey is asking about the programs of " + + receivedent['department_name'][0][
+                    'value']
+            elif receivedent['department_info_type'][0]['value'] == "contact_details":
+                return "hey is asking about the Contact Details of " + + receivedent['department_name'][0][
+                    'value']
+
+            elif receivedent['department_info_type'][0]['value'] == "admission":
+                return "hey is asking about the Contact Details of " + + receivedent['department_name'][0][
+                    'value']
+
             else:
+
                 return "it's department info but not general"
     except Exception as e:
         print("not found dude")
