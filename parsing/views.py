@@ -140,6 +140,9 @@ class JokesBotView(generic.View):
                         elif 'attachment' in message:
                             print('that was attachement')
 
+                        elif 'is_echo' in message:
+                            print("hey that was echo here ")
+
                         else:
                             if 'text' in messagepoint:
                                 if (message['message']['text'] == "restart"):
