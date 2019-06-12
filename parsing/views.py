@@ -42,10 +42,9 @@ def post_facebook_message(fbid, recevied_message):
     joke_text = ''
 
     resp = client.message(tokens)
-
     entities = resp['entities']
     print(entities)
-    send_message(fbid, entities)
+    send_message(fbid, 'hey here sending message')
 
     send_typing_off(fbid)
 
