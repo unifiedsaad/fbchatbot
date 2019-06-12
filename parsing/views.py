@@ -40,7 +40,13 @@ def post_facebook_message(fbid, recevied_message):
     print("***************************************")
     print(entities)
     print("***************************************")
+    message = handleIntents(entities)
     send_message(fbid, "here is the entity")
+
+
+def handleIntents(receivedent):
+    if(receivedent['intent'][0]['value'] == "department_info"):
+        print("hey he is asking about Department info")
 
 
 class MessengerProfile(generic.View):
