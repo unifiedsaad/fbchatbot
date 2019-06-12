@@ -51,7 +51,7 @@ def handleIntents(receivedent):
     try:
 
         if first_entity_value(receivedent, 'department_info'):
-            department_info(receivedent)
+            return department_info(receivedent)
         elif receivedent['greetings'][0]['value'] == "true":
             return "hey, how can i help you"
 
