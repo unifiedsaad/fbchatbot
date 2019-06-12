@@ -51,15 +51,32 @@ def handleIntents(receivedent):
     try:
 
         if first_entity_value(receivedent, 'intent'):
-            print("reached here")
-            return department_info(receivedent)
-        elif receivedent['greetings'][0]['value'] == "true":
-            return "hey, how can i help you"
+            return Intents_parser(receivedent)
+        if first_entity_value(receivedent, 'greetings'):
+            return "Hey, How can i help you"
+
+
 
 
 
     except Exception as e:
         print("not found dude")
+
+
+def Intents_parser(receivedent):
+    if receivedent['intent'][0]['value'] == "department_info":
+        return department_info(receivedent)
+    elif receivedent['intent'][0]['value'] == "faculty_profile":
+        return "hey he is looking for faculty profile " + receivedent['faculty_name'][0]['value']
+    elif receivedent['intent'][0]['value'] == "admission_info":
+        return "hey he is asking for admission info "
+    elif receivedent['intent'][0]['value'] == "merit_info":
+        return "hey is asking about the merit info"
+    elif receivedent['intent'][0]['value'] == "junk":
+        return "that was the junk"
+    else:
+        return "nothing but intents"
+
 
 
 def department_info(receivedent):
