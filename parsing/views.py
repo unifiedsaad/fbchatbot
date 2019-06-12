@@ -86,8 +86,7 @@ def department_info(receivedent, user):
         send_generic(user, 'hod')
         return "Here you can see Detail"
     elif receivedent['department_info_type'][0]['value'] == "Faculty":
-        return "hey is asking about the faculty of " + receivedent['department_name'][0][
-            'value']
+        return send_generic_faculty(user, receivedent['faculty_name'][0]['value'])
     elif receivedent['department_info_type'][0]['value'] == "programs":
         return "hey is asking about the programs of " + receivedent['department_name'][0][
             'value']
