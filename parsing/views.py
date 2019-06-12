@@ -46,21 +46,24 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent):
-    if (receivedent['intent'][0]['value'] == "department_info"):
+    try:
+        if (receivedent['intent'][0]['value'] == "department_info"):
 
-        if (receivedent['department_info_type'][0]['value'] == "general"):
+            if (receivedent['department_info_type'][0]['value'] == "general"):
 
-            if (receivedent['timing_type'][0]['value'] == "open"):
-                return "hey is asking about the opening time of the   " + receivedent['department_name'][0][
-                    'value'] + " For this Date  " + receivedent['datetime'][0]['value']
-            elif (receivedent['timing_type'][0]['value'] == "close"):
+                if (receivedent['timing_type'][0]['value'] == "open"):
+                    return "hey is asking about the opening time of the   " + receivedent['department_name'][0][
+                        'value'] + " For this Date  " + receivedent['datetime'][0]['value']
+                elif (receivedent['timing_type'][0]['value'] == "close"):
 
-                return "hey is asking about the closing time of the   " + receivedent['department_name'][0][
-                    'value'] + " For this Date  " + receivedent['datetime'][0]['value']
+                    return "hey is asking about the closing time of the   " + receivedent['department_name'][0][
+                        'value'] + " For this Date  " + receivedent['datetime'][0]['value']
+                else:
+                    return "hey he is asking about Department General Info except closing or opening time"
             else:
-                return "hey he is asking about Department General Info except closing or opening time"
-        else:
-            return "it's department info but not general"
+                return "it's department info but not general"
+    except Exception as e:
+        print("not found dude")
 
 
 class MessengerProfile(generic.View):
