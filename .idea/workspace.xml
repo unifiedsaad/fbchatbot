@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parsing/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="48" column="55" lean-forward="true" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+            <state relative-caret-position="298">
+              <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -236,12 +236,12 @@
       <workItem from="1553582937608" duration="8770000" />
       <workItem from="1557467328336" duration="12938000" />
       <workItem from="1557677577937" duration="23311000" />
-      <workItem from="1560320715737" duration="2615000" />
+      <workItem from="1560320715737" duration="3245000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56629000" />
+    <option name="totallyTimeSpent" value="57259000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="795" extended-state="0" />
@@ -423,8 +423,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parsing/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="48" column="55" lean-forward="true" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+        <state relative-caret-position="298">
+          <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>

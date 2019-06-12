@@ -45,8 +45,16 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent):
-    if(receivedent['intent'][0]['value'] == "department_info"):
-        print("hey he is asking about Department info")
+    if (receivedent['intent'][0]['value'] == "department_info"):
+        if (receivedent['department_info_type'][0]['value'] == "general"):
+            if (receivedent['timing_type'][0]['value'] == "open"):
+                print("hey is asking about the opening time of the department" + receivedent['datetime'][0]['value'])
+            elif (receivedent['timing_type'][0]['value'] == "close"):
+                print("hey is asking about the closing time of the department" + receivedent['datetime'][0]['value'])
+            else:
+                print("hey he is asking about Department General Info except closing or opening time")
+        else:
+            print("it's department info but not general")
 
 
 class MessengerProfile(generic.View):
@@ -55,7 +63,7 @@ class MessengerProfile(generic.View):
                                    Template.ButtonWeb('ORIC', 'https://oric.uos.edu.pk'),
                                    Template.ButtonWeb('File a Complaint', 'https://uos.edu.pk/complaint')])
 
-        page.show_starting_button("Get Started")
+        page.show_starting_button("Start Asking Your Queries")
         page.greeting("University Enquiring Chatbot is here to answer your queries About University")
         return HttpResponse('yaayyyyy')
 
