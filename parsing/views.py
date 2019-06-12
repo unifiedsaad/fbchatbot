@@ -51,7 +51,7 @@ def handleIntents(receivedent):
 
         if receivedent['intent'][0]['value'] == "department_info":
 
-            if receivedent['department_info_type'][0]['value'] == "general":
+            if receivedent['department_info_type'][0]['value'] == "general" in receivedent:
 
                 if receivedent['timing_type'][0]['value'] == "open":
                     return "hey is asking about the opening time of the   " + receivedent['department_name'][0][
@@ -82,15 +82,15 @@ def handleIntents(receivedent):
             else:
 
                 return "it's department info but not general"
-        elif receivedent['intent'][0]['value'] == "faculty_profile":
+        elif receivedent['intent'][0]['value'] == "faculty_profile" in receivedent:
             return "hey he is looking for faculty profile " + receivedent['faculty_name'][0]['value']
-        elif receivedent['intent'][0]['value'] == "admission_info":
+        elif receivedent['intent'][0]['value'] == "admission_info" in receivedent:
             return "hey he is asking for admission info "
-        elif receivedent['intent'][0]['value'] == "merit_info":
+        elif receivedent['intent'][0]['value'] == "merit_info" in receivedent:
             return "hey is asking about the merit info"
-        elif receivedent['intent'][0]['value'] == "junk":
+        elif receivedent['intent'][0]['value'] == "junk" in receivedent:
             return "that was the junk"
-        elif receivedent['greetings'][0]['value'] == "true":
+        elif receivedent['greetings'][0]['value'] == "true" in receivedent:
             return "hey, how can i help you"
 
         else:
