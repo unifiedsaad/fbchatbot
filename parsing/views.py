@@ -35,15 +35,14 @@ def first_entity_value(entities, entity):
     return val
 
 
-# Helper function
+
 def post_facebook_message(fbid, recevied_message):
-    # Remove all punctuations, lower case the text and split it based on space
+
 
 
     resp = client.message(recevied_message)
     entities = resp['entities']
-    print("hey here after this")
-    print(resp)
+
     send_message(fbid, 'hey here sending message')
 
 
@@ -103,6 +102,7 @@ class JokesBotView(generic.View):
         # multiple messages in a single call during high load
 
         for entry in incoming_message['entry']:
+            print(entry)
             for message in entry['messaging']:
                 # Check to make sure the received call is a message call
                 # This might be delivery, optin, postback for other events
