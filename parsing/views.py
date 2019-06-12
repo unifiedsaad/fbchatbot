@@ -47,7 +47,7 @@ def post_facebook_message(fbid, recevied_message):
     print(resp)
     send_message(fbid, 'hey here sending message')
 
-    send_typing_off(fbid)
+
 
 
 class MessengerProfile(generic.View):
@@ -149,7 +149,7 @@ class JokesBotView(generic.View):
                             if (message['message']['text'] == "restart"):
                                 send_quick_reply(message['sender']['id'])
                             else:
-                                send_typing_on(message['sender']['id'])
+
                                 # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
                                 # are sent as attachments and must be handled0p'{{ accordingly.
                                 post_facebook_message(message['sender']['id'], message['message']['text'])
