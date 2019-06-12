@@ -140,7 +140,7 @@ class JokesBotView(generic.View):
                     elif 'message' in message:
 
                         messagepoint = message['message']
-                        print(messagepoint)
+
                         if 'quick_reply' in messagepoint:
 
                             if (messagepoint['quick_reply']['payload'] == "Dep_info"):
@@ -164,7 +164,7 @@ class JokesBotView(generic.View):
                         elif 'attachment' in message:
                             print('that was attachement')
 
-                        elif 'is_echo' in message:
+                        elif 'is_echo' in messagepoint:
                             print("hey that was echo here ")
 
                         else:
