@@ -38,7 +38,7 @@ def post_facebook_message(fbid, recevied_message):
     resp = client.message(recevied_message)
     entities = resp['entities']
     print("***************************************")
-    print(entities)
+    print(entities['greetings'])
     print("***************************************")
     message = handleIntents(entities)
 
@@ -90,9 +90,6 @@ def handleIntents(receivedent):
             return "that was the junk"
         elif receivedent['greetings'][0]['value'] == 'true':
             return "hey, how can i help you "
-        else:
-            print(receivedent['greetings'][0]['value'])
-            return "don't know what it is "
 
 
     except Exception as e:
