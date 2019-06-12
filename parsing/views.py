@@ -61,7 +61,7 @@ def handleIntents(receivedent):
         print("not found dude")
 
 
-def department_info(receivedent)
+def department_info(receivedent):
     if receivedent['department_info_type'][0]['value'] == "general":
 
         if receivedent['timing_type'][0]['value'] == "open":
