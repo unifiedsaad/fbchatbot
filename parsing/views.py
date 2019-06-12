@@ -80,6 +80,14 @@ def handleIntents(receivedent):
             else:
 
                 return "it's department info but not general"
+        elif receivedent['intent'][0]['value'] == "faculty_profile":
+            return "hey he is looking for faculty profile " + receivedent['faculty_name'][0]['value']
+        elif receivedent['intent'][0]['value'] == "admission_info":
+            return "hey he is asking for admission info "
+        elif receivedent['intent'][0]['value'] == "merit_info":
+            return "hey is asking about the merit info"
+        elif receivedent['intent'][0]['value'] == "junk":
+            return "that was the junk"
     except Exception as e:
         print("not found dude")
 
