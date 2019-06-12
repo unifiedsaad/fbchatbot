@@ -38,7 +38,7 @@ def post_facebook_message(fbid, recevied_message):
     resp = client.message(recevied_message)
     entities = resp['entities']
     print("***************************************")
-    print(entities['greetings'])
+    print(entities['greetings'][0]['value'])
     print("***************************************")
     message = handleIntents(entities)
 
