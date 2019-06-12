@@ -41,20 +41,25 @@ def post_facebook_message(fbid, recevied_message):
     print(entities)
     print("***************************************")
     message = handleIntents(entities)
-    send_message(fbid, "here is the entity")
+    send_message(fbid, message)
 
 
 def handleIntents(receivedent):
     if (receivedent['intent'][0]['value'] == "department_info"):
+
         if (receivedent['department_info_type'][0]['value'] == "general"):
+
             if (receivedent['timing_type'][0]['value'] == "open"):
-                print("hey is asking about the opening time of the department" + receivedent['datetime'][0]['value'])
+                return "hey is asking about the opening time of the   " + receivedent['department_name'][0][
+                    'value'] + " For this Date  " + receivedent['datetime'][0]['value']
             elif (receivedent['timing_type'][0]['value'] == "close"):
-                print("hey is asking about the closing time of the department" + receivedent['datetime'][0]['value'])
+
+                return "hey is asking about the closing time of the   " + receivedent['department_name'][0][
+                    'value'] + " For this Date  " + receivedent['datetime'][0]['value']
             else:
-                print("hey he is asking about Department General Info except closing or opening time")
+                return "hey he is asking about Department General Info except closing or opening time"
         else:
-            print("it's department info but not general")
+            return "it's department info but not general"
 
 
 class MessengerProfile(generic.View):
