@@ -48,7 +48,7 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent):
-    try:
+
         if receivedent['intent'][0]['value'] == "department_info":
 
             if receivedent['department_info_type'][0]['value'] == "general":
@@ -93,9 +93,9 @@ def handleIntents(receivedent):
         elif receivedent['greetings'][0]['value'] == "true":
             return "hey, how can i help you"
 
-
-    except Exception as e:
-        print("not found dude")
+        else:
+            print(receivedent['greetings'][0]['value'])
+            return "blank here "
 
 
 class MessengerProfile(generic.View):
