@@ -39,6 +39,8 @@ def post_facebook_message(fbid, recevied_message):
     entities = resp['entities']
     print("***************************************")
     print(entities['greetings'][0]['value'])
+    if entities['greetings'][0]['value'] == "true":
+        print("saad here *************")
     print("***************************************")
     message = handleIntents(entities)
 
