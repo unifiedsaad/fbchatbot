@@ -124,7 +124,7 @@ class JokesBotView(generic.View):
                 for message in entry['messaging']:
                     # Check to make sure the received call is a message call
                     # This might be delivery, optin, postback for other events
-                    print(message)
+                    print(message['message'])
                     if 'quick_reply' in message:
                         # Print the message to the terminal
                         if (message['message']['quick_reply']['payload'] == "Dep_info"):
