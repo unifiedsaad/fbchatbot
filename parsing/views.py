@@ -48,7 +48,7 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent, user):
-    try:
+    
 
         if first_entity_value(receivedent, 'intent'):
             return Intents_parser(receivedent, user)
@@ -57,10 +57,6 @@ def handleIntents(receivedent, user):
 
 
 
-
-
-    except Exception as e:
-        print("not found dude")
 
 
 def Intents_parser(receivedent, user):
