@@ -19,7 +19,6 @@ from config import CONFIG
 from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
-
 PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAFepv7EL9S65bCWe2ZCSzAWjCdEcWD0fbONiZB9qRREitKK1WbWEOQnPNFmTOmzVu1IvKMgrhGmlpMIZBrsAZC7oGEJ4lVr29eZAZC66uIZCv1hPl3n2Q0T85MF0owTAIFbwZB6kZBGXYmGM3mHwBTnnaEbpACzZAqRDeOguh2q8l2"
 VERIFY_TOKEN = "1234567890"
 
@@ -35,17 +34,11 @@ def first_entity_value(entities, entity):
     return val
 
 
-
 def post_facebook_message(fbid, recevied_message):
-
-
-
     resp = client.message(recevied_message)
     entities = resp['entities']
 
     send_message(fbid, 'hey here sending message')
-
-
 
 
 class MessengerProfile(generic.View):
@@ -77,7 +70,7 @@ class Testing(generic.View):
         d = {
             'entties': entities,
             'person': person,
-            'result' : result
+            'result': result
         }
         return JsonResponse(d)
 
@@ -103,58 +96,61 @@ class JokesBotView(generic.View):
 
         for entry in incoming_message['entry']:
             print(entry)
-            for message in entry['messaging']:
-                # Check to make sure the received call is a message call
-                # This might be delivery, optin, postback for other events
+            if "notification_type" in incoming_message:
+                print("that was notification")
+            else:
+                for message in entry['messaging']:
+                    # Check to make sure the received call is a message call
+                    # This might be delivery, optin, postback for other events
 
-                if 'quick_reply' in message:
-                    # Print the message to the terminal
-                    if (message['message']['quick_reply']['payload'] == "Dep_info"):
-                        send_generic(message['sender']['id'], 'dep')
-                    else:
-                        send_button(message['sender']['id'])
-
-                elif 'postback' in message:
-                    if (message['postback']['payload'] == "Get Started"):
-                        greeating = "Hey, i am University Enquiring Chatbot.... Ask me anything about University"
-                        send_message(message['sender']['id'], greeating)
-                        send_quick_reply(message['sender']['id'])
-                elif 'message' in message:
-                    messagepoint = message['message']
-                    if 'quick_reply' in messagepoint:
-
-                        if (messagepoint['quick_reply']['payload'] == "Dep_info"):
+                    if 'quick_reply' in message:
+                        # Print the message to the terminal
+                        if (message['message']['quick_reply']['payload'] == "Dep_info"):
                             send_generic(message['sender']['id'], 'dep')
-                        elif messagepoint['quick_reply']['payload'] == "head_info":
-                            send_generic(message['sender']['id'], 'hod')
-                        elif messagepoint['quick_reply']['payload'] == "faculty_info":
-                            send_message(message['sender']['id'], 'Please Type the name for the faculty you are looking for.. e.g : Mr. Saad Razzaq')
-                        elif messagepoint['quick_reply']['payload'] == "program_info":
-                            send_quick_reply_program(message['sender']['id'])
-                        elif messagepoint['quick_reply']['payload'] == "bscs":
-                            send_message(message['sender']['id'], 'BSCS Details goes here')
-                        elif messagepoint['quick_reply']['payload'] == "bsse":
-                            send_message(message['sender']['id'], 'BSSE Details goes here')
-                        elif messagepoint['quick_reply']['payload'] == "bsit":
-                            send_message(message['sender']['id'], 'BSIT Details goes here')
-                        elif messagepoint['quick_reply']['payload'] == "mscs":
-                            send_message(message['sender']['id'], 'BSIT Details goes here')
-
-                    elif 'attachment' in message:
-                        print('that was attachement')
-
-                    else:
-                        if 'text' in messagepoint:
-                            if (message['message']['text'] == "restart"):
-                                send_quick_reply(message['sender']['id'])
-                            else:
-
-                                # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
-                                # are sent as attachments and must be handled0p'{{ accordingly.
-                                post_facebook_message(message['sender']['id'], message['message']['text'])
                         else:
-                            send_message(message['sender']['id'], 'Hey there is problem')
+                            send_button(message['sender']['id'])
 
+                    elif 'postback' in message:
+                        if (message['postback']['payload'] == "Get Started"):
+                            greeating = "Hey, i am University Enquiring Chatbot.... Ask me anything about University"
+                            send_message(message['sender']['id'], greeating)
+                            send_quick_reply(message['sender']['id'])
+                    elif 'message' in message:
+                        messagepoint = message['message']
+                        if 'quick_reply' in messagepoint:
+
+                            if (messagepoint['quick_reply']['payload'] == "Dep_info"):
+                                send_generic(message['sender']['id'], 'dep')
+                            elif messagepoint['quick_reply']['payload'] == "head_info":
+                                send_generic(message['sender']['id'], 'hod')
+                            elif messagepoint['quick_reply']['payload'] == "faculty_info":
+                                send_message(message['sender']['id'],
+                                             'Please Type the name for the faculty you are looking for.. e.g : Mr. Saad Razzaq')
+                            elif messagepoint['quick_reply']['payload'] == "program_info":
+                                send_quick_reply_program(message['sender']['id'])
+                            elif messagepoint['quick_reply']['payload'] == "bscs":
+                                send_message(message['sender']['id'], 'BSCS Details goes here')
+                            elif messagepoint['quick_reply']['payload'] == "bsse":
+                                send_message(message['sender']['id'], 'BSSE Details goes here')
+                            elif messagepoint['quick_reply']['payload'] == "bsit":
+                                send_message(message['sender']['id'], 'BSIT Details goes here')
+                            elif messagepoint['quick_reply']['payload'] == "mscs":
+                                send_message(message['sender']['id'], 'BSIT Details goes here')
+
+                        elif 'attachment' in message:
+                            print('that was attachement')
+
+                        else:
+                            if 'text' in messagepoint:
+                                if (message['message']['text'] == "restart"):
+                                    send_quick_reply(message['sender']['id'])
+                                else:
+
+                                    # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
+                                    # are sent as attachments and must be handled0p'{{ accordingly.
+                                    post_facebook_message(message['sender']['id'], message['message']['text'])
+                            else:
+                                send_message(message['sender']['id'], 'Hey there is problem')
 
         return HttpResponse()
 
@@ -268,7 +264,6 @@ def send_generic(recipient, type, data=True):
         print("here")
 
 
-
 def send_generic_faculty(recipient, data):
     response = requests.get('https://uos.edu.pk/about/bot_faculty/' + data)
     result = response.json()
@@ -327,7 +322,6 @@ def send_receipt(recipient):
 
 
 def send_quick_reply(recipient):
-
     page.send(recipient, "Here are some suggestion, if you wanna choose",
               quick_replies=[QuickReply(title="CS Department", payload="Dep_info"),
                              QuickReply(title="CS HOD", payload="head_info"),
@@ -335,8 +329,8 @@ def send_quick_reply(recipient):
                              QuickReply(title="CS Programs", payload="program_info")],
               metadata="DEVELOPER_DEFINED_METADATA")
 
-def send_quick_reply_program(recipient):
 
+def send_quick_reply_program(recipient):
     page.send(recipient, "Here are some suggestion, if you wanna choose",
               quick_replies=[QuickReply(title="BSCS", payload="bscs"),
                              QuickReply(title="BSIT", payload="bsit"),
@@ -371,5 +365,6 @@ def send_account_linking(recipient):
 def send_text_message(recipient, text):
     page.send(recipient, text, metadata="DEVELOPER_DEFINED_METADATA")
 
+
 def discipline_details(recipient, message):
-    send_message(recipient, 'Program Detail goes here '+message)
+    send_message(recipient, 'Program Detail goes here ' + message)
