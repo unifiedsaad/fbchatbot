@@ -40,18 +40,18 @@ def post_facebook_message(fbid, recevied_message):
     print("***************************************")
     print(entities)
     print("***************************************")
-    message = handleIntents(entities)
+    message = handleIntents(entities,fbid)
     if message:
         send_message(fbid, message)
     else:
         print("can't send message, becausee it's blankkkkkkkkkkkkkkkkkkkkkkkkkkkk")
 
 
-def handleIntents(receivedent):
+def handleIntents(receivedent, user):
     try:
 
         if first_entity_value(receivedent, 'intent'):
-            return Intents_parser(receivedent)
+            return Intents_parser(receivedent, user)
         if first_entity_value(receivedent, 'greetings'):
             return "Hey, How can i help you"
 
@@ -63,9 +63,9 @@ def handleIntents(receivedent):
         print("not found dude")
 
 
-def Intents_parser(receivedent):
+def Intents_parser(receivedent, user):
     if receivedent['intent'][0]['value'] == "department_info":
-        return department_info(receivedent)
+        return department_info(receivedent, user)
     elif receivedent['intent'][0]['value'] == "faculty_profile":
         return "hey he is looking for faculty profile " + receivedent['faculty_name'][0]['value']
     elif receivedent['intent'][0]['value'] == "admission_info":
@@ -79,21 +79,22 @@ def Intents_parser(receivedent):
 
 
 
-def department_info(receivedent):
+def department_info(receivedent, user):
     if receivedent['department_info_type'][0]['value'] == "general":
 
         if receivedent['timing_type'][0]['value'] == "open":
-            return "hey is asking about the opening time of the   " + receivedent['department_name'][0][
-                'value'] + " For this Date  " + receivedent['datetime'][0]['value']
+            return "" + receivedent['department_name'][0][
+                'value'] + " will Open on 9 : 00 PM on this Date   " + receivedent['datetime'][0]['value']
         elif receivedent['timing_type'][0]['value'] == "close":
 
-            return "hey is asking about the closing time of the   " + receivedent['department_name'][0][
-                'value'] + " For this Date  " + receivedent['datetime'][0]['value']
+            return "" + receivedent['department_name'][0][
+                'value'] + "will be closed on 5:00 PM on this Date   " + receivedent['datetime'][0]['value']
         else:
-            return "hey he is asking about Department General Info except closing or opening time"
+            send_generic(user, 'dep')
+            return "Here You can Find Details"
     elif receivedent['department_info_type'][0]['value'] == "hod":
-        return "hey he is asking about hod of " + receivedent['department_name'][0][
-            'value']
+        send_generic(user, 'hod')
+        return "Here you can see Detail"
     elif receivedent['department_info_type'][0]['value'] == "Faculty":
         return "hey is asking about the faculty of " + receivedent['department_name'][0][
             'value']
