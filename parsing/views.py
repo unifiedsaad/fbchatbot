@@ -81,14 +81,8 @@ def Intents_parser(receivedent, user):
 
 def department_info(receivedent, user):
     if receivedent['department_info_type'][0]['value'] == "general":
-
-        if receivedent['timing_type'][0]['value'] == "open":
-            return "" + receivedent['department_name'][0][
-                'value'] + " will Open on 9 : 00 PM on this Date   " + receivedent['datetime'][0]['value']
-        elif receivedent['timing_type'][0]['value'] == "close":
-
-            return "" + receivedent['department_name'][0][
-                'value'] + "will be closed on 5:00 PM on this Date   " + receivedent['datetime'][0]['value']
+        if first_entity_value(receivedent, 'timing_type'):
+            return Timing_type(receivedent)
         else:
             send_generic(user, 'dep')
             return "Here You can Find Details"
@@ -112,6 +106,17 @@ def department_info(receivedent, user):
     else:
         return "it's department info but not general"
 
+
+def Timing_type(receivedent):
+    if receivedent['timing_type'][0]['value'] == "open":
+        return "" + receivedent['department_name'][0][
+            'value'] + " will Open on 9 : 00 PM on this Date   " + receivedent['datetime'][0]['value']
+    elif receivedent['timing_type'][0]['value'] == "close":
+
+        return "" + receivedent['department_name'][0][
+            'value'] + "will be closed on 5:00 PM on this Date   " + receivedent['datetime'][0]['value']
+    else:
+        return "Nohting from timing type module "
 
 class MessengerProfile(generic.View):
     def get(self, request, *args, **kwargs):
