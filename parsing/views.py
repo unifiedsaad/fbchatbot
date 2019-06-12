@@ -165,7 +165,7 @@ class JokesBotView(generic.View):
                             print('that was attachement')
 
                         elif 'is_echo' in messagepoint:
-                            print("hey that was echo here ")
+                            print("hey that was the bug idiot ")
 
                         else:
                             if 'text' in messagepoint:
