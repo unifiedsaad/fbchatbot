@@ -38,13 +38,13 @@ def post_facebook_message(fbid, recevied_message):
     resp = client.message(recevied_message)
     entities = resp['entities']
     print("***************************************")
-    print(entities['greetings'][0]['value'])
-    if entities['greetings'][0]['value'] == "true":
-        print("saad here *************")
+    print(entities)
     print("***************************************")
     message = handleIntents(entities)
-
-    send_message(fbid, message)
+    if message:
+        send_message(fbid, message)
+    else:
+        print("can't send message, becausee it's blankkkkkkkkkkkkkkkkkkkkkkkkkkkk")
 
 
 def handleIntents(receivedent):
@@ -90,8 +90,8 @@ def handleIntents(receivedent):
             return "hey is asking about the merit info"
         elif receivedent['intent'][0]['value'] == "junk":
             return "that was the junk"
-        elif receivedent['greetings'][0]['value'] == 'true':
-            return "hey, how can i help you "
+        elif receivedent['greetings'][0]['value'] == "true":
+            return "hey, how can i help you"
 
 
     except Exception as e:
