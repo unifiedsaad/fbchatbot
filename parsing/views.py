@@ -50,7 +50,7 @@ def post_facebook_message(fbid, recevied_message):
 def handleIntents(receivedent):
     try:
 
-        if first_entity_value(receivedent, 'department_info'):
+        if first_entity_value(receivedent, 'intent'):
             print("reached here")
             return department_info(receivedent)
         elif receivedent['greetings'][0]['value'] == "true":
