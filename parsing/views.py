@@ -41,6 +41,7 @@ def post_facebook_message(fbid, recevied_message):
     print(entities)
     print("***************************************")
     message = handleIntents(entities)
+
     send_message(fbid, message)
 
 
@@ -116,14 +117,14 @@ class JokesBotView(generic.View):
         # multiple messages in a single call during high load
 
         for entry in incoming_message['entry']:
-            print(entry)
+
             if "notification_type" in incoming_message:
                 print("that was notification")
             else:
                 for message in entry['messaging']:
                     # Check to make sure the received call is a message call
                     # This might be delivery, optin, postback for other events
-
+                    print(message)
                     if 'quick_reply' in message:
                         # Print the message to the terminal
                         if (message['message']['quick_reply']['payload'] == "Dep_info"):
