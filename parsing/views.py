@@ -38,10 +38,9 @@ def first_entity_value(entities, entity):
 # Helper function
 def post_facebook_message(fbid, recevied_message):
     # Remove all punctuations, lower case the text and split it based on space
-    tokens = re.sub(r"[^a-zA-Z0-9\s]", ' ', recevied_message).lower().split()
-    joke_text = ''
 
-    resp = client.message(tokens)
+
+    resp = client.message(recevied_message)
     entities = resp['entities']
     print("hey here after this")
     print(resp)
