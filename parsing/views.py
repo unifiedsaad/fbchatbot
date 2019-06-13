@@ -280,7 +280,7 @@ class JokesBotView(generic.View):
                             elif messagepoint['quick_reply']['payload'] == "faculty_info":
                                 send_message(message['sender']['id'],
                                              'Here You Can Find Faculty Profiles Of CS & IT')
-                                send_generic(message['sender']['id'], 'hod', 'CS & IT')
+                                send_generic(message['sender']['id'], 'dep', 'CS & IT')
                             elif messagepoint['quick_reply']['payload'] == "program_info":
                                 send_generic_program_dep(message['sender']['id'], 'CS & IT')
                                 send_quick_reply_program(message['sender']['id'])
