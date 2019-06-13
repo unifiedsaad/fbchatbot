@@ -22,7 +22,7 @@ from fbpage import page
 PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAFepv7EL9S65bCWe2ZCSzAWjCdEcWD0fbONiZB9qRREitKK1WbWEOQnPNFmTOmzVu1IvKMgrhGmlpMIZBrsAZC7oGEJ4lVr29eZAZC66uIZCv1hPl3n2Q0T85MF0owTAIFbwZB6kZBGXYmGM3mHwBTnnaEbpACzZAqRDeOguh2q8l2"
 VERIFY_TOKEN = "1234567890"
 
-client = Wit('LIIWHNIZGWQPCBAGVBEBNG6BIMUICB6A')
+client = Wit('BA7KJ6C3ATHG7WPYGEO36U3FL4IL4BTQ')
 
 
 def first_entity_value(entities, entity):
@@ -32,6 +32,7 @@ def first_entity_value(entities, entity):
     if not val:
         return None
     return val
+
 
 
 def post_facebook_message(fbid, recevied_message):
