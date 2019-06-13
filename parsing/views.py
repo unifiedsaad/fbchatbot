@@ -97,7 +97,7 @@ def department_info(receivedent, user):
                 if first_entity_value(receivedent, 'department_name'):
                     send_generic(user, 'dep', receivedent['department_name'][0][
                         'value'])
-
+                    return "Here You can Find Details"
                 else:
 
                     return "Please Mention Department Correct Name to Find Details"
@@ -106,7 +106,7 @@ def department_info(receivedent, user):
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'hod', receivedent['department_name'][0][
                     'value'])
-
+                return "Here you can see Detail"
             else:
                 send_generic(user, 'hod')
                 return "Here you can see Detail"
@@ -115,7 +115,7 @@ def department_info(receivedent, user):
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'dep', receivedent['department_name'][0][
                     'value'])
-
+                return "Here You can Find Details"
             else:
 
                 return "Please Mention Department Correct Name to Find Details"
@@ -125,7 +125,7 @@ def department_info(receivedent, user):
                 send_generic_faculty(user, receivedent['faculty_name'][0]['value'],
                                      receivedent['department_name'][0][
                                          'value'])
-
+                return "Here you go"
             else:
                 send_generic_faculty(user, receivedent['faculty_name'][0]['value'])
                 return "Here you go"
@@ -140,7 +140,7 @@ def department_info(receivedent, user):
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'dep', receivedent['department_name'][0][
                     'value'])
-
+                return "Here You can Find Contact Details"
             else:
 
                 return "Please Mention Department Correct Name to Find Details"
@@ -153,7 +153,7 @@ def department_info(receivedent, user):
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'dep', receivedent['department_name'][0][
                     'value'])
-
+                return "Here You can Find Details"
             else:
 
                 return "Please Mention Department Correct Name to Find Details"
