@@ -48,15 +48,14 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent, user):
-    try:
+ 
 
         if first_entity_value(receivedent, 'intent'):
             return Intents_parser(receivedent, user)
         if first_entity_value(receivedent, 'greetings'):
             return "Hey, How can i help you"
 
-    except Exception as e:
-        print("not found dude")
+
 
 
 def Intents_parser(receivedent, user):
@@ -132,12 +131,16 @@ def department_info(receivedent, user):
                 return "Here you go"
 
         elif receivedent['department_info_type'][0]['value'] == "programs":
+            print("reached in program section")
             if first_entity_value(receivedent, 'department_name'):
+                print('reached in department section')
                 if first_entity_value(receivedent, 'program_name'):
+                    print("reached in name section")
                     send_generic_program(user, receivedent['program_name'][0][
                         'value'])
                     return "Here you Can See Detail of " + receivedent['program_name'][0]['value']
                 else:
+                    print('reached in else section')
                     send_generic_program_dep(user, receivedent['department_name'][0][
                         'value'])
                     return "Here are the List of Programs"
