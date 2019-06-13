@@ -432,6 +432,7 @@ def send_generic(recipient, type, data=""):
 
 
 def send_generic_faculty(recipient, data, dep=""):
+    data = urllib.parse.quote_plus(data)
     if (dep):
         response = requests.get('https://uos.edu.pk/about/bot_faculty/' + data + "/" + dep)
         result = response.json()
@@ -476,6 +477,7 @@ def send_generic_faculty(recipient, data, dep=""):
 
 
 def send_generic_program(recipient, data):
+    data = urllib.parse.quote_plus(data)
     response = requests.get('https://uos.edu.pk/about/bot_program/' + data)
     result = response.json()
     if result:
@@ -495,6 +497,7 @@ def send_generic_program(recipient, data):
         send_typing_off(recipient)
 
 def send_generic_program_dep(recipient, data):
+    data = urllib.parse.quote_plus(data)
     print(data)
     response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
     result = response.json()
