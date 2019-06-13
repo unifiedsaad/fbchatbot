@@ -476,9 +476,16 @@ def send_generic_program(recipient, data):
     response = requests.get('https://uos.edu.pk/about/bot_program/' + data)
     result = response.json()
     if result:
+        send_message(recipient, 'Duration : ' + result[0]['duration'])
+        send_message(recipient, 'Credit Hours ' + result[0]['credit_hour'])
+        send_message(recipient, 'Eligibility ' + result[0]['requirement'])
         page.send(recipient, Template.Buttons(result[0]['name'], [
             Template.ButtonWeb("See More Detail", "https://uos.edu.pk/department/academic_programs/" +
-                               result[0]['dpartment'])
+                               result[0]['dpartment']),
+            Template.ButtonWeb("Prospectus Jump", "https://uos.edu.pk/uploads/faculties/covers/" +
+                               result[0]['scheme_file']),
+            Template.ButtonWeb("Scheme of Study", "https://uos.edu.pk/uploads/faculties/schemes/" +
+                               result[0]['detail_scheme'])
         ]))
     else:
         send_message(recipient, 'Sorry, but i am unable to Find' + data)
