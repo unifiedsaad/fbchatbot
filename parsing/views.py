@@ -123,10 +123,17 @@ def department_info(receivedent, user):
 
         elif receivedent['department_info_type'][0]['value'] == "Faculty":
             if first_entity_value(receivedent, 'department_name'):
-                send_generic_faculty(user, receivedent['faculty_name'][0]['value'],
-                                     receivedent['department_name'][0][
-                                         'value'])
-                return "Here you go"
+                if first_entity_value(receivedent, 'faculty_name'):
+                    send_generic_faculty(user, receivedent['faculty_name'][0]['value'],
+                                         receivedent['department_name'][0][
+                                             'value'])
+                    return "Here you go"
+                else:
+                    send_generic(user, 'dep', receivedent['department_name'][0][
+                        'value'])
+                    return "Here you Can Find All the Faculty Members of " + receivedent['department_name'][0][
+                        'value']
+
             else:
                 send_generic_faculty(user, receivedent['faculty_name'][0]['value'])
                 return "Here you go"
