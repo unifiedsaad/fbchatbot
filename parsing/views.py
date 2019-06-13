@@ -48,12 +48,15 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent, user):
+    try:
 
         if first_entity_value(receivedent, 'intent'):
             return Intents_parser(receivedent, user)
         if first_entity_value(receivedent, 'greetings'):
             return "Hey, How can i help you"
 
+    except Exception as e:
+        print("not found dude")
 
 
 def Intents_parser(receivedent, user):
@@ -361,16 +364,48 @@ def callback_clicked_button(payload, event):
 
 
 def send_generic(recipient, type, data=""):
+    data = re.sub('[^A-Za-z0-9]+', '', data)
     if (type == "dep"):
         if (data):
             response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
-            print(response)
+            result = response.json()
+            if result:
+                page.send(recipient, Template.Generic([
+                    Template.GenericElement(result[0]['name'],
+                                            subtitle="Department of " + result[0]['name'],
+                                            item_url="https://uos.edu.pk/department/profile/" + result[0]['id'],
+                                            image_url="https://uos.edu.pk/uploads/departments/banner/" + result[0][
+                                                'cover'],
+                                            buttons=[
+                                                Template.ButtonWeb("Academic Programs",
+                                                                   "https://uos.edu.pk/department/academic_programs/" +
+                                                                   result[0]['id']),
+                                                Template.ButtonWeb("Faculty",
+                                                                   "https://uos.edu.pk/department/faculty_list/" +
+                                                                   result[0]['id']),
+                                                Template.ButtonPhoneNumber("Email", result[0]['email'])
+                                            ])
 
+                ]))
     elif type == "hod":
+        if (data):
+            response = requests.get('https://uos.edu.pk/about/bot_hod/' + data)
+            result = response.json()
+            if result:
+                page.send(recipient, Template.Generic([
+                    Template.GenericElement(result[0]['name'],
+                                            subtitle=result[0]['designation'],
+                                            item_url="https://uos.edu.pk/faculty/profile/" + result[0]['username'],
+                                            image_url="https://uos.edu.pk/uploads/faculty/profiles/" + result[0][
+                                                'picture'],
+                                            buttons=[
+                                                Template.ButtonWeb("Open Profile",
+                                                                   "https://uos.edu.pk/faculty/profile/" + result[0][
+                                                                       'username']),
+                                                Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                            ])
 
-                print("hod")
-                print(type)
-                print(data)
+                ]))
 
 
 def send_generic_faculty(recipient, data, dep=""):
