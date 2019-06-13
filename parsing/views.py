@@ -2,7 +2,7 @@ import json, requests, random, re
 from pprint import pprint
 from django.http import JsonResponse
 from wit import Wit
-
+import urllib
 from django.views import generic
 from django.http.response import HttpResponse
 
@@ -364,7 +364,7 @@ def callback_clicked_button(payload, event):
 
 
 def send_generic(recipient, type, data=""):
-    data = re.sub('[^A-Za-z0-9]+', ' ', data)
+    data = urllib.urlencode(data)
     if (type == "dep"):
         if (data):
             print("reached for dep contst")
