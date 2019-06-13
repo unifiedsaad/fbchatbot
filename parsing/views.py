@@ -368,20 +368,18 @@ def send_generic(recipient, type, data=""):
     data = urllib.parse.quote_plus(data)
     if (type == "dep"):
         if (data):
-            print("reached for dep contst")
-            print(data)
+
             response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
             result = response.json()
 
             if result:
-                print(result)
-                print("reached for result here")
+
                 page.send(recipient, Template.Generic([
                     Template.GenericElement(result[0]['name'],
                                             subtitle="Department of " + result[0]['name'],
                                             item_url="https://uos.edu.pk/department/profile/" + result[0]['id'],
                                             image_url="https://uos.edu.pk/uploads/departments/banner/" + result[0][
-                                                'cover'],
+                                                'banner'],
                                             buttons=[
                                                 Template.ButtonWeb("Academic Programs",
                                                                    "https://uos.edu.pk/department/academic_programs/" +
@@ -395,8 +393,11 @@ def send_generic(recipient, type, data=""):
                 ]))
     elif type == "hod":
         if (data):
+            print(data)
             response = requests.get('https://uos.edu.pk/about/bot_hod/' + data)
             result = response.json()
+            print(result)
+            print("result section there")
             if result:
                 page.send(recipient, Template.Generic([
                     Template.GenericElement(result[0]['name'],
