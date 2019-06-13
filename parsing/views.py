@@ -97,7 +97,7 @@ def department_info(receivedent, user):
                 if first_entity_value(receivedent, 'department_name'):
                     send_generic(user, 'dep', receivedent['department_name'][0][
                         'value'])
-                    return "Here You can Find Details"
+                    return "Here You can Find Details of the department"
                 else:
 
                     return "Please Mention Department Correct Name to Find Details"
@@ -106,16 +106,16 @@ def department_info(receivedent, user):
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'hod', receivedent['department_name'][0][
                     'value'])
-                return "Here you can see Detail"
+                return "Here you can see Detail of the department HOD"
             else:
-                send_generic(user, 'hod')
-                return "Here you can see Detail"
+
+                return "Please Mention Department Name for HOD"
 
         elif receivedent['department_info_type'][0]['value'] == "contact_details":
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'dep', receivedent['department_name'][0][
                     'value'])
-                return "Here You can Find Details"
+                return "Here You can Find Details of the department contact"
             else:
 
                 return "Please Mention Department Correct Name to Find Details"
@@ -367,9 +367,12 @@ def send_generic(recipient, type, data=""):
     data = re.sub('[^A-Za-z0-9]+', ' ', data)
     if (type == "dep"):
         if (data):
+            print("reached for dep contst")
             response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
             result = response.json()
             if result:
+                print(result)
+                print("reached for result here")
                 page.send(recipient, Template.Generic([
                     Template.GenericElement(result[0]['name'],
                                             subtitle="Department of " + result[0]['name'],
