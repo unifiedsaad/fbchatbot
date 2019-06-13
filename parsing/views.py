@@ -48,7 +48,7 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent, user):
-  
+
         if first_entity_value(receivedent, 'intent'):
             return Intents_parser(receivedent, user)
         if first_entity_value(receivedent, 'greetings'):
@@ -364,10 +364,7 @@ def send_generic(recipient, type, data=""):
     if (type == "dep"):
         if (data):
             response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
-            result = response.json()
-            if result:
-                print("reached here ")
-                print(result)
+            print(response)
 
     elif type == "hod":
 
