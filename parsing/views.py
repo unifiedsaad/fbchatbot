@@ -153,7 +153,7 @@ def department_info(receivedent, user):
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'dep', receivedent['department_name'][0][
                     'value'])
-                return "Here You can Find Details"
+                return "Here You can Find Details here department info type not mention that's why "
             else:
 
                 return "Please Mention Department Correct Name to Find Details"
@@ -161,7 +161,7 @@ def department_info(receivedent, user):
         if first_entity_value(receivedent, 'department_name'):
             send_generic(user, 'dep', receivedent['department_name'][0][
                 'value'])
-            return "Here You can Find Details"
+            return "Here You can Find Details where department info type is not mentioned"
 
 
 def Timing_type(receivedent):
