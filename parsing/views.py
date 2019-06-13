@@ -389,7 +389,7 @@ def send_generic(recipient, type, data=""):
                                                 Template.ButtonWeb("Faculty",
                                                                    "https://uos.edu.pk/department/faculty_list/" +
                                                                    result[0]['id']),
-                                                Template.ButtonPhoneNumber("Email", result[0]['email'])
+                                                Template.ButtonPhoneNumber("Phone", '+92 48 9230879')
                                             ])
 
                 ]))
@@ -408,7 +408,7 @@ def send_generic(recipient, type, data=""):
                                                 Template.ButtonWeb("Open Profile",
                                                                    "https://uos.edu.pk/faculty/profile/" + result[0][
                                                                        'username']),
-                                                Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                                Template.ButtonPhoneNumber("Contact", '+92 48 9230879')
                                             ])
 
                 ]))
@@ -428,7 +428,7 @@ def send_generic_faculty(recipient, data, dep=""):
                                             Template.ButtonWeb("Open Profile",
                                                                "https://uos.edu.pk/faculty/profile/" + result[0][
                                                                    'username']),
-                                            Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                            Template.ButtonPhoneNumber("Contact", '+92 48 9230879')
                                         ])
 
             ]))
@@ -449,7 +449,7 @@ def send_generic_faculty(recipient, data, dep=""):
                                             Template.ButtonWeb("Open Profile",
                                                                "https://uos.edu.pk/faculty/profile/" + result[0][
                                                                    'username']),
-                                            Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                            Template.ButtonPhoneNumber("Contact", '+92 48 9230879')
                                         ])
 
             ]))
