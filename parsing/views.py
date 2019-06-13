@@ -48,14 +48,15 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent, user):
-
+    try:
 
         if first_entity_value(receivedent, 'intent'):
             return Intents_parser(receivedent, user)
         if first_entity_value(receivedent, 'greetings'):
             return "Hey, How can i help you"
 
-
+    except Exception as e:
+        print("not found dude")
 
 
 def Intents_parser(receivedent, user):
@@ -494,7 +495,6 @@ def send_generic_program(recipient, data):
         send_typing_off(recipient)
 
 def send_generic_program_dep(recipient, data):
-    print(data)
     response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
     result = response.json()
     if result:
