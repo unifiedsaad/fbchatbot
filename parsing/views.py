@@ -102,7 +102,7 @@ def department_info(receivedent, user):
 
                     return "Please Mention Department Correct Name to Find Details"
 
-        elif receivedent['department_info_type'][0]['value'] == "HOD":
+        elif receivedent['department_info_type'][0]['value'] == "hod":
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'hod', receivedent['department_name'][0][
                     'value'])
@@ -368,8 +368,10 @@ def send_generic(recipient, type, data=""):
     if (type == "dep"):
         if (data):
             print("reached for dep contst")
+            print(data)
             response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
             result = response.json()
+
             if result:
                 print(result)
                 print("reached for result here")
