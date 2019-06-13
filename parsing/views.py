@@ -138,7 +138,7 @@ def department_info(receivedent, user):
                         'value'])
                     return "Here you Can See Detail of " + receivedent['program_name'][0]['value']
                 else:
-                    send_generic_program(user, receivedent['program_name'][0][
+                    send_generic_program_dep(user, receivedent['department_name'][0][
                         'value'])
                     return "Here are the List of Programs"
             else:
@@ -147,9 +147,8 @@ def department_info(receivedent, user):
                         'value'])
                     return "Here you Can See Detail of " + receivedent['program_name'][0]['value']
                 else:
-                    send_generic_program(user, receivedent['program_name'][0][
-                        'value'])
-                    return "Here are the List of Programs"
+
+                    return "we are unable to Parse this query, Please Enter Correct Department and Program Name"
         elif receivedent['department_info_type'][0]['value'] == "contact_details":
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'dep', receivedent['department_name'][0][
@@ -486,6 +485,20 @@ def send_generic_program(recipient, data):
                                result[0]['scheme_file']),
             Template.ButtonWeb("Scheme of Study", "https://uos.edu.pk/uploads/faculties/schemes/" +
                                result[0]['detail_scheme'])
+        ]))
+    else:
+        send_message(recipient, 'Sorry, but i am unable to Find' + data)
+        send_typing_off(recipient)
+
+def send_generic_program_dep(recipient, data):
+    response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
+    result = response.json()
+    if result:
+
+        page.send(recipient, Template.Buttons(result[0]['name'], [
+            Template.ButtonWeb("See All Programs", "https://uos.edu.pk/department/academic_programs/" +
+                               result[0]['dpartment'])
+
         ]))
     else:
         send_message(recipient, 'Sorry, but i am unable to Find' + data)
