@@ -2,7 +2,7 @@ import json, requests, random, re
 from pprint import pprint
 from django.http import JsonResponse
 from wit import Wit
-import urllib
+import urllib.parse
 from django.views import generic
 from django.http.response import HttpResponse
 
@@ -365,7 +365,7 @@ def callback_clicked_button(payload, event):
 
 
 def send_generic(recipient, type, data=""):
-    data = urllib.urlencode(data)
+    data = urllib.parse.quote_plus(data)
     if (type == "dep"):
         if (data):
             print("reached for dep contst")
@@ -438,7 +438,7 @@ def send_generic_faculty(recipient, data, dep=""):
     else:
         response = requests.get('https://uos.edu.pk/about/bot_faculty/' + data)
         result = response.json()
-        print(result[0])
+
         if result:
             page.send(recipient, Template.Generic([
                 Template.GenericElement(result[0]['name'],

@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parsing/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="440" column="14" lean-forward="true" selection-start-line="440" selection-start-column="14" selection-end-line="440" selection-end-column="14" />
+            <state relative-caret-position="296">
+              <caret line="367" column="35" selection-start-line="367" selection-start-column="35" selection-end-line="367" selection-end-column="35" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -138,6 +138,7 @@
       <find>send_generic_faculty</find>
       <find>send_generic</find>
       <find>Here You can Find Details</find>
+      <find>Here you can see Detail of the department HOD</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -254,12 +255,12 @@
       <workItem from="1557677577937" duration="23311000" />
       <workItem from="1560320715737" duration="3799000" />
       <workItem from="1560328840027" duration="8884000" />
-      <workItem from="1560407114701" duration="6599000" />
+      <workItem from="1560407114701" duration="7121000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73296000" />
+    <option name="totallyTimeSpent" value="73818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="795" extended-state="6" />
@@ -415,8 +416,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parsing/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="440" column="14" lean-forward="true" selection-start-line="440" selection-start-column="14" selection-end-line="440" selection-end-column="14" />
+        <state relative-caret-position="296">
+          <caret line="367" column="35" selection-start-line="367" selection-start-column="35" selection-end-line="367" selection-end-column="35" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
