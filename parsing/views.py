@@ -63,11 +63,25 @@ def Intents_parser(receivedent, user):
     if receivedent['intent'][0]['value'] == "department_info":
         return department_info(receivedent, user)
     elif receivedent['intent'][0]['value'] == "faculty_profile":
-        return "hey he is looking for faculty profile " + receivedent['faculty_name'][0]['value']
+        if first_entity_value(receivedent, 'department_name'):
+            send_generic_faculty(user, receivedent['faculty_name'][0]['value'],
+                                 receivedent['department_name'][0][
+                                     'value'])
+            return "Here you go"
+        else:
+            send_generic_faculty(user, receivedent['faculty_name'][0]['value'])
+            return "Here you go"
     elif receivedent['intent'][0]['value'] == "admission_info":
-        return "hey he is asking for admission info "
+        page.send(user, Template.Buttons('Admissions', [
+            Template.ButtonWeb("Private Admissions", "https://uos.edu.pk/examination/Admissions_Schedule"),
+            Template.ButtonWeb("Regular Admissions", "https://admissions.uos.edu.pk/importantdates")
+        ]))
+        return "Here you can Find All Admisison Related Info"
     elif receivedent['intent'][0]['value'] == "merit_info":
-        return "hey is asking about the merit info"
+        page.send(user, Template.Buttons('Merit Info', [
+            Template.ButtonWeb("Merit Lists", "https://uos.edu.pk/examination/merits")
+        ]))
+        return "Here you can Find All info Related To Merit"
     elif receivedent['intent'][0]['value'] == "junk":
         return "that was the junk"
     else:
