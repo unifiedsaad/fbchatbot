@@ -495,10 +495,12 @@ def send_generic_program(recipient, data):
         send_typing_off(recipient)
 
 def send_generic_program_dep(recipient, data):
+    print(data)
     response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
     result = response.json()
+    print(result)
     if result:
-
+        print(result[0]['name'])
         page.send(recipient, Template.Buttons(result[0]['name'], [
             Template.ButtonWeb("See All Programs", "https://uos.edu.pk/department/academic_programs/" +
                                result[0]['id'])
