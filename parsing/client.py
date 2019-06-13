@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue May 15 23:27:42 2018
-@author: batman
+
+@author: Saad MIrza
 """
 
 import json
@@ -9,7 +9,7 @@ import re
 import numpy as np
 
 intent_types = [
-    'department_info', 'BookRestaurant', 'GetWeather', 'RateBook', 'SearchCreativeWork', 'SearchScreeningEvent'
+    'expressions-1', 'intent', 'program_name', 'timing_type', 'program_type', 'result_type'
 ]
 
 
@@ -17,7 +17,7 @@ intent_types = [
 def clean_str(string):
     """
     Tokenization/string cleaning for all datasets except for SST.
-    Original taken from https://github.com/yoonkim/CNN_sentence/blob/master/process_data.py
+
     """
     string = re.sub(r"[^A-Za-z0-9(),!?\'\`]", " ", string)
     string = re.sub(r"\'s", " \'s", string)
@@ -57,7 +57,7 @@ def process_data():
         for i in range(len(sent_list)):
             label_list.append(intent_types[intent])
 
-        filename = intent_types[intent] + '_train.txt'
+        filename = intent_types[intent] + '.json'
 
         with open("data/processed_data/" + filename, mode="w", encoding='utf-8') as outfile:
             for s in sent_list:
@@ -86,7 +86,7 @@ def process_data():
             label_list.append(intent_types[intent])
         filename = intent_types[intent] + '_test.txt'
 
-        with open("data/processed_data/" + filename, mode="w", encoding='utf-8') as outfile:
+        with open("training/expressions/" + filename, mode="w", encoding='utf-8') as outfile:
             for s in sent_list:
                 outfile.write("%s\n" % s)
         test_list.extend(sent_list)
@@ -94,10 +94,10 @@ def process_data():
 
         # how to save list as array: np.array(myList).dump(open('array.npy', 'wb'))
         # how to load aan array: myArray = np.load(open('array.npy', 'rb'))
-        np.array(train_list).dump(open('data/train_text.npy', 'wb'))
-        np.array(train_label_list).dump(open('data/train_label.npy', 'wb'))
-        np.array(test_list).dump(open('data/test_text.npy', 'wb'))
-        np.array(test_label_list).dump(open('data/test_label.npy', 'wb'))
+        np.array(train_list).dump(open('training/entities/admission_type.json', 'wb'))
+        np.array(train_label_list).dump(open('training/entities/train_label.npy', 'wb'))
+        np.array(test_list).dump(open('training/entities/datetime.json', 'wb'))
+        np.array(test_label_list).dump(open('training/degree_name.json', 'wb'))
 
 
 if __name__ == '__main__':
