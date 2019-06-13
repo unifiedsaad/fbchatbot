@@ -48,7 +48,7 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent, user):
- 
+
 
         if first_entity_value(receivedent, 'intent'):
             return Intents_parser(receivedent, user)
@@ -496,11 +496,11 @@ def send_generic_program(recipient, data):
 def send_generic_program_dep(recipient, data):
     response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
     result = response.json()
-    if result:
+    if data:
 
         page.send(recipient, Template.Buttons(result[0]['name'], [
             Template.ButtonWeb("See All Programs", "https://uos.edu.pk/department/academic_programs/" +
-                               result[0]['dpartment'])
+                               result[0]['id'])
 
         ]))
     else:
