@@ -373,12 +373,10 @@ def send_generic(recipient, type, data=""):
                 print(result)
 
     elif type == "hod":
-        if (data):
-            response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
-            result = response.json()
-            if result:
+
                 print("hod")
-                print("result")
+                print(type)
+                print(data)
 
 
 def send_generic_faculty(recipient, data, dep=""):
