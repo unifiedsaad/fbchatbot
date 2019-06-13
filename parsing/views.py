@@ -89,10 +89,29 @@ def Intents_parser(receivedent, user):
 
 
 def department_info(receivedent, user):
-    if receivedent['department_info_type'][0]['value'] == "general":
-        if first_entity_value(receivedent, 'timing_type'):
-            return Timing_type(receivedent)
-        else:
+    if first_entity_value(receivedent, 'department_info_type'):
+        if receivedent['department_info_type'][0]['value'] == "general":
+            if first_entity_value(receivedent, 'timing_type'):
+                return Timing_type(receivedent)
+            else:
+                if first_entity_value(receivedent, 'department_name'):
+                    send_generic(user, 'dep', receivedent['department_name'][0][
+                        'value'])
+                    return "Here You can Find Details"
+                else:
+
+                    return "Please Mention Department Correct Name to Find Details"
+
+        elif receivedent['department_info_type'][0]['value'] == "HOD":
+            if first_entity_value(receivedent, 'department_name'):
+                send_generic(user, 'hod', receivedent['department_name'][0][
+                    'value'])
+                return "Here you can see Detail"
+            else:
+                send_generic(user, 'hod')
+                return "Here you can see Detail"
+
+        elif receivedent['department_info_type'][0]['value'] == "contact_details":
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'dep', receivedent['department_name'][0][
                     'value'])
@@ -101,46 +120,48 @@ def department_info(receivedent, user):
 
                 return "Please Mention Department Correct Name to Find Details"
 
-    elif receivedent['department_info_type'][0]['value'] == "hod":
-        if first_entity_value(receivedent, 'department_name'):
-            send_generic(user, 'hod', receivedent['department_name'][0][
-                'value'])
-            return "Here you can see Detail"
-        else:
-            send_generic(user, 'hod')
-            return "Here you can see Detail"
+        elif receivedent['department_info_type'][0]['value'] == "Faculty":
+            if first_entity_value(receivedent, 'department_name'):
+                send_generic_faculty(user, receivedent['faculty_name'][0]['value'],
+                                     receivedent['department_name'][0][
+                                         'value'])
+                return "Here you go"
+            else:
+                send_generic_faculty(user, receivedent['faculty_name'][0]['value'])
+                return "Here you go"
 
-    elif receivedent['department_info_type'][0]['value'] == "Faculty":
-        if first_entity_value(receivedent, 'department_name'):
-            send_generic_faculty(user, receivedent['faculty_name'][0]['value'],
-                                 receivedent['department_name'][0][
-                                     'value'])
-            return "Here you go"
-        else:
-            send_generic_faculty(user, receivedent['faculty_name'][0]['value'])
-            return "Here you go"
+        elif receivedent['department_info_type'][0]['value'] == "programs":
+            if first_entity_value(receivedent, 'department_name'):
+                send_generic_program(user, receivedent['program_name'][0][
+                    'value'])
+            else:
+                return "Please Enter Correct Program Name to Find This Program"
+        elif receivedent['department_info_type'][0]['value'] == "contact_details":
+            if first_entity_value(receivedent, 'department_name'):
+                send_generic(user, 'dep', receivedent['department_name'][0][
+                    'value'])
+                return "Here You can Find Contact Details"
+            else:
 
-    elif receivedent['department_info_type'][0]['value'] == "programs":
-        if first_entity_value(receivedent, 'department_name'):
-            send_generic_program(user, receivedent['program_name'][0][
-                'value'])
+                return "Please Mention Department Correct Name to Find Details"
+
+        elif receivedent['department_info_type'][0]['value'] == "admission":
+            return "The admission will start in " + receivedent['department_name'][0][
+                'value'] + "in September"
+
         else:
-            return "Please Enter Correct Program Name to Find This Program"
-    elif receivedent['department_info_type'][0]['value'] == "contact_details":
+            if first_entity_value(receivedent, 'department_name'):
+                send_generic(user, 'dep', receivedent['department_name'][0][
+                    'value'])
+                return "Here You can Find Details"
+            else:
+
+                return "Please Mention Department Correct Name to Find Details"
+    else:
         if first_entity_value(receivedent, 'department_name'):
             send_generic(user, 'dep', receivedent['department_name'][0][
                 'value'])
-            return "Here You can Find Contact Details"
-        else:
-
-            return "Please Mention Department Correct Name to Find Details"
-
-    elif receivedent['department_info_type'][0]['value'] == "admission":
-        return "The admission will start in " + receivedent['department_name'][0][
-            'value'] + "in September"
-
-    else:
-        return "nothing from department info type module"
+            return "Here You can Find Details"
 
 
 def Timing_type(receivedent):
