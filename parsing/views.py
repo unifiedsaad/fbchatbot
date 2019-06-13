@@ -40,7 +40,7 @@ def post_facebook_message(fbid, recevied_message):
     print("***************************************")
     print(entities)
     print("***************************************")
-    message = handleIntents(entities,fbid)
+    message = handleIntents(entities, fbid)
     if message:
         send_message(fbid, message)
     else:
@@ -74,32 +74,59 @@ def Intents_parser(receivedent, user):
         return "nothing but intents"
 
 
-
 def department_info(receivedent, user):
     if receivedent['department_info_type'][0]['value'] == "general":
         if first_entity_value(receivedent, 'timing_type'):
             return Timing_type(receivedent)
         else:
-            send_generic(user, 'dep')
-            return "Here You can Find Details"
+            if first_entity_value(receivedent, 'department_name'):
+                send_generic(user, 'dep', receivedent['department_name'][0][
+                    'value'])
+                return "Here You can Find Details"
+            else:
+
+                return "Please Mention Department Correct Name to Find Details"
+
     elif receivedent['department_info_type'][0]['value'] == "hod":
-        send_generic(user, 'hod')
-        return "Here you can see Detail"
+        if first_entity_value(receivedent, 'department_name'):
+            send_generic(user, 'hod', receivedent['department_name'][0][
+                'value'])
+            return "Here you can see Detail"
+        else:
+            send_generic(user, 'hod')
+            return "Here you can see Detail"
+
     elif receivedent['department_info_type'][0]['value'] == "Faculty":
-        return send_generic_faculty(user, receivedent['faculty_name'][0]['value'])
+        if first_entity_value(receivedent, 'department_name'):
+            send_generic_faculty(user, receivedent['faculty_name'][0]['value'],
+                                 receivedent['department_name'][0][
+                                     'value'])
+            return "Here you go"
+        else:
+            send_generic_faculty(user, receivedent['faculty_name'][0]['value'])
+            return "Here you go"
+
     elif receivedent['department_info_type'][0]['value'] == "programs":
-        return "hey is asking about the programs of " + receivedent['department_name'][0][
-            'value']
+        if first_entity_value(receivedent, 'department_name'):
+            send_generic_program(user, receivedent['program_name'][0][
+                'value'])
+        else:
+            return "Please Enter Correct Program Name to Find This Program"
     elif receivedent['department_info_type'][0]['value'] == "contact_details":
-        return "hey is asking about the Contact Details of " + receivedent['department_name'][0][
-            'value']
+        if first_entity_value(receivedent, 'department_name'):
+            send_generic(user, 'dep', receivedent['department_name'][0][
+                'value'])
+            return "Here You can Find Contact Details"
+        else:
+
+            return "Please Mention Department Correct Name to Find Details"
 
     elif receivedent['department_info_type'][0]['value'] == "admission":
-        return "hey is asking about the admission Details of " + receivedent['department_name'][0][
-            'value']
+        return "The admission will start in " + receivedent['department_name'][0][
+            'value'] + "in September"
 
     else:
-        return "it's department info but not general"
+        return "nothing from department info type module"
 
 
 def Timing_type(receivedent):
@@ -112,6 +139,7 @@ def Timing_type(receivedent):
             'value'] + "is 5:00 PM "
     else:
         return "Nohting from timing type module "
+
 
 class MessengerProfile(generic.View):
     def get(self, request, *args, **kwargs):
@@ -199,7 +227,7 @@ class JokesBotView(generic.View):
                                 send_generic(message['sender']['id'], 'hod')
                             elif messagepoint['quick_reply']['payload'] == "faculty_info":
                                 send_message(message['sender']['id'],
-                                             'Please Type the name for the faculty you are looking for.. e.g : Mr. Saad Razzaq')
+                                             'Please Type the name for the faculty you are looking for.. e.g : Mr. Saad Razzaq with Department Name')
                             elif messagepoint['quick_reply']['payload'] == "program_info":
                                 send_quick_reply_program(message['sender']['id'])
                             elif messagepoint['quick_reply']['payload'] == "bscs":
@@ -288,14 +316,6 @@ def send_file(recipient):
 
 
 def send_button(recipient):
-    """
-    Shortcuts are supported
-    page.send(recipient, Template.Buttons("hello", [
-        {'type': 'web_url', 'title': 'Open Web URL', 'value': 'https://www.oculus.com/en-us/rift/'},
-        {'type': 'postback', 'title': 'tigger Postback', 'value': 'DEVELOPED_DEFINED_PAYLOAD'},
-        {'type': 'phone_number', 'title': 'Call Phone Number', 'value': '+16505551234'},
-    ]))
-    """
     page.send(recipient, Template.Buttons("hello", [
         Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
         Template.ButtonPostBack("trigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
@@ -308,58 +328,103 @@ def callback_clicked_button(payload, event):
     print(payload, event)
 
 
-def send_generic(recipient, type, data=True):
+def send_generic(recipient, type, data=""):
     if (type == "dep"):
-        page.send(recipient, Template.Generic([
-            Template.GenericElement("CS & IT",
-                                    subtitle="Department of Computer Science & Information Technology",
-                                    item_url="https://uos.edu.pk/department/profile/2",
-                                    image_url="https://uos.edu.pk/uploads/departments/banner/IT.jpg",
-                                    buttons=[
-                                        Template.ButtonWeb("Academic Programs",
-                                                           "https://uos.edu.pk/department/academic_programs/2"),
-                                        Template.ButtonWeb("Faculty",
-                                                           "https://uos.edu.pk/department/faculty_list/2"),
-                                        Template.ButtonPhoneNumber("Contact", "+16505551234")
-                                    ])
+        if (data):
+            response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
+            result = response.json()
+            if result:
+                page.send(recipient, Template.Generic([
+                    Template.GenericElement(result[0]['name'],
+                                            subtitle="Department of " + result[0]['name'],
+                                            item_url="https://uos.edu.pk/department/profile/" + result[0]['id'],
+                                            image_url="https://uos.edu.pk/uploads/departments/banner/" + result[0][
+                                                'cover'],
+                                            buttons=[
+                                                Template.ButtonWeb("Academic Programs",
+                                                                   "https://uos.edu.pk/department/academic_programs/" +
+                                                                   result[0]['id']),
+                                                Template.ButtonWeb("Faculty",
+                                                                   "https://uos.edu.pk/department/faculty_list/" +
+                                                                   result[0]['id']),
+                                                Template.ButtonPhoneNumber("Email", result[0]['email'])
+                                            ])
 
-        ]))
+                ]))
     elif type == "hod":
-        page.send(recipient, Template.Generic([
-            Template.GenericElement("Mr. Saad Razzaq",
-                                    subtitle="Assistant Professor / Incharge",
-                                    item_url="https://uos.edu.pk/faculty/profile/muhammadsaadrazzaq",
-                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/Saad_Razzaq.JPG",
-                                    buttons=[
-                                        Template.ButtonWeb("Open Profile",
-                                                           "https://uos.edu.pk/faculty/profile/muhammadsaadrazzaq"),
-                                        Template.ButtonPhoneNumber("Contact", "+92489230879")
-                                    ])
+        if (data):
+            response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
+            result = response.json()
+            if result:
+                page.send(recipient, Template.Generic([
+                    Template.GenericElement(result[0]['name'],
+                                            subtitle=result[0]['designation'],
+                                            item_url="https://uos.edu.pk/faculty/profile/" + result[0]['username'],
+                                            image_url="https://uos.edu.pk/uploads/faculty/profiles/" + result[0][
+                                                'picture'],
+                                            buttons=[
+                                                Template.ButtonWeb("Open Profile",
+                                                                   "https://uos.edu.pk/faculty/profile/" + result[0][
+                                                                       'username']),
+                                                Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                            ])
 
-        ]))
-    elif type == "faculty":
-        print("here")
+                ]))
 
 
-def send_generic_faculty(recipient, data):
-    response = requests.get('https://uos.edu.pk/about/bot_faculty/' + data)
+def send_generic_faculty(recipient, data, dep=""):
+    if (dep):
+        response = requests.get('https://uos.edu.pk/about/bot_faculty/' + data + "/" + dep)
+        result = response.json()
+        if result:
+            page.send(recipient, Template.Generic([
+                Template.GenericElement(result[0]['name'],
+                                        subtitle=result[0]['designation'],
+                                        item_url="https://uos.edu.pk/faculty/profile/" + result[0]['username'],
+                                        image_url="https://uos.edu.pk/uploads/faculty/profiles/" + result[0]['picture'],
+                                        buttons=[
+                                            Template.ButtonWeb("Open Profile",
+                                                               "https://uos.edu.pk/faculty/profile/" + result[0][
+                                                                   'username']),
+                                            Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                        ])
+
+            ]))
+        else:
+            send_message(recipient, 'Sorry, but i am unable to Find' + data + " in " + dep)
+            send_typing_off(recipient)
+    else:
+        response = requests.get('https://uos.edu.pk/about/bot_faculty/' + data)
+        result = response.json()
+        if result:
+            page.send(recipient, Template.Generic([
+                Template.GenericElement(result[0]['name'],
+                                        subtitle=result[0]['designation'],
+                                        item_url="https://uos.edu.pk/faculty/profile/" + result[0]['username'],
+                                        image_url="https://uos.edu.pk/uploads/faculty/profiles/" + result[0]['picture'],
+                                        buttons=[
+                                            Template.ButtonWeb("Open Profile",
+                                                               "https://uos.edu.pk/faculty/profile/" + result[0][
+                                                                   'username']),
+                                            Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                        ])
+
+            ]))
+        else:
+            send_message(recipient, 'Sorry, but i am unable to Find' + data)
+            send_typing_off(recipient)
+
+
+def send_generic_program(recipient, data):
+    response = requests.get('https://uos.edu.pk/about/bot_program/' + data)
     result = response.json()
     if result:
-        page.send(recipient, Template.Generic([
-            Template.GenericElement(result[0]['name'],
-                                    subtitle=result[0]['designation'],
-                                    item_url="https://uos.edu.pk/faculty/profile/" + result[0]['username'],
-                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/" + result[0]['picture'],
-                                    buttons=[
-                                        Template.ButtonWeb("Open Profile",
-                                                           "https://uos.edu.pk/faculty/profile/" + result[0][
-                                                               'username']),
-                                        Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
-                                    ])
-
+        page.send(recipient, Template.Buttons(result[0]['name'], [
+            Template.ButtonWeb("See More Detail", "https://uos.edu.pk/department/academic_programs/" +
+                               result[0]['dpartment'])
         ]))
     else:
-        send_message(recipient, 'No User found in our Database')
+        send_message(recipient, 'Sorry, but i am unable to Find' + data)
         send_typing_off(recipient)
 
 
