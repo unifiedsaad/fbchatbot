@@ -48,14 +48,15 @@ def post_facebook_message(fbid, recevied_message):
 
 
 def handleIntents(receivedent, user):
-   
+    try:
 
         if first_entity_value(receivedent, 'intent'):
             return Intents_parser(receivedent, user)
         if first_entity_value(receivedent, 'greetings'):
             return "Hey, How can i help you"
 
-
+    except Exception as e:
+        print("not found dude")
 
 
 def Intents_parser(receivedent, user):
@@ -368,15 +369,16 @@ def send_generic(recipient, type, data=""):
             response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
             result = response.json()
             if result:
+                print("reached here ")
                 print(result)
-                print("dep info")
+
     elif type == "hod":
         if (data):
             response = requests.get('https://uos.edu.pk/about/bot_department/' + data)
             result = response.json()
             if result:
-                print(result)
-                print("hod info")
+                print("hod")
+                print("result")
 
 
 def send_generic_faculty(recipient, data, dep=""):
