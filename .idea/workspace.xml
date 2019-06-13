@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34ecef1b-96d1-4409-8d79-c3be91fd75a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/parsing/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/messenger.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/messenger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parsing/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+            <state relative-caret-position="215">
+              <caret line="447" column="40" lean-forward="true" selection-start-line="447" selection-start-column="40" selection-end-line="447" selection-end-column="40" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -133,7 +130,6 @@
       <find>send_typing</find>
       <find>HOD</find>
       <find>faculty</find>
-      <find>send_generic_faculty</find>
       <find>send_generic</find>
       <find>Here You can Find Details</find>
       <find>Here you can see Detail of the department HOD</find>
@@ -141,6 +137,7 @@
       <find>Here you can see Detail of the department</find>
       <find>send_generic_program_dep</find>
       <find>Please Mention Department Correct Name to Find Details</find>
+      <find>send_generic_faculty</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -260,12 +257,12 @@
       <workItem from="1560320715737" duration="3799000" />
       <workItem from="1560328840027" duration="8884000" />
       <workItem from="1560407114701" duration="11302000" />
-      <workItem from="1560450958968" duration="1543000" />
+      <workItem from="1560450958968" duration="1860000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79542000" />
+    <option name="totallyTimeSpent" value="79859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="795" extended-state="6" />
@@ -454,8 +451,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parsing/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+        <state relative-caret-position="215">
+          <caret line="447" column="40" lean-forward="true" selection-start-line="447" selection-start-column="40" selection-end-line="447" selection-end-column="40" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>

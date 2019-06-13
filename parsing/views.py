@@ -446,6 +446,7 @@ def send_generic(recipient, type, data=""):
 
 def send_generic_faculty(recipient, data, dep=""):
     data = urllib.parse.quote_plus(data)
+    dep = urllib.parse.quote_plus(dep)
     if (dep):
         response = requests.get('https://uos.edu.pk/about/bot_faculty/' + data + "/" + dep)
         result = response.json()
