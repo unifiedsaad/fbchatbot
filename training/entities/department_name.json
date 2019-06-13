@@ -1,0 +1,77 @@
+{
+    "data": {
+        "lookups": [
+            "keywords",
+            "free-text"
+        ],
+        "name": "department_name",
+        "lang": "en",
+        "id": "department_name",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "department",
+                "expressions": [
+                    "department"
+                ]
+            },
+            {
+                "value": "cs department info",
+                "expressions": [
+                    "cs department info"
+                ]
+            },
+            {
+                "value": "IT",
+                "expressions": [
+                    "it"
+                ]
+            },
+            {
+                "value": "Law",
+                "expressions": [
+                    "college of law",
+                    "law college",
+                    "law department"
+                ]
+            },
+            {
+                "value": "Botany",
+                "expressions": [
+                    "department of botany",
+                    "botany",
+                    "botany department"
+                ]
+            },
+            {
+                "value": "Zoology",
+                "expressions": [
+                    "department of zoology",
+                    "zoology",
+                    "zoology department"
+                ]
+            },
+            {
+                "value": "CS & IT",
+                "expressions": [
+                    "it",
+                    "cs",
+                    "compute science",
+                    "computer science & information technology",
+                    "computer science and information technology department",
+                    "information technology department",
+                    "it department",
+                    "cd department",
+                    "department of computer science",
+                    "computer science department",
+                    "department of cs it",
+                    "department of cs & it",
+                    "cs department",
+                    "cs it",
+                    "cs & it"
+                ]
+            }
+        ]
+    }
+}

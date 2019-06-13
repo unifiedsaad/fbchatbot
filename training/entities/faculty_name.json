@@ -1,0 +1,154 @@
+{
+    "data": {
+        "lookups": [
+            "keywords",
+            "free-text"
+        ],
+        "name": "faculty_name",
+        "lang": "en",
+        "id": "faculty_name",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "Mr. Bushra",
+                "expressions": [
+                    "miss bushra",
+                    "bushra",
+                    "mr. bushra"
+                ]
+            },
+            {
+                "value": "Mr. Saad Mirza",
+                "expressions": [
+                    "saad mirza",
+                    "mr. saad mirza"
+                ]
+            },
+            {
+                "value": "miss sidra batool",
+                "expressions": [
+                    "sidra batool",
+                    "miss sidra batool"
+                ]
+            },
+            {
+                "value": "Ms. Bushra Malik",
+                "expressions": [
+                    "bushra",
+                    "ms. bushra malik"
+                ]
+            },
+            {
+                "value": "Ms Nazish Ghafoor",
+                "expressions": [
+                    "nazish",
+                    "ms nazish ghafoor"
+                ]
+            },
+            {
+                "value": "Ms Hafsa Shabbir",
+                "expressions": [
+                    "shabbir",
+                    "ms hafsa shabbir"
+                ]
+            },
+            {
+                "value": "Dr. Qaiser Abbas",
+                "expressions": [
+                    "qaiser abbas",
+                    "sir qaiser",
+                    "mr. qaiser abbas",
+                    "dr. qaiser abbas"
+                ]
+            },
+            {
+                "value": "Dr. Ilyas",
+                "expressions": [
+                    "ilyas",
+                    "mr. ilyas",
+                    "mr ilyas",
+                    "dr. ilyas"
+                ]
+            },
+            {
+                "value": "Dr. Khali",
+                "expressions": [
+                    "khalid",
+                    "mr khalid",
+                    "mr. khalid",
+                    "dr. khali"
+                ]
+            },
+            {
+                "value": "Fahad Maqbool",
+                "expressions": [
+                    "mr fahad",
+                    "fahad",
+                    "mr. fahad maqbool",
+                    "fahad maqbool"
+                ]
+            },
+            {
+                "value": "Ms. Farhana Anjum",
+                "expressions": [
+                    "miss farhana",
+                    "farhana",
+                    "ms. farhana anjum"
+                ]
+            },
+            {
+                "value": "Ms. Bushra",
+                "expressions": [
+                    "miss bushra",
+                    "ms. bushra"
+                ]
+            },
+            {
+                "value": "Samreen Razzaq",
+                "expressions": [
+                    "miss samreen",
+                    "ms samreen",
+                    "samreen razzaq"
+                ]
+            },
+            {
+                "value": "Ms. Samreen Razzaq",
+                "expressions": [
+                    "ms. samreen razzaq"
+                ]
+            },
+            {
+                "value": "Mr Fahad Maqbool",
+                "expressions": [
+                    "fahad maqbool",
+                    "mr fahad maqbool"
+                ]
+            },
+            {
+                "value": "Mr. Abid Rafiq",
+                "expressions": [
+                    "abid",
+                    "sir abid",
+                    "abid rafiq",
+                    "mr. abid rafiq"
+                ]
+            },
+            {
+                "value": "Saad Razzaq",
+                "expressions": [
+                    "mr saad",
+                    "razzaq",
+                    "saad",
+                    "saad razzaq"
+                ]
+            },
+            {
+                "value": "Mr. Saad Razzaq",
+                "expressions": [
+                    "mr. saad razzaq"
+                ]
+            }
+        ]
+    }
+}

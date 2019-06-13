@@ -1,0 +1,2057 @@
+{
+    "data": [
+        {
+            "text": "tell me about Faculty profile of Mr Saad Razzaq",
+            "entities": []
+        },
+        {
+            "text": "give me faculty profile of Mr. Aamir Zia",
+            "entities": []
+        },
+        {
+            "text": "give me faculty profile of Mr. Fahad Maqbool",
+            "entities": []
+        },
+        {
+            "text": "tell me about faculty profile of Mr. Fahad Maqbool",
+            "entities": []
+        },
+        {
+            "text": "how many programs offered by Department of Computer Science",
+            "entities": []
+        },
+        {
+            "text": "give me contact details of Computer Science Department",
+            "entities": []
+        },
+        {
+            "text": "give me contact details of Botany Department",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"Botany\"",
+                    "start": 27,
+                    "end": 44
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                }
+            ]
+        },
+        {
+            "text": "give me contact details of Zoology Department",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"Zoology\"",
+                    "start": 27,
+                    "end": 45
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                }
+            ]
+        },
+        {
+            "text": "Faculty profile of Mr. Aamir Zia",
+            "entities": []
+        },
+        {
+            "text": "give me contact details of Mr. Qaiser Abbas",
+            "entities": []
+        },
+        {
+            "text": "who is the hod of computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 18,
+                    "end": 45
+                }
+            ]
+        },
+        {
+            "text": "tell me about Faculty of Computer Science Department",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\"",
+                    "start": 14,
+                    "end": 21
+                }
+            ]
+        },
+        {
+            "text": "give me contact details of Computer Science Department HOD",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\"",
+                    "start": 55,
+                    "end": 58
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "give me faculty Profile of Mr. Saad Razzaq",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"faculty_profile\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\"",
+                    "start": 8,
+                    "end": 15
+                },
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Mr. Saad Razzaq\"",
+                    "start": 27,
+                    "end": 42
+                }
+            ]
+        },
+        {
+            "text": "how many programs offered by Computer Science Department",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\"",
+                    "start": 9,
+                    "end": 17
+                }
+            ]
+        },
+        {
+            "text": "Give me details of HOD of computer science department ",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\""
+                }
+            ]
+        },
+        {
+            "text": "give me contact details of computer science department",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 27,
+                    "end": 54
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                }
+            ]
+        },
+        {
+            "text": "when HOD of the computer Science department come to his office",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "is bachelor of computer science for 4 years",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "duration",
+                    "value": "4",
+                    "start": 36,
+                    "end": 43
+                }
+            ]
+        },
+        {
+            "text": "when will the admission in university will open",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"admission_info\""
+                },
+                {
+                    "entity": "admission_type",
+                    "value": "\"open\"",
+                    "start": 43,
+                    "end": 47
+                }
+            ]
+        },
+        {
+            "text": "when will the admission in computer science department will open",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"admission\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "admission_type",
+                    "value": "\"open\"",
+                    "start": 60,
+                    "end": 64
+                }
+            ]
+        },
+        {
+            "text": "when will the admission opening in Law Department",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"admission_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"admission\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"Law Department\"",
+                    "start": 35,
+                    "end": 49
+                }
+            ]
+        },
+        {
+            "text": "what was the last year closing merit of Computer science department",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"merit_info\""
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2018-01-01T00:00:00.000-08:00\"",
+                    "role": "year",
+                    "start": 13,
+                    "end": 22
+                },
+                {
+                    "entity": "merit_type",
+                    "value": "\"closing\"",
+                    "start": 23,
+                    "end": 30
+                }
+            ]
+        },
+        {
+            "text": "give me contact details of Ms. Bushra form computer science department",
+            "entities": [
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Ms. Bushra\"",
+                    "start": 27,
+                    "end": 37
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"faculty_profile\""
+                }
+            ]
+        },
+        {
+            "text": "when will the department close tomorrow",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-12T00:00:00.000-07:00\"",
+                    "start": 31,
+                    "end": 39
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"close\"",
+                    "start": 25,
+                    "end": 30
+                }
+            ]
+        },
+        {
+            "text": "when will the department of computer science open tomorrow",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"open\"",
+                    "start": 45,
+                    "end": 49
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-13T00:00:00.000-07:00\"",
+                    "start": 50,
+                    "end": 58
+                }
+            ]
+        },
+        {
+            "text": "how many programs offered by computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 29,
+                    "end": 56
+                }
+            ]
+        },
+        {
+            "text": "what are the bachelors programs offered by computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_type",
+                    "value": "\"bachelors\"",
+                    "start": 13,
+                    "end": 22
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"detail\""
+                }
+            ]
+        },
+        {
+            "text": "how many programs in cs department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"count\""
+                }
+            ]
+        },
+        {
+            "text": "give me detail about bachelors program offered by computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_type",
+                    "value": "\"bachelors\"",
+                    "start": 21,
+                    "end": 30
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"detail\""
+                }
+            ]
+        },
+        {
+            "text": "how many international graduate faculty in computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "faculty_info",
+                    "value": "\"count\""
+                }
+            ]
+        },
+        {
+            "text": "give detail about Bachelor of computer science",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "program_name",
+                    "value": "\"Bachelor of computer science\"",
+                    "start": 18,
+                    "end": 46,
+                    "subentities": [
+                        {
+                            "entity": "program_type",
+                            "value": "\"Bachelor\"",
+                            "start": 0,
+                            "end": 8
+                        }
+                    ]
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"detail\""
+                }
+            ]
+        },
+        {
+            "text": "what are the courses in bachelor of Software Engineering",
+            "entities": [
+                {
+                    "entity": "program_name",
+                    "value": "\"bachelor of Software Engineering\"",
+                    "start": 24,
+                    "end": 56,
+                    "subentities": [
+                        {
+                            "entity": "program_type",
+                            "value": "\"bachelor\"",
+                            "start": 0,
+                            "end": 8
+                        }
+                    ]
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"detail\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                }
+            ]
+        },
+        {
+            "text": "give me contact detail of Ms. Farhana Anjum from faculty of computer Science Department",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                },
+                {
+                    "entity": "faculty_info",
+                    "value": "\"detail\""
+                },
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Ms. Farhana Anjum\"",
+                    "start": 26,
+                    "end": 43
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"computer Science Department\"",
+                    "start": 60,
+                    "end": 87
+                }
+            ]
+        },
+        {
+            "text": "give me contact details of Ms. Bushra Malik",
+            "entities": [
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Ms. Bushra Malik\"",
+                    "start": 27,
+                    "end": 43
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"faculty_profile\""
+                },
+                {
+                    "entity": "faculty_info",
+                    "value": "\"detail\""
+                }
+            ]
+        },
+        {
+            "text": "give me a link of faculty profile of miss sidra batool",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"faculty_profile\""
+                },
+                {
+                    "entity": "faculty_info",
+                    "value": "\"detail\""
+                },
+                {
+                    "entity": "faculty_name",
+                    "value": "\"miss sidra batool\"",
+                    "start": 37,
+                    "end": 54
+                }
+            ]
+        },
+        {
+            "text": "give me faculty profile of Mr. Saad Mirza",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"faculty_profile\""
+                },
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Mr. Saad Mirza\"",
+                    "start": 27,
+                    "end": 41
+                },
+                {
+                    "entity": "faculty_info",
+                    "value": "\"detail\""
+                }
+            ]
+        },
+        {
+            "text": "Hey how are you",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "Assalam o Alaikum",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "hi",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "Salam",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "Salam o Alaikum",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "who is incharge of computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "what is the duration of MSc Information Technology",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"detail\""
+                },
+                {
+                    "entity": "program_name",
+                    "value": "\"MSc Information Technology\"",
+                    "start": 24,
+                    "end": 50,
+                    "subentities": [
+                        {
+                            "entity": "program_type",
+                            "value": "\"MSc\"",
+                            "start": 0,
+                            "end": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "text": "what is the requirement of Bachelor of computer science",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "program_name",
+                    "value": "\"Bachelor of computer science\"",
+                    "start": 27,
+                    "end": 55,
+                    "subentities": [
+                        {
+                            "entity": "program_type",
+                            "value": "\"Bachelor\"",
+                            "start": 0,
+                            "end": 8
+                        }
+                    ]
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"detail\""
+                }
+            ]
+        },
+        {
+            "text": "assalam o alaikum",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "message",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"junk\""
+                }
+            ]
+        },
+        {
+            "text": "test",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"junk\""
+                }
+            ]
+        },
+        {
+            "text": "tomorrow",
+            "entities": [
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-13T00:00:00.000-07:00\"",
+                    "start": 0,
+                    "end": 8
+                }
+            ]
+        },
+        {
+            "text": "department",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"department\"",
+                    "start": 0,
+                    "end": 10
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "who is the hod of the computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "hey here sending message",
+            "entities": []
+        },
+        {
+            "text": "here is the entity",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"junk\""
+                }
+            ]
+        },
+        {
+            "text": "how many bachelors programs offered by Computer science department ",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"count\""
+                },
+                {
+                    "entity": "program_type",
+                    "value": "\"bachelors\"",
+                    "start": 9,
+                    "end": 18
+                }
+            ]
+        },
+        {
+            "text": "what are the requirements of Bachelor of computer science ",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"detail\""
+                },
+                {
+                    "entity": "program_name",
+                    "value": "\"Bachelor of computer science\"",
+                    "start": 29,
+                    "end": 58,
+                    "subentities": [
+                        {
+                            "entity": "program_type",
+                            "value": "\"Bachelor\"",
+                            "start": 0,
+                            "end": 8
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "text": "give me faculty profile of Ms. Bushra from computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Ms. Bushra\"",
+                    "start": 27,
+                    "end": 37
+                }
+            ]
+        },
+        {
+            "text": "give me faculty profile mr fahad maqbool",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"faculty_profile\""
+                },
+                {
+                    "entity": "faculty_info",
+                    "value": "\"detail\""
+                },
+                {
+                    "entity": "faculty_name",
+                    "value": "\"mr fahad maqbool\"",
+                    "start": 24,
+                    "end": 40
+                }
+            ]
+        },
+        {
+            "text": "asdfljasdfasjdf",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"junk\""
+                }
+            ]
+        },
+        {
+            "text": "asdkfjsf asd faksjfdasdjf asf ",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"junk\""
+                }
+            ]
+        },
+        {
+            "text": "fuck you ",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"junk\""
+                }
+            ]
+        },
+        {
+            "text": "bastard idiot moron",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"junk\""
+                }
+            ]
+        },
+        {
+            "text": "when will the department of CS & IT Department open tomorrow",
+            "entities": [
+                {
+                    "entity": "timing_type",
+                    "value": "\"open\"",
+                    "start": 47,
+                    "end": 51
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-13T00:00:00.000-07:00\"",
+                    "start": 52,
+                    "end": 60
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "when will the department of CS & IT close tomorrow",
+            "entities": [
+                {
+                    "entity": "timing_type",
+                    "value": "\"close\"",
+                    "start": 36,
+                    "end": 41
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-13T00:00:00.000-07:00\"",
+                    "start": 42,
+                    "end": 50
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "when will the department of Computer Science will open tomorrow",
+            "entities": [
+                {
+                    "entity": "timing_type",
+                    "value": "\"open\"",
+                    "start": 50,
+                    "end": 54
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-13T00:00:00.000-07:00\"",
+                    "start": 55,
+                    "end": 63
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "hey is asking about the opening time of the   department of computer science For this Date  2019-06-13T00:00:00.000-07:00",
+            "entities": [
+                {
+                    "entity": "merit_type",
+                    "value": "\"opening\"",
+                    "start": 24,
+                    "end": 31
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-13T00:00:00.000-07:00\"",
+                    "start": 92,
+                    "end": 102
+                },
+                {
+                    "entity": "datetime",
+                    "value": "{\"values\":[{\"to\":{\"value\":\"1993-01-01T00:01:00.000-08:00\",\"grain\":\"minute\"},\"from\":{\"value\":\"1993-01-01T00:00:00.000-08:00\",\"grain\":\"minute\"},\"type\":\"interval\"},{\"to\":{\"value\":\"1993-01-01T12:01:00.000-08:00\",\"grain\":\"minute\"},\"from\":{\"value\":\"1993-01-01T12:00:00.000-08:00\",\"grain\":\"minute\"},\"type\":\"interval\"},{\"to\":{\"value\":\"1993-01-02T00:01:00.000-08:00\",\"grain\":\"minute\"},\"from\":{\"value\":\"1993-01-02T00:00:00.000-08:00\",\"grain\":\"minute\"},\"type\":\"interval\"}],\"to\":\"1993-01-01T00:01:00.000-08:00\",\"from\":\"1993-01-01T00:00:00.000-08:00\",\"type\":\"interval\"}",
+                    "start": 103,
+                    "end": 118
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "when will the department of Cs it close tomorrow",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"close\"",
+                    "start": 34,
+                    "end": 39
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-13T00:00:00.000-07:00\"",
+                    "start": 40,
+                    "end": 48
+                }
+            ]
+        },
+        {
+            "text": "who is hod of cs departmeny",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "it's department info but not general",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "when will the department of CS it close tomorrow",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 14,
+                    "end": 33
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"close\"",
+                    "start": 34,
+                    "end": 39
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-14T00:00:00.000-07:00\"",
+                    "start": 40,
+                    "end": 48
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "when will the  computer science department close tomorrow",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 15,
+                    "end": 42
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"close\"",
+                    "start": 43,
+                    "end": 48
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-14T00:00:00.000-07:00\"",
+                    "start": 49,
+                    "end": 57
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "hello",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "hey saad how are you",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "when will the department of cs & it open tomorrow",
+            "entities": [
+                {
+                    "entity": "timing_type",
+                    "value": "\"open\"",
+                    "start": 36,
+                    "end": 40
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019-06-13T00:00:00.000-07:00\"",
+                    "start": 41,
+                    "end": 49
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "hi how are you",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "cs department info",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"cs department info\"",
+                    "start": 0,
+                    "end": 18
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "how many programs offered by the computer science department",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 33,
+                    "end": 60
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"count\""
+                }
+            ]
+        },
+        {
+            "text": "how many bachelors porgrams offered by computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"count\""
+                },
+                {
+                    "entity": "program_type",
+                    "value": "\"bachelors\"",
+                    "start": 9,
+                    "end": 18
+                }
+            ]
+        },
+        {
+            "text": "give me detail about computer science department programs",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "how many faculty members in department of computer science",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 28,
+                    "end": 58
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                }
+            ]
+        },
+        {
+            "text": "how many international graduates faculty is in department of computer science",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 47,
+                    "end": 77
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                }
+            ]
+        },
+        {
+            "text": "when will the admission open in computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"admission\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"open\"",
+                    "start": 24,
+                    "end": 28
+                }
+            ]
+        },
+        {
+            "text": "give me contact details of Mr. Saad Razzaq from computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "faculty_info",
+                    "value": "\"detail\""
+                },
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Mr. Saad Razzaq\"",
+                    "start": 27,
+                    "end": 42
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 48,
+                    "end": 75
+                }
+            ]
+        },
+        {
+            "text": "give me faculty profile of Mr. Fahad Maqbool from computer science department",
+            "entities": [
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Fahad Maqbool\"",
+                    "start": 27,
+                    "end": 44
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 50,
+                    "end": 77
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "when admission will open in computer science department",
+            "entities": [
+                {
+                    "entity": "timing_type",
+                    "value": "\"open\"",
+                    "start": 20,
+                    "end": 24
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 28,
+                    "end": 55
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"admission\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "what was the last merit of department of computer science",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"merit_info\""
+                }
+            ]
+        },
+        {
+            "text": "how are you",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "hey how are you",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "give me detail about computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "what is the closing time of computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"closing\"",
+                    "start": 12,
+                    "end": 19
+                }
+            ]
+        },
+        {
+            "text": "give me details of computer science department",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                }
+            ]
+        },
+        {
+            "text": "what was the last merit of BSCS",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"merit_info\""
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"merit\""
+                }
+            ]
+        },
+        {
+            "text": "give me details about computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                }
+            ]
+        },
+        {
+            "text": "what is the opening time of computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"open\"",
+                    "start": 12,
+                    "end": 19
+                }
+            ]
+        },
+        {
+            "text": "what is opening time of computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"open\"",
+                    "start": 8,
+                    "end": 15
+                }
+            ]
+        },
+        {
+            "text": "give me faculty profile of Mr. Bushra from Computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Mr. Bushra\"",
+                    "start": 27,
+                    "end": 37
+                }
+            ]
+        },
+        {
+            "text": "hod of computer science department",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 7,
+                    "end": 34
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\""
+                }
+            ]
+        },
+        {
+            "text": "BA ke admission kab hon gy",
+            "entities": [
+                {
+                    "entity": "admission_type",
+                    "value": "\"open\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"admission_info\""
+                },
+                {
+                    "entity": "degree_name",
+                    "value": "\"BA\"",
+                    "start": 0,
+                    "end": 2
+                }
+            ]
+        },
+        {
+            "text": "MA ke admission kab hon gy",
+            "entities": [
+                {
+                    "entity": "admission_type",
+                    "value": "\"open\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"admission_info\""
+                },
+                {
+                    "entity": "degree_name",
+                    "value": "\"MA\"",
+                    "start": 0,
+                    "end": 2
+                }
+            ]
+        },
+        {
+            "text": "BA ka result kab aega",
+            "entities": [
+                {
+                    "entity": "degree_name",
+                    "value": "\"BA\"",
+                    "start": 0,
+                    "end": 2
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"result_info\""
+                },
+                {
+                    "entity": "result_type",
+                    "value": "\"private\""
+                }
+            ]
+        },
+        {
+            "text": "MA 1st annual 2018 ka result kab aega",
+            "entities": [
+                {
+                    "entity": "degree_name",
+                    "value": "\"MA\"",
+                    "start": 0,
+                    "end": 2
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"result_info\""
+                },
+                {
+                    "entity": "result_annual",
+                    "value": "\"1st annual\"",
+                    "start": 3,
+                    "end": 13
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2018\"",
+                    "role": "year",
+                    "start": 14,
+                    "end": 18
+                }
+            ]
+        },
+        {
+            "text": "BA 2nd Annual 2019 ka result kab aega",
+            "entities": [
+                {
+                    "entity": "degree_name",
+                    "value": "\"BA\"",
+                    "start": 0,
+                    "end": 2
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"result_info\""
+                },
+                {
+                    "entity": "result_type",
+                    "value": "\"private\""
+                },
+                {
+                    "entity": "result_annual",
+                    "value": "\"2nd Annual\"",
+                    "start": 3,
+                    "end": 13
+                },
+                {
+                    "entity": "datetime",
+                    "value": "\"2019\"",
+                    "role": "year",
+                    "start": 14,
+                    "end": 18
+                }
+            ]
+        },
+        {
+            "text": "when will the result of BA 2nd Annual will come",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"result_info\""
+                },
+                {
+                    "entity": "degree_name",
+                    "value": "\"BA\"",
+                    "start": 24,
+                    "end": 26
+                },
+                {
+                    "entity": "result_annual",
+                    "value": "\"2nd Annual\"",
+                    "start": 27,
+                    "end": 37
+                },
+                {
+                    "entity": "result_type",
+                    "value": "\"private\""
+                }
+            ]
+        },
+        {
+            "text": "when will the result of 8 Semester Will come",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"result\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_result_semester",
+                    "value": "\"8 Semester\"",
+                    "start": 24,
+                    "end": 34
+                }
+            ]
+        },
+        {
+            "text": "department of computer science ke 8th semester ka result kab aega",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 0,
+                    "end": 30
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_result_semester",
+                    "value": "\"8 Semester\"",
+                    "start": 37,
+                    "end": 46
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"result\""
+                }
+            ]
+        },
+        {
+            "text": "when will the result of computer science department will be announced",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"result\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 24,
+                    "end": 51
+                }
+            ]
+        },
+        {
+            "text": "when will the result of BSCS announced",
+            "entities": [
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_name",
+                    "value": "\"BS Computer Science\"",
+                    "start": 24,
+                    "end": 28
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"result\""
+                }
+            ]
+        },
+        {
+            "text": "hod of computer science department?",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 7,
+                    "end": 34
+                }
+            ]
+        },
+        {
+            "text": "give me contact details of computer science department HOD",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"hod\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 27,
+                    "end": 54
+                }
+            ]
+        },
+        {
+            "text": "give me contact details of Law College",
+            "entities": [
+                {
+                    "entity": "department_name",
+                    "value": "\"Law\"",
+                    "start": 27,
+                    "end": 38
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                }
+            ]
+        },
+        {
+            "text": "how many credit hours in MSC IT",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"count\""
+                },
+                {
+                    "entity": "program_name",
+                    "value": "\"MSc Information Technology\"",
+                    "start": 25,
+                    "end": 31
+                }
+            ]
+        },
+        {
+            "text": "how many credit hours in MSC IT ",
+            "entities": [
+                {
+                    "entity": "program_info_type",
+                    "value": "\"count\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "program_name",
+                    "value": "\"MSc Information Technology\"",
+                    "start": 25,
+                    "end": 32,
+                    "subentities": [
+                        {
+                            "entity": "department_name",
+                            "value": "\"CS & IT\"",
+                            "start": 4,
+                            "end": 7
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "text": "when cs department close today",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"general\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 5,
+                    "end": 18
+                },
+                {
+                    "entity": "timing_type",
+                    "value": "\"close\"",
+                    "start": 19,
+                    "end": 24
+                }
+            ]
+        },
+        {
+            "text": "no of programs offered by computer science department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 26,
+                    "end": 53
+                }
+            ]
+        },
+        {
+            "text": "tell me about the course detail of BSCS",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"programs\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "program_name",
+                    "value": "\"BS Computer Science\"",
+                    "start": 35,
+                    "end": 39
+                },
+                {
+                    "entity": "program_info_type",
+                    "value": "\"detail\""
+                }
+            ]
+        },
+        {
+            "text": "give me faculty profile Ms. Samreen Razzaq from Computer Science Department",
+            "entities": [
+                {
+                    "entity": "department_info_type",
+                    "value": "\"Faculty\""
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"department_info\""
+                },
+                {
+                    "entity": "faculty_name",
+                    "value": "\"Ms. Samreen Razzaq\"",
+                    "start": 24,
+                    "end": 42
+                },
+                {
+                    "entity": "department_name",
+                    "value": "\"CS & IT\"",
+                    "start": 48,
+                    "end": 75
+                }
+            ]
+        },
+        {
+            "text": "ba ka result kab aega",
+            "entities": [
+                {
+                    "entity": "degree_name",
+                    "value": "\"BA\"",
+                    "start": 0,
+                    "end": 2
+                },
+                {
+                    "entity": "intent",
+                    "value": "\"result_info\""
+                },
+                {
+                    "entity": "result_type",
+                    "value": "\"private\""
+                }
+            ]
+        },
+        {
+            "text": "Asslam o Alaikum",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "Salam o alaikum",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        },
+        {
+            "text": "Assalam o alaikum",
+            "entities": [
+                {
+                    "entity": "greetings",
+                    "value": "\"true\""
+                }
+            ]
+        }
+    ]
+}

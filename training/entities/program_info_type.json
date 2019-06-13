@@ -1,0 +1,26 @@
+{
+    "data": {
+        "lookups": [
+            "trait"
+        ],
+        "name": "program_info_type",
+        "lang": "en",
+        "id": "program_info_type",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "merit",
+                "expressions": []
+            },
+            {
+                "value": "detail",
+                "expressions": []
+            },
+            {
+                "value": "count",
+                "expressions": []
+            }
+        ]
+    }
+}

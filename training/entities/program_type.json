@@ -1,0 +1,56 @@
+{
+    "data": {
+        "lookups": [
+            "keywords",
+            "free-text"
+        ],
+        "name": "program_type",
+        "lang": "en",
+        "id": "program_type",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "MSc",
+                "expressions": [
+                    "msc"
+                ]
+            },
+            {
+                "value": "Bachelor",
+                "expressions": [
+                    "bachelor"
+                ]
+            },
+            {
+                "value": "MPhil",
+                "expressions": [
+                    "ms",
+                    "mphil"
+                ]
+            },
+            {
+                "value": "PHD",
+                "expressions": [
+                    "phd"
+                ]
+            },
+            {
+                "value": "Masters",
+                "expressions": [
+                    "msc",
+                    "master",
+                    "masters"
+                ]
+            },
+            {
+                "value": "bachelors",
+                "expressions": [
+                    "bs",
+                    "bachelor",
+                    "bachelors"
+                ]
+            }
+        ]
+    }
+}
