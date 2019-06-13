@@ -142,7 +142,14 @@ def department_info(receivedent, user):
                         'value'])
                     return "Here are the List of Programs"
             else:
-                return "Please Enter Correct Program Name to Find This Program"
+                if first_entity_value(receivedent, 'program_name'):
+                    send_generic_program(user, receivedent['program_name'][0][
+                        'value'])
+                    return "Here you Can See Detail of " + receivedent['program_name'][0]['value']
+                else:
+                    send_generic_program(user, receivedent['program_name'][0][
+                        'value'])
+                    return "Here are the List of Programs"
         elif receivedent['department_info_type'][0]['value'] == "contact_details":
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'dep', receivedent['department_name'][0][
