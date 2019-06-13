@@ -106,7 +106,8 @@ def department_info(receivedent, user):
             if first_entity_value(receivedent, 'department_name'):
                 send_generic(user, 'hod', receivedent['department_name'][0][
                     'value'])
-                return "Here you can see Detail of the department HOD"
+                return "Here you can see Detail of the department HOD" + receivedent['department_name'][0][
+                    'value']
             else:
 
                 return "Please Mention Department Name for HOD"
@@ -437,6 +438,7 @@ def send_generic_faculty(recipient, data, dep=""):
     else:
         response = requests.get('https://uos.edu.pk/about/bot_faculty/' + data)
         result = response.json()
+        print(result[0])
         if result:
             page.send(recipient, Template.Generic([
                 Template.GenericElement(result[0]['name'],
