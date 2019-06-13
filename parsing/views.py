@@ -258,7 +258,7 @@ class JokesBotView(generic.View):
                     if 'quick_reply' in message:
                         # Print the message to the terminal
                         if (message['message']['quick_reply']['payload'] == "Dep_info"):
-                            send_generic(message['sender']['id'], 'dep')
+                            send_generic(message['sender']['id'], 'dep', 'CS & IT')
                         else:
                             send_button(message['sender']['id'])
 
@@ -274,22 +274,28 @@ class JokesBotView(generic.View):
                         if 'quick_reply' in messagepoint:
 
                             if (messagepoint['quick_reply']['payload'] == "Dep_info"):
-                                send_generic(message['sender']['id'], 'dep')
+                                send_generic(message['sender']['id'], 'dep', 'CS & IT')
                             elif messagepoint['quick_reply']['payload'] == "head_info":
-                                send_generic(message['sender']['id'], 'hod')
+                                send_generic(message['sender']['id'], 'hod', 'CS & IT')
                             elif messagepoint['quick_reply']['payload'] == "faculty_info":
                                 send_message(message['sender']['id'],
-                                             'Please Type the name for the faculty you are looking for.. e.g : Mr. Saad Razzaq with Department Name')
+                                             'Here You Can Find Faculty Profiles Of CS & IT')
+                                send_generic(message['sender']['id'], 'hod', 'CS & IT')
                             elif messagepoint['quick_reply']['payload'] == "program_info":
+                                send_generic_program_dep(message['sender']['id'], 'CS & IT')
                                 send_quick_reply_program(message['sender']['id'])
                             elif messagepoint['quick_reply']['payload'] == "bscs":
                                 send_message(message['sender']['id'], 'BSCS Details goes here')
+                                send_generic_program(message['sender']['id'], 'BS Computer Science')
                             elif messagepoint['quick_reply']['payload'] == "bsse":
                                 send_message(message['sender']['id'], 'BSSE Details goes here')
+                                send_generic_program(message['sender']['id'], 'BS Software Engineering')
                             elif messagepoint['quick_reply']['payload'] == "bsit":
                                 send_message(message['sender']['id'], 'BSIT Details goes here')
+                                send_generic_program(message['sender']['id'], 'BS Information Technology')
                             elif messagepoint['quick_reply']['payload'] == "mscs":
-                                send_message(message['sender']['id'], 'BSIT Details goes here')
+                                send_message(message['sender']['id'], 'MSCS Details goes here')
+                                send_generic_program(message['sender']['id'], 'MS Computer Science')
 
                         elif 'attachment' in message:
                             print('that was attachement')
@@ -299,7 +305,7 @@ class JokesBotView(generic.View):
 
                         else:
                             if 'text' in messagepoint:
-                                if (message['message']['text'] == "restart"):
+                                if (message['message']['text'] == "help" or message['message']['text'] == "Help" ):
                                     send_quick_reply(message['sender']['id'])
                                 else:
 
@@ -389,7 +395,6 @@ def send_generic(recipient, type, data=""):
             result = response.json()
 
             if result:
-
                 page.send(recipient, Template.Generic([
                     Template.GenericElement(result[0]['name'],
                                             subtitle="Department of " + result[0]['name'],
@@ -495,6 +500,7 @@ def send_generic_program(recipient, data):
     else:
         send_message(recipient, 'Sorry, but i am unable to Find' + data)
         send_typing_off(recipient)
+
 
 def send_generic_program_dep(recipient, data):
     data = urllib.parse.quote_plus(data)
