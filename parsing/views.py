@@ -339,7 +339,7 @@ def send_message(recipient_id, text):
         "file": send_file,
         "button": send_button,
         "generic": send_generic,
-        "receipt": send_receipt,
+        "receipt": send_generic,
         "quick reply": send_quick_reply,
         "read receipt": send_read_receipt,
         "typing on": send_typing_on,
