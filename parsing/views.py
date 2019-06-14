@@ -20,6 +20,7 @@ from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
 
+
 PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAFepv7EL9S65bCWe2ZCSzAWjCdEcWD0fbONiZB9qRREitKK1WbWEOQnPNFmTOmzVu1IvKMgrhGmlpMIZBrsAZC7oGEJ4lVr29eZAZC66uIZCv1hPl3n2Q0T85MF0owTAIFbwZB6kZBGXYmGM3mHwBTnnaEbpACzZAqRDeOguh2q8l2"
 VERIFY_TOKEN = "1234567890"
 
@@ -46,8 +47,7 @@ def post_facebook_message(fbid, recevied_message):
     if message:
         send_message(fbid, message)
     else:
-        send_message(fbid, 'Sorry i am unable to answer this question ')
-
+        send_message(fbid, 'Sorry i am unable to find results')
         print("can't send message, becausee it's blankkkkkkkkkkkkkkkkkkkkkkkkkkkk")
 
 
@@ -101,7 +101,7 @@ def department_info(receivedent, user):
                 if first_entity_value(receivedent, 'department_name'):
                     send_generic(user, 'dep', receivedent['department_name'][0][
                         'value'])
-                    return "sorry i cant ans this"
+                    return "Here You can Find Details of the department"
                 else:
 
                     return "Please Mention Department Correct Name to Find Details"
@@ -616,6 +616,9 @@ def send_text_message(recipient, text):
 
 def discipline_details(recipient, message):
     send_message(recipient, 'Program Detail goes here ' + message)
+
+
+
 
 
 
