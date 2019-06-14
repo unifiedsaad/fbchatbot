@@ -326,7 +326,7 @@ class JokesBotView(generic.View):
 
         return HttpResponse()
 
-    
+
 def send_receipt(recipient):
     receipt_id = "order1357"
     element = Template.ReceiptElement(title="Oculus Rift",
