@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34ecef1b-96d1-4409-8d79-c3be91fd75a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/parsing/training/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parsing/training/entities/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parsing/training/expressions/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/messenger.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/messenger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/admission_type.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/admission_type.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/datetime.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/datetime.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/degree_name.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/degree_name.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/department_info_type.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/department_info_type.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/department_name.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/department_name.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/department_result_semester.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/department_result_semester.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/duration.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/duration.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/faculty_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/faculty_info.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/faculty_name.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/faculty_name.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/greetings.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/greetings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/intent.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/intent.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/merit_type.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/merit_type.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/program_info_type.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/program_info_type.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/program_name.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/program_name.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/program_type.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/program_type.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/result_annual.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/result_annual.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/result_type.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/result_type.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/entities/timing_type.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/entities/timing_type.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/expressions/expressions-1.json" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/training/expressions/expressions-1.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,11 +17,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parsing/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="565" column="31" lean-forward="true" selection-start-line="565" selection-start-column="31" selection-end-line="565" selection-end-column="31" />
+            <state relative-caret-position="331">
+              <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/parsing/training/expressions/expressions-1.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2890">
+              <caret line="698" column="60" selection-start-line="698" selection-start-column="44" selection-end-line="698" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -76,19 +63,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parsing/fbpage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parsing/messenger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="150" column="21" selection-start-line="150" selection-start-column="21" selection-end-line="150" selection-end-column="21" />
+            <state relative-caret-position="2205">
+              <caret line="147" selection-start-line="147" selection-end-line="147" />
             </state>
           </provider>
         </entry>
@@ -110,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parsing/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="165">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="14" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -123,11 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>post_facebook_message</find>
-      <find>profile</find>
-      <find>print</find>
-      <find>AFTER_SEND</find>
-      <find>_call_handler</find>
       <find>Page</find>
       <find>ButtonPostBack</find>
       <find>callback</find>
@@ -153,6 +126,11 @@
       <find>send_generic_program_dep</find>
       <find>Please Mention Department Correct Name to Find Details</find>
       <find>send_generic_faculty</find>
+      <find>post_facebook_message</find>
+      <find>Regex</find>
+      <find>html5lib</find>
+      <find>computer science</find>
+      <find>receipt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,9 +146,10 @@
         <option value="$PROJECT_DIR$/chatbot/urls.py" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/fbmq/payload.py" />
-        <option value="$PROJECT_DIR$/parsing/urls.py" />
-        <option value="$PROJECT_DIR$/parsing/messenger.py" />
         <option value="$PROJECT_DIR$/parsing/client.py" />
+        <option value="$PROJECT_DIR$/parsing/messenger.py" />
+        <option value="$PROJECT_DIR$/parsing/urls.py" />
+        <option value="$PROJECT_DIR$/parsing/training/expressions/expressions-1.json" />
         <option value="$PROJECT_DIR$/parsing/views.py" />
       </list>
     </option>
@@ -202,6 +181,19 @@
               <item name="chatbot" type="b2602c69:ProjectViewProjectNode" />
               <item name="chatbot" type="462c0819:PsiDirectoryNode" />
               <item name="parsing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="training" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="training" type="462c0819:PsiDirectoryNode" />
+              <item name="expressions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -277,12 +269,12 @@
       <workItem from="1560320715737" duration="3799000" />
       <workItem from="1560328840027" duration="8884000" />
       <workItem from="1560407114701" duration="11302000" />
-      <workItem from="1560450958968" duration="2983000" />
+      <workItem from="1560450958968" duration="7517000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80982000" />
+    <option name="totallyTimeSpent" value="85516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="795" extended-state="6" />
@@ -432,13 +424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parsing/messenger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="150" column="21" selection-start-line="150" selection-start-column="21" selection-end-line="150" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parsing/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -448,16 +433,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parsing/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parsing/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parsing/training/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -478,10 +453,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/training/expressions/expressions-1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2890">
+          <caret line="698" column="60" selection-start-line="698" selection-start-column="44" selection-end-line="698" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/messenger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2205">
+          <caret line="147" selection-start-line="147" selection-end-line="147" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/parsing/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="565" column="31" lean-forward="true" selection-start-line="565" selection-start-column="31" selection-end-line="565" selection-end-column="31" />
+        <state relative-caret-position="331">
+          <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>

@@ -1,5 +1,5 @@
 import json, requests, random, re
-from pprint import pprint
+
 from django.http import JsonResponse
 from wit import Wit
 import urllib.parse
@@ -18,6 +18,18 @@ import json
 from config import CONFIG
 from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
+
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+import spacy
+from spacy import displacy
+from collections import Counter
+from bs4 import BeautifulSoup
+import requests
+import re
+import en_core_web_sm
+nlp = en_core_web_sm.load()
 
 PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAFepv7EL9S65bCWe2ZCSzAWjCdEcWD0fbONiZB9qRREitKK1WbWEOQnPNFmTOmzVu1IvKMgrhGmlpMIZBrsAZC7oGEJ4lVr29eZAZC66uIZCv1hPl3n2Q0T85MF0owTAIFbwZB6kZBGXYmGM3mHwBTnnaEbpACzZAqRDeOguh2q8l2"
 VERIFY_TOKEN = "1234567890"
@@ -45,6 +57,8 @@ def post_facebook_message(fbid, recevied_message):
     if message:
         send_message(fbid, message)
     else:
+        send_message(fbid, 'Sorry i am unable to answer this question ')
+
         print("can't send message, becausee it's blankkkkkkkkkkkkkkkkkkkkkkkkkkkk")
 
 
@@ -84,9 +98,9 @@ def Intents_parser(receivedent, user):
         ]))
         return "Here you can Find All info Related To Merit"
     elif receivedent['intent'][0]['value'] == "junk":
-        return "that was the junk"
+        return "Sorry i don't understand your question."
     else:
-        return "nothing but intents"
+        return "Sorry I don't Understand your Question"
 
 
 def department_info(receivedent, user):
@@ -98,7 +112,7 @@ def department_info(receivedent, user):
                 if first_entity_value(receivedent, 'department_name'):
                     send_generic(user, 'dep', receivedent['department_name'][0][
                         'value'])
-                    return "Here You can Find Details of the department"
+                    return "sorry i cant ans this"
                 else:
 
                     return "Please Mention Department Correct Name to Find Details"
@@ -324,6 +338,40 @@ class JokesBotView(generic.View):
                                 send_message(message['sender']['id'], 'Hey there is problem')
 
         return HttpResponse()
+
+def send_receipt(recipient):
+    receipt_id = "order1357"
+    element = Template.ReceiptElement(title="University of Sargodha",
+                                      subtitle="University of Sargodha",
+                                      quantity=1,
+                                      price=599.00,
+                                      currency="USD",
+                                      image_url=CONFIG['SERVER_URL'] + "/"
+                                      )
+
+    address = Template.ReceiptAddress(street_1="1 Hacker Way",
+                                      street_2="",
+                                      city="Menlo Park",
+                                      postal_code="94025",
+                                      state="CA",
+                                      country="US")
+
+    summary = Template.ReceiptSummary(subtotal=698.99,
+                                      shipping_cost=20.00,
+                                      total_tax=57.67,
+                                      total_cost=626.66)
+
+    adjustment = Template.ReceiptAdjustment(name="New Customer Discount", amount=-50)
+
+    page.send(recipient, Template.Receipt(recipient_name='Peter Chang',
+                                          order_number=receipt_id,
+                                          currency='USD',
+                                          payment_method='Visa 1234',
+                                          timestamp="1428444852",
+                                          elements=[element],
+                                          address=address,
+                                          summary=summary,
+                                          adjustments=[adjustment]))
 
 
 def send_message(recipient_id, text):
@@ -579,3 +627,75 @@ def send_text_message(recipient, text):
 
 def discipline_details(recipient, message):
     send_message(recipient, 'Program Detail goes here ' + message)
+
+
+
+
+#Named Entity Recognition
+
+# DEMO POrtion  # First Step INformation Extraction
+ex = 'Who is the HOD of computer Scice Department.?'
+def firstStep(self):
+    mesage = preprocess(ex)
+    print(mesage)
+    return HttpResponse("First Step from Demo")
+
+
+def preprocess(sent):
+    sent = nltk.word_tokenize(sent)
+    sent = nltk.pos_tag(sent)
+    return sent
+
+
+#We get a list of tuples containing the individual words in the sentence and their associated part-of-speech.
+#Now we’ll implement noun phrase chunking to identify named entities using a regular expression consisting of rules that indicate how sentences should be chunked.
+
+#Our chunk pattern consists of one rule, that a noun phrase, NP, should be formed whenever the chunker finds an optional determiner, DT, followed by any number of adjectives, JJ, and then a noun, NN.
+
+def secondStep(self):
+    pattern = 'NP: {<DT>?<JJ>*<NN>}'
+
+    cp = nltk.RegexpParser(pattern)
+    sent = preprocess(ex)
+    cs = cp.parse(sent)
+    print(cs)
+    return HttpResponse("That was the second Step Chunking")
+
+
+
+def thirdstep(self):
+    doc = nlp(
+        'European authorities fined Google a record $5.1 billion on Wednesday for abusing its power in the mobile phone market and ordered the company to alter its practices')
+    print([(X.text, X.label_) for X in doc.ents])
+    print([(X, X.ent_iob_, X.ent_type_) for X in doc])
+    return HttpResponse("That was the third Step Chunking")
+
+
+
+def url_to_string(url):
+    res = requests.get(url)
+    html = res.text
+    soup = BeautifulSoup(html, 'lxml')
+    for script in soup(["script", "style", 'aside']):
+        script.extract()
+    return " ".join(re.split(r'[\n\t]+', soup.get_text()))
+
+def fourthStep(self):
+    ny_bb = url_to_string(
+        'https://www.nytimes.com/2018/08/13/us/politics/peter-strzok-fired-fbi.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=first-column-region&region=top-news&WT.nav=top-news')
+    article = nlp(ny_bb)
+    len(article.ents) #article count words
+    labels = [x.label_ for x in article.ents]
+    Counter(labels) #labels the tokens from part of speech
+    items = [x.text for x in article.ents]
+    sentences = [x for x in article.sents]
+    print(sentences[20]) #get first 20 words from first sentence
+    Counter(items).most_common(3) #first 3 most common words
+
+    print([(x.orth_,x.pos_, x.lemma_) for x in [y
+                                      for y
+                                      in nlp(str(sentences[20]))
+                                      if not y.is_stop and y.pos_ != 'PUNCT']])  #we verbatim, extract part-of-speech and lemmatize this sentence.
+    print(dict([(str(x), x.label_) for x in nlp(str(sentences[20])).ents]))
+    print([(x, x.ent_iob_, x.ent_type_) for x in sentences[20]]) #Named entity extraction ”.
+    return HttpResponse("that's the fourth step")
