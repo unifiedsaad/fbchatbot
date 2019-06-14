@@ -326,6 +326,41 @@ class JokesBotView(generic.View):
 
         return HttpResponse()
 
+    
+def send_receipt(recipient):
+    receipt_id = "order1357"
+    element = Template.ReceiptElement(title="Oculus Rift",
+                                      subtitle="Includes: headset, sensor, remote",
+                                      quantity=1,
+                                      price=599.00,
+                                      currency="USD",
+                                      image_url=CONFIG['SERVER_URL'] + "/assets/riftsq.png"
+                                      )
+
+    address = Template.ReceiptAddress(street_1="1 Hacker Way",
+                                      street_2="",
+                                      city="Menlo Park",
+                                      postal_code="94025",
+                                      state="CA",
+                                      country="US")
+
+    summary = Template.ReceiptSummary(subtotal=698.99,
+                                      shipping_cost=20.00,
+                                      total_tax=57.67,
+                                      total_cost=626.66)
+
+    adjustment = Template.ReceiptAdjustment(name="New Customer Discount", amount=-50)
+
+    page.send(recipient, Template.Receipt(recipient_name='Peter Chang',
+                                          order_number=receipt_id,
+                                          currency='USD',
+                                          payment_method='Visa 1234',
+                                          timestamp="1428444852",
+                                          elements=[element],
+                                          address=address,
+                                          summary=summary,
+                                          adjustments=[adjustment]))
+
 
 def send_message(recipient_id, text):
     # If we receive a text message, check to see if it matches any special
@@ -339,7 +374,7 @@ def send_message(recipient_id, text):
         "file": send_file,
         "button": send_button,
         "generic": send_generic,
-        "receipt": send_generic,
+        "receipt": send_receipt,
         "quick reply": send_quick_reply,
         "read receipt": send_read_receipt,
         "typing on": send_typing_on,
