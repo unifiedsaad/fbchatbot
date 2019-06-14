@@ -19,14 +19,6 @@ from config import CONFIG
 from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
-import nltk
-
-from collections import Counter
-from bs4 import BeautifulSoup
-import requests
-import re
-import en_core_web_sm
-nlp = en_core_web_sm.load()
 
 PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAFepv7EL9S65bCWe2ZCSzAWjCdEcWD0fbONiZB9qRREitKK1WbWEOQnPNFmTOmzVu1IvKMgrhGmlpMIZBrsAZC7oGEJ4lVr29eZAZC66uIZCv1hPl3n2Q0T85MF0owTAIFbwZB6kZBGXYmGM3mHwBTnnaEbpACzZAqRDeOguh2q8l2"
 VERIFY_TOKEN = "1234567890"
@@ -627,72 +619,3 @@ def discipline_details(recipient, message):
 
 
 
-
-#Named Entity Recognition
-
-# DEMO POrtion  # First Step INformation Extraction
-ex = 'Who is the HOD of computer Scice Department.?'
-def firstStep(self):
-    mesage = preprocess(ex)
-    print(mesage)
-    return HttpResponse("First Step from Demo")
-
-
-def preprocess(sent):
-    sent = nltk.word_tokenize(sent)
-    sent = nltk.pos_tag(sent)
-    return sent
-
-
-#We get a list of tuples containing the individual words in the sentence and their associated part-of-speech.
-#Now we’ll implement noun phrase chunking to identify named entities using a regular expression consisting of rules that indicate how sentences should be chunked.
-
-#Our chunk pattern consists of one rule, that a noun phrase, NP, should be formed whenever the chunker finds an optional determiner, DT, followed by any number of adjectives, JJ, and then a noun, NN.
-
-def secondStep(self):
-    pattern = 'NP: {<DT>?<JJ>*<NN>}'
-
-    cp = nltk.RegexpParser(pattern)
-    sent = preprocess(ex)
-    cs = cp.parse(sent)
-    print(cs)
-    return HttpResponse("That was the second Step Chunking")
-
-
-
-def thirdstep(self):
-    doc = nlp(
-        'European authorities fined Google a record $5.1 billion on Wednesday for abusing its power in the mobile phone market and ordered the company to alter its practices')
-    print([(X.text, X.label_) for X in doc.ents])
-    print([(X, X.ent_iob_, X.ent_type_) for X in doc])
-    return HttpResponse("That was the third Step Chunking")
-
-
-
-def url_to_string(url):
-    res = requests.get(url)
-    html = res.text
-    soup = BeautifulSoup(html, 'lxml')
-    for script in soup(["script", "style", 'aside']):
-        script.extract()
-    return " ".join(re.split(r'[\n\t]+', soup.get_text()))
-
-def fourthStep(self):
-    ny_bb = url_to_string(
-        'https://www.nytimes.com/2018/08/13/us/politics/peter-strzok-fired-fbi.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=first-column-region&region=top-news&WT.nav=top-news')
-    article = nlp(ny_bb)
-    len(article.ents) #article count words
-    labels = [x.label_ for x in article.ents]
-    Counter(labels) #labels the tokens from part of speech
-    items = [x.text for x in article.ents]
-    sentences = [x for x in article.sents]
-    print(sentences[20]) #get first 20 words from first sentence
-    Counter(items).most_common(3) #first 3 most common words
-
-    print([(x.orth_,x.pos_, x.lemma_) for x in [y
-                                      for y
-                                      in nlp(str(sentences[20]))
-                                      if not y.is_stop and y.pos_ != 'PUNCT']])  #we verbatim, extract part-of-speech and lemmatize this sentence.
-    print(dict([(str(x), x.label_) for x in nlp(str(sentences[20])).ents]))
-    print([(x, x.ent_iob_, x.ent_type_) for x in sentences[20]]) #Named entity extraction ”.
-    return HttpResponse("that's the fourth step")
