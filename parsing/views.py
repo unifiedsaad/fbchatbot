@@ -20,10 +20,7 @@ from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
 import nltk
-from nltk.tokenize import word_tokenize
-from nltk.tag import pos_tag
-import spacy
-from spacy import displacy
+
 from collections import Counter
 from bs4 import BeautifulSoup
 import requests
