@@ -1,5 +1,5 @@
 import json, requests, random, re
-
+from pprint import pprint
 from django.http import JsonResponse
 from wit import Wit
 import urllib.parse
@@ -18,8 +18,6 @@ import json
 from config import CONFIG
 from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
-
-
 
 PAGE_ACCESS_TOKEN = "EAACURkd8Ul0BAFepv7EL9S65bCWe2ZCSzAWjCdEcWD0fbONiZB9qRREitKK1WbWEOQnPNFmTOmzVu1IvKMgrhGmlpMIZBrsAZC7oGEJ4lVr29eZAZC66uIZCv1hPl3n2Q0T85MF0owTAIFbwZB6kZBGXYmGM3mHwBTnnaEbpACzZAqRDeOguh2q8l2"
 VERIFY_TOKEN = "1234567890"
@@ -47,7 +45,7 @@ def post_facebook_message(fbid, recevied_message):
     if message:
         send_message(fbid, message)
     else:
-        send_message(fbid, 'Sorry i am unable to find results')
+        send_message(fbid, 'Sorry unable to give answer')
         print("can't send message, becausee it's blankkkkkkkkkkkkkkkkkkkkkkkkkkkk")
 
 
@@ -87,9 +85,9 @@ def Intents_parser(receivedent, user):
         ]))
         return "Here you can Find All info Related To Merit"
     elif receivedent['intent'][0]['value'] == "junk":
-        return "Sorry i don't understand your question."
+        return "that was the junk"
     else:
-        return "Sorry I don't Understand your Question"
+        return "nothing but intents"
 
 
 def department_info(receivedent, user):
@@ -327,40 +325,6 @@ class JokesBotView(generic.View):
                                 send_message(message['sender']['id'], 'Hey there is problem')
 
         return HttpResponse()
-
-def send_receipt(recipient):
-    receipt_id = "order1357"
-    element = Template.ReceiptElement(title="University of Sargodha",
-                                      subtitle="University of Sargodha",
-                                      quantity=1,
-                                      price=599.00,
-                                      currency="USD",
-                                      image_url=CONFIG['SERVER_URL'] + "/"
-                                      )
-
-    address = Template.ReceiptAddress(street_1="1 Hacker Way",
-                                      street_2="",
-                                      city="Menlo Park",
-                                      postal_code="94025",
-                                      state="CA",
-                                      country="US")
-
-    summary = Template.ReceiptSummary(subtotal=698.99,
-                                      shipping_cost=20.00,
-                                      total_tax=57.67,
-                                      total_cost=626.66)
-
-    adjustment = Template.ReceiptAdjustment(name="New Customer Discount", amount=-50)
-
-    page.send(recipient, Template.Receipt(recipient_name='Peter Chang',
-                                          order_number=receipt_id,
-                                          currency='USD',
-                                          payment_method='Visa 1234',
-                                          timestamp="1428444852",
-                                          elements=[element],
-                                          address=address,
-                                          summary=summary,
-                                          adjustments=[adjustment]))
 
 
 def send_message(recipient_id, text):
@@ -616,9 +580,3 @@ def send_text_message(recipient, text):
 
 def discipline_details(recipient, message):
     send_message(recipient, 'Program Detail goes here ' + message)
-
-
-
-
-
-
