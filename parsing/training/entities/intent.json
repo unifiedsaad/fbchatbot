@@ -1,0 +1,38 @@
+{
+    "data": {
+        "lookups": [
+            "trait"
+        ],
+        "name": "intent",
+        "lang": "en",
+        "id": "intent",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "result_info",
+                "expressions": []
+            },
+            {
+                "value": "junk",
+                "expressions": []
+            },
+            {
+                "value": "merit_info",
+                "expressions": []
+            },
+            {
+                "value": "admission_info",
+                "expressions": []
+            },
+            {
+                "value": "faculty_profile",
+                "expressions": []
+            },
+            {
+                "value": "department_info",
+                "expressions": []
+            }
+        ]
+    }
+}

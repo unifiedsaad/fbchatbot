@@ -1,0 +1,13 @@
+{
+    "data": {
+        "lookups": [
+            "free-text"
+        ],
+        "name": "duration",
+        "lang": "en",
+        "id": "duration",
+        "doc": "{\"spanless\":false,\"short_desc\":\"measure of a duration\",\"long_desc\":\"Capture the duration like `30min`,`2 hours` or `15sec` and normalize the value in seconds.\",\"examples\":[{\"expression\":[\"a\",\"2 hours\",\"meeting\"],\"response\":\"\\\"entities\\\" : {\\n      \\\"duration\\\" : [ {\\n        \\\"value\\\" : 2,\\n        \\\"unit\\\" : \\\"hour\\\",\\n        \\\"hour\\\" : 2,\\n        \\\"normalized\\\" : {\\n          \\\"unit\\\" : \\\"second\\\",\\n          \\\"value\\\" : 7200\\n        }\\n      } ]\\n    }\",\"$$hashKey\":\"069\"},{\"expression\":[\"run for\",\"30 minutes\",\"\"],\"response\":\"\\\"entities\\\" : {\\n      \\\"duration\\\" : [ {\\n        \\\"minute\\\" : 30,\\n        \\\"value\\\" : 30,\\n        \\\"unit\\\" : \\\"minute\\\",\\n        \\\"normalized\\\" : {\\n          \\\"unit\\\" : \\\"second\\\",\\n          \\\"value\\\" : 1800\\n        }\\n      } ]\\n    }\",\"$$hashKey\":\"080\"},{\"expression\":[\"heat\",\"for 45sec\",\"\"],\"response\":\"\\\"entities\\\" : {\\n      \\\"duration\\\" : [ {\\n        \\\"value\\\" : 45,\\n        \\\"unit\\\" : \\\"second\\\",\\n        \\\"second\\\" : 45,\\n        \\\"normalized\\\" : {\\n          \\\"unit\\\" : \\\"second\\\",\\n          \\\"value\\\" : 45\\n        }\\n      } ]\\n    }\",\"$$hashKey\":\"082\"}],\"similar_wisps\":[{\"name\":\"wit\/datetime\",\"$$hashKey\":\"06B\"}]}",
+        "builtin": true,
+        "values": []
+    }
+}

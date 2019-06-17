@@ -1,0 +1,27 @@
+{
+    "data": {
+        "lookups": [
+            "keywords",
+            "free-text"
+        ],
+        "name": "result_annual",
+        "lang": "en",
+        "id": "result_annual",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "2nd Annual",
+                "expressions": [
+                    "2nd annual"
+                ]
+            },
+            {
+                "value": "1st annual",
+                "expressions": [
+                    "1st annual"
+                ]
+            }
+        ]
+    }
+}

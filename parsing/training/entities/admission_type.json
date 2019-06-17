@@ -1,0 +1,35 @@
+{
+    "data": {
+        "lookups": [
+            "free-text",
+            "keywords"
+        ],
+        "name": "admission_type",
+        "lang": "en",
+        "id": "admission_type",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "close",
+                "expressions": [
+                    "end",
+                    "khatam",
+                    "closed",
+                    "closing",
+                    "close"
+                ]
+            },
+            {
+                "value": "open",
+                "expressions": [
+                    "start",
+                    "shuru",
+                    "opened",
+                    "opening",
+                    "open"
+                ]
+            }
+        ]
+    }
+}

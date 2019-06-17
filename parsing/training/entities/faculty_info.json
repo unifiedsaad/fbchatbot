@@ -1,0 +1,22 @@
+{
+    "data": {
+        "lookups": [
+            "trait"
+        ],
+        "name": "faculty_info",
+        "lang": "en",
+        "id": "faculty_info",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "detail",
+                "expressions": []
+            },
+            {
+                "value": "count",
+                "expressions": []
+            }
+        ]
+    }
+}

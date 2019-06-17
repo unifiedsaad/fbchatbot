@@ -1,0 +1,73 @@
+{
+    "data": {
+        "lookups": [
+            "keywords",
+            "free-text"
+        ],
+        "name": "degree_name",
+        "lang": "en",
+        "id": "degree_name",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "MBA",
+                "expressions": [
+                    "mba"
+                ]
+            },
+            {
+                "value": "BBA",
+                "expressions": [
+                    "bba"
+                ]
+            },
+            {
+                "value": "Pharm D",
+                "expressions": [
+                    "pharm-d",
+                    "pharm",
+                    "pharm d"
+                ]
+            },
+            {
+                "value": "DPT",
+                "expressions": [
+                    "physial therapy",
+                    "department of physical therapy",
+                    "d.pt",
+                    "dpt"
+                ]
+            },
+            {
+                "value": "MSc",
+                "expressions": [
+                    "msc",
+                    "m.sc"
+                ]
+            },
+            {
+                "value": "BSc",
+                "expressions": [
+                    "bsc",
+                    "b.sc"
+                ]
+            },
+            {
+                "value": "MA",
+                "expressions": [
+                    "m.a",
+                    "ma"
+                ]
+            },
+            {
+                "value": "BA",
+                "expressions": [
+                    "simple ba",
+                    "b.a",
+                    "ba"
+                ]
+            }
+        ]
+    }
+}

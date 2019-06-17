@@ -1,0 +1,66 @@
+{
+    "data": {
+        "lookups": [
+            "keywords"
+        ],
+        "name": "program_name",
+        "lang": "en",
+        "id": "program_name",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "BS Information Technology",
+                "expressions": [
+                    "bachelor in information technology",
+                    "bachelor in it",
+                    "bs it",
+                    "bsit",
+                    "bs information technology"
+                ]
+            },
+            {
+                "value": "MS Computer Science",
+                "expressions": [
+                    "masters in computer science",
+                    "ms cs",
+                    "ms in computer science",
+                    "mscs",
+                    "ms computer science"
+                ]
+            },
+            {
+                "value": "MSc Information Technology",
+                "expressions": [
+                    "msc it",
+                    "msc in information technolog",
+                    "msc in it",
+                    "msit",
+                    "msc information technology"
+                ]
+            },
+            {
+                "value": "BS Software Engineering",
+                "expressions": [
+                    "bachelor program of software engineering",
+                    "software engineering program",
+                    "bachelor of software engineering",
+                    "bs se",
+                    "bsse",
+                    "bs software engineering"
+                ]
+            },
+            {
+                "value": "BS Computer Science",
+                "expressions": [
+                    "bachelor program of cs",
+                    "bachelor in computer science",
+                    "bs cs",
+                    "bscs",
+                    "bachelor of computer science",
+                    "bs computer science"
+                ]
+            }
+        ]
+    }
+}

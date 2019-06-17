@@ -1,0 +1,22 @@
+{
+    "data": {
+        "lookups": [
+            "keywords",
+            "free-text"
+        ],
+        "name": "department_result_semester",
+        "lang": "en",
+        "id": "department_result_semester",
+        "doc": "User-defined entity",
+        "builtin": false,
+        "values": [
+            {
+                "value": "8 Semester",
+                "expressions": [
+                    "8 semester",
+                    "semester"
+                ]
+            }
+        ]
+    }
+}
